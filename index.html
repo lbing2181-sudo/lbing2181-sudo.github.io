@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>全球移民政策大全 | Global Immigration Guide</title>
-<meta name="description" content="覆盖全球9大主流移民目的国，所有政策数据来源各国移民局官网，实时更新。">
+<title>全球移民目的地 | 移民政策查询与解读</title>
+<meta name="description" content="覆盖全球主流移民目的国，涵盖大洋洲、亚洲、欧洲、北美洲、南美洲等，所有数据来源各国官方移民局，定期更新。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=SF+Pro+Display:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #f5f5f7;
@@ -63,7 +63,7 @@ nav {
   font-size: 13px; padding: 6px 16px; border-radius: 20px;
   background: var(--text); color: white; border: none;
   font-family: inherit; cursor: pointer; text-decoration: none;
-  transition: opacity .15s;
+  transition: opacity .15s; display: inline-block;
 }
 .nav-btn:hover { opacity: .85; }
 
@@ -141,49 +141,64 @@ h1 em { font-style: normal; color: var(--gold); }
 .ticker-scroll { overflow: hidden; flex: 1; }
 .ticker-inner {
   display: flex; gap: 40px; padding: 11px 0;
-  animation: ticker-move 36s linear infinite; white-space: nowrap;
+  animation: ticker-move 40s linear infinite; white-space: nowrap;
 }
 .ticker-inner:hover { animation-play-state: paused; }
 @keyframes ticker-move { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .ti { font-size: 12px; color: rgba(255,255,255,.55); display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
 .ti b { color: rgba(255,255,255,.9); font-weight: 500; }
+.ti a { color: rgba(255,200,100,.85); text-decoration: none; }
+.ti a:hover { text-decoration: underline; }
 .ti-sep { color: rgba(255,255,255,.2); }
 
-/* ── UPDATES BANNER ── */
+/* ── UPDATES ── */
 .updates {
   background: var(--bg-white); padding: 24px 40px;
   border-bottom: 0.5px solid var(--border);
 }
 .updates-inner { max-width: 980px; margin: 0 auto; }
-.updates-row { display: flex; gap: 12px; flex-wrap: wrap; }
-.update-chip {
-  display: flex; align-items: center; gap: 8px;
-  padding: 8px 14px; border-radius: 10px;
-  font-size: 13px; background: var(--bg);
-  border: 0.5px solid var(--border); cursor: pointer;
-  transition: border-color .15s;
+.updates-title { font-size: 11px; color: var(--text-3); margin-bottom: 14px; letter-spacing: .06em; text-transform: uppercase; }
+.updates-list { display: flex; flex-direction: column; gap: 0; }
+.update-row {
+  display: flex; align-items: baseline; gap: 14px;
+  padding: 11px 0; border-bottom: 0.5px solid var(--border);
+  font-size: 13px;
 }
-.update-chip:hover { border-color: var(--border-strong); }
-.uc-flag { font-size: 16px; line-height: 1; }
-.uc-text { color: var(--text-2); }
-.uc-text b { color: var(--text); font-weight: 500; }
-.uc-date { font-size: 11px; color: var(--text-3); margin-left: auto; }
+.update-row:last-child { border-bottom: none; }
+.update-meta { display: flex; align-items: center; gap: 8px; flex-shrink: 0; width: 160px; }
+.update-flag { font-size: 15px; line-height: 1; }
+.update-date { font-size: 11px; color: var(--text-3); white-space: nowrap; }
 .update-badge {
   font-size: 10px; padding: 2px 7px; border-radius: 6px;
-  white-space: nowrap; font-weight: 500;
+  white-space: nowrap; font-weight: 500; flex-shrink: 0;
 }
 .ub-new { background: var(--green-light); color: var(--green); }
 .ub-change { background: var(--amber-light); color: var(--amber); }
 .ub-warn { background: var(--red-light); color: var(--red); }
-.updates-title { font-size: 12px; color: var(--text-3); margin-bottom: 12px; letter-spacing: .04em; text-transform: uppercase; }
+.update-text { flex: 1; color: var(--text-2); line-height: 1.5; }
+.update-text b { color: var(--text); font-weight: 500; }
+.update-link { font-size: 11px; color: var(--blue); text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+.update-link:hover { text-decoration: underline; }
 
-/* ── GRID SECTION ── */
+/* ── CONTINENT FILTER ── */
 .section { padding: 48px 40px; }
-.section-head { max-width: 980px; margin: 0 auto 24px; display: flex; align-items: baseline; justify-content: space-between; }
+.section-head { max-width: 980px; margin: 0 auto 20px; display: flex; align-items: baseline; justify-content: space-between; }
 .section-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 600; color: var(--text); }
 .section-en { font-size: 12px; color: var(--text-3); margin-top: 3px; letter-spacing: .03em; }
-.section-more { font-size: 13px; color: var(--blue); text-decoration: none; }
-.section-more:hover { text-decoration: underline; }
+
+.continent-tabs {
+  max-width: 980px; margin: 0 auto 24px;
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.ctab {
+  font-size: 13px; padding: 6px 16px;
+  border: 0.5px solid var(--border-strong);
+  border-radius: 20px; cursor: pointer;
+  background: var(--bg-white); color: var(--text-2);
+  font-family: inherit; transition: all .15s;
+}
+.ctab:hover { border-color: var(--gold); color: var(--gold); }
+.ctab.active { background: var(--text); color: white; border-color: var(--text); }
 
 .country-grid { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
 .cc {
@@ -192,6 +207,7 @@ h1 em { font-style: normal; color: var(--gold); }
   color: inherit; display: block; transition: box-shadow .2s, transform .2s;
 }
 .cc:hover { box-shadow: 0 8px 24px rgba(0,0,0,.08); transform: translateY(-1px); }
+.cc.hidden { display: none; }
 .cc-head {
   padding: 18px 18px 14px;
   display: flex; align-items: center; gap: 11px;
@@ -224,42 +240,30 @@ h1 em { font-style: normal; color: var(--gold); }
 .compare-table td { padding: 10px 14px; border: 0.5px solid var(--border); color: var(--text-2); }
 .compare-table tr:hover td { background: var(--bg); }
 .compare-table td:first-child { color: var(--text); font-weight: 500; }
+.compare-table td:first-child a { color: var(--text); text-decoration: none; }
+.compare-table td:first-child a:hover { color: var(--blue); text-decoration: underline; }
 .tag-g { color: var(--green); font-weight: 500; }
 .tag-r { color: var(--red); font-weight: 500; }
 .tag-y { color: var(--amber); font-weight: 500; }
-.tag-b { color: var(--blue); font-weight: 500; }
 
-/* ── CONTACT ── */
-.contact-section { padding: 48px 40px; }
-.contact-inner { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-.contact-card { background: var(--bg-white); border: 0.5px solid var(--border); border-radius: var(--r); padding: 28px; }
-.contact-card-title { font-family: 'Noto Serif SC', serif; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
-.contact-card-desc { font-size: 14px; color: var(--text-2); line-height: 1.7; margin-bottom: 20px; }
-.form-group { margin-bottom: 10px; }
-.form-group input, .form-group select, .form-group textarea {
-  width: 100%; background: var(--bg); border: 0.5px solid var(--border-strong);
-  border-radius: var(--r-sm); padding: 11px 14px;
+/* ── SUBSCRIBE ── */
+.subscribe-section { padding: 56px 40px; background: var(--bg-white); border-top: 0.5px solid var(--border); }
+.subscribe-inner { max-width: 560px; margin: 0 auto; text-align: center; }
+.subscribe-title { font-family: 'Noto Serif SC', serif; font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.subscribe-desc { font-size: 14px; color: var(--text-2); line-height: 1.7; margin-bottom: 24px; }
+.subscribe-form { display: flex; gap: 0; border: 0.5px solid var(--border-strong); border-radius: var(--r-sm); overflow: hidden; background: var(--bg); }
+.subscribe-form input {
+  flex: 1; background: none; border: none; padding: 12px 16px;
   font-size: 14px; color: var(--text); font-family: inherit; outline: none;
-  transition: border-color .15s;
 }
-.form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-3); }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-  border-color: var(--blue); background: var(--bg-white);
+.subscribe-form input::placeholder { color: var(--text-3); }
+.subscribe-form button {
+  padding: 12px 22px; background: var(--text); color: white;
+  border: none; font-size: 13px; font-weight: 500;
+  font-family: inherit; cursor: pointer; transition: opacity .15s; white-space: nowrap;
 }
-.form-group select { cursor: pointer; }
-.form-group textarea { resize: vertical; min-height: 80px; }
-.form-submit {
-  width: 100%; padding: 13px; background: var(--text);
-  color: white; border: none; border-radius: var(--r-sm);
-  font-size: 14px; font-weight: 500; font-family: inherit;
-  cursor: pointer; transition: opacity .15s; margin-top: 4px;
-}
-.form-submit:hover { opacity: .85; }
-.trust-cards { display: flex; flex-direction: column; gap: 10px; }
-.trust-card { background: var(--bg-white); border: 0.5px solid var(--border); border-radius: var(--r-sm); padding: 16px 18px; display: flex; gap: 13px; align-items: flex-start; }
-.tc-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
-.tc-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
-.tc-desc { font-size: 12px; color: var(--text-2); line-height: 1.6; }
+.subscribe-form button:hover { opacity: .85; }
+.subscribe-note { font-size: 11px; color: var(--text-3); margin-top: 10px; }
 
 /* ── FOOTER ── */
 footer { background: var(--bg-dark); padding: 40px 40px 24px; }
@@ -281,9 +285,9 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
   .hero { padding: 60px 20px 48px; }
   h1 { font-size: 34px; }
   .hero-stats { display: grid; grid-template-columns: repeat(2,1fr); }
-  .section,.compare-section,.contact-section { padding: 40px 16px; }
+  .updates,.section,.compare-section,.subscribe-section { padding: 32px 16px; }
   .country-grid { grid-template-columns: 1fr; }
-  .contact-inner { grid-template-columns: 1fr; }
+  .continent-tabs { gap: 6px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
 }
@@ -291,29 +295,31 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
 </head>
 <body>
 
+<!-- NAV：顺序 政策动态→目标国家→移民指南→积分工具 -->
 <nav>
   <a class="nav-logo" href="#">全球移民<span>·</span>政策大全</a>
   <div class="nav-links">
-    <a class="nav-link" href="#countries">目标国家</a>
-    <a class="nav-link" href="#compare">横向对比</a>
     <a class="nav-link" href="#updates">政策动态</a>
-    <a class="nav-btn" href="australia.html">积分测算 →</a>
+    <a class="nav-link" href="#countries">目标国家</a>
+    <a class="nav-link" href="#compare">移民指南</a>
+    <a class="nav-btn" href="tools.html">积分工具 →</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-label"><div class="hero-dot"></div>官方数据实时同步 · 2026年4月</div>
-  <h1>开启你的<em>全球移民</em>之路</h1>
-  <div class="hero-sub">Global Immigration Guide · 全球政策一站查询</div>
-  <p class="hero-desc">覆盖9大主流移民目的国，所有数据来源各国移民局官网，AI辅助中文解读，帮助中国申请人做出最明智的人生决策。</p>
+  <div class="hero-label"><div class="hero-dot"></div>官方数据同步 · 2026年4月</div>
+  <h1>找到你的<em>移民目的地</em></h1>
+  <div class="hero-sub">Global Immigration · 全球主流目的国政策一览</div>
+  <p class="hero-desc">覆盖大洋洲、亚洲、欧洲、美洲等主流移民目的国，所有数据来源各国官方移民局，定期核查更新。</p>
   <div class="hero-search">
-    <input type="text" placeholder="搜索国家、签证类型、职业关键词..."/>
-    <button>查询 →</button>
+    <input type="text" id="search-input" placeholder="输入国家名称，如：澳大利亚、日本、加拿大..." onkeydown="if(event.key==='Enter')doSearch()"/>
+    <button onclick="doSearch()">查询 →</button>
   </div>
+  <div id="search-msg" style="font-size:13px;color:var(--text-3);margin-top:-28px;margin-bottom:20px;min-height:20px;"></div>
   <div class="hero-stats">
-    <div class="hs"><div class="hs-n">9+</div><div class="hs-l">目标国家</div></div>
-    <div class="hs"><div class="hs-n">50+</div><div class="hs-l">签证类别</div></div>
+    <div class="hs"><div class="hs-n">20+</div><div class="hs-l">目标国家</div></div>
+    <div class="hs"><div class="hs-n">6</div><div class="hs-l">大洲覆盖</div></div>
     <div class="hs"><div class="hs-n">官方</div><div class="hs-l">数据来源</div></div>
     <div class="hs"><div class="hs-n">实时</div><div class="hs-l">政策更新</div></div>
   </div>
@@ -324,239 +330,358 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
   <div class="ticker-tag"><div class="ticker-live"></div>最新动态</div>
   <div class="ticker-scroll">
     <div class="ticker-inner">
-      <span class="ti">🇦🇺 NSW 190签证邀请轮次 <b>4月13日当周开放</b>，截止更新EOI：4月12日</span>
+      <span class="ti">🇦🇺 NSW 190签证 <b>4月13日当周开放邀请</b>，截止更新EOI：4月12日 <a href="https://www.nsw.gov.au/skilled-migration" target="_blank">查看原文 →</a></span>
       <span class="ti-sep">·</span>
-      <span class="ti">🇦🇺 南澳 2026年3月 <b>发放406份邀请</b>，医疗/工程/ICT为主力职业</span>
+      <span class="ti">🇨🇦 加拿大 Express Entry <b>4月2日发放3,000份贸易类邀请</b>，CRS分数线477 <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/rounds-invitations.html" target="_blank">查看原文 →</a></span>
       <span class="ti-sep">·</span>
-      <span class="ti">🇨🇦 加拿大 Express Entry <b>2026年最新CRS抽签</b>持续进行中</span>
+      <span class="ti">🇦🇺 南澳2026年3月 <b>发放406份邀请</b>，ICT职业全部归入491偏远签证</span>
       <span class="ti-sep">·</span>
-      <span class="ti">🇸🇬 新加坡 ONE Pass <b>月薪门槛SGD 30,000</b> 已正式生效</span>
-      <span class="ti-sep">·</span>
-      <span class="ti">🇬🇧 英国 HPI签证 <b>认可中国高校名单更新</b></span>
-      <span class="ti-sep">·</span>
-      <span class="ti">🇩🇪 德国 机会卡 <b>2025年新政持续开放申请</b></span>
-      <span class="ti-sep">·</span>
-      <span class="ti">🇦🇺 NSW 491签证邀请轮次 <b>4月27日当周开放</b></span>
-      <span class="ti-sep">·</span>
-      <!-- dup -->
-      <span class="ti">🇦🇺 NSW 190签证邀请轮次 <b>4月13日当周开放</b>，截止更新EOI：4月12日</span>
-      <span class="ti-sep">·</span>
-      <span class="ti">🇦🇺 南澳 2026年3月 <b>发放406份邀请</b>，医疗/工程/ICT为主力职业</span>
-      <span class="ti-sep">·</span>
-      <span class="ti">🇨🇦 加拿大 Express Entry <b>2026年最新CRS抽签</b>持续进行中</span>
-      <span class="ti-sep">·</span>
-      <span class="ti">🇸🇬 新加坡 ONE Pass <b>月薪门槛SGD 30,000</b> 已正式生效</span>
+      <span class="ti">🇸🇬 新加坡 ONE Pass <b>月薪门槛已升至SGD 30,000</b></span>
       <span class="ti-sep">·</span>
       <span class="ti">🇬🇧 英国 HPI签证 <b>认可中国高校名单更新</b></span>
       <span class="ti-sep">·</span>
-      <span class="ti">🇩🇪 德国 机会卡 <b>2025年新政持续开放申请</b></span>
+      <span class="ti">🇦🇺 澳大利亚CSIT薪资门槛 <b>2025年7月起升至AUD 76,515</b></span>
       <span class="ti-sep">·</span>
-      <span class="ti">🇦🇺 NSW 491签证邀请轮次 <b>4月27日当周开放</b></span>
+      <span class="ti">🇨🇦 加拿大2026年新增 <b>10个Express Entry精选类别</b>，含高级管理、研究员等</span>
+      <span class="ti-sep">·</span>
+      <!-- dup for seamless loop -->
+      <span class="ti">🇦🇺 NSW 190签证 <b>4月13日当周开放邀请</b>，截止更新EOI：4月12日 <a href="https://www.nsw.gov.au/skilled-migration" target="_blank">查看原文 →</a></span>
+      <span class="ti-sep">·</span>
+      <span class="ti">🇨🇦 加拿大 Express Entry <b>4月2日发放3,000份贸易类邀请</b>，CRS分数线477 <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/rounds-invitations.html" target="_blank">查看原文 →</a></span>
+      <span class="ti-sep">·</span>
+      <span class="ti">🇦🇺 南澳2026年3月 <b>发放406份邀请</b>，ICT职业全部归入491偏远签证</span>
+      <span class="ti-sep">·</span>
+      <span class="ti">🇸🇬 新加坡 ONE Pass <b>月薪门槛已升至SGD 30,000</b></span>
+      <span class="ti-sep">·</span>
+      <span class="ti">🇬🇧 英国 HPI签证 <b>认可中国高校名单更新</b></span>
+      <span class="ti-sep">·</span>
+      <span class="ti">🇦🇺 澳大利亚CSIT薪资门槛 <b>2025年7月起升至AUD 76,515</b></span>
+      <span class="ti-sep">·</span>
+      <span class="ti">🇨🇦 加拿大2026年新增 <b>10个Express Entry精选类别</b>，含高级管理、研究员等</span>
     </div>
   </div>
 </div>
 
-<!-- POLICY UPDATES -->
+<!-- 政策动态 -->
 <div class="updates" id="updates">
   <div class="updates-inner">
-    <div class="updates-title">近期政策动态 · 来源官方移民局</div>
-    <div class="updates-row">
-      <div class="update-chip">
-        <span class="uc-flag">🇦🇺</span>
-        <span class="uc-text"><b>NSW 190/491</b> 4月邀请轮次确认</span>
-        <span class="update-badge ub-new">新</span>
-        <span class="uc-date">2026.04.01</span>
+    <div class="updates-title">近期政策动态 · 来源各国官方移民局</div>
+    <div class="updates-list">
+      <div class="update-row">
+        <div class="update-meta">
+          <span class="update-flag">🇦🇺</span>
+          <span class="update-date">2026年4月</span>
+          <span class="update-badge ub-new">最新</span>
+        </div>
+        <div class="update-text"><b>NSW 190/491签证</b> 4月邀请轮次确认：190在4月13日当周，491在4月27日当周开放</div>
+        <a class="update-link" href="https://www.nsw.gov.au/skilled-migration" target="_blank">官方来源 →</a>
       </div>
-      <div class="update-chip">
-        <span class="uc-flag">🇦🇺</span>
-        <span class="uc-text">南澳 <b>3月发放406份邀请</b>，ICT全归491</span>
-        <span class="update-badge ub-change">更新</span>
-        <span class="uc-date">2026.03</span>
+      <div class="update-row">
+        <div class="update-meta">
+          <span class="update-flag">🇨🇦</span>
+          <span class="update-date">2026年4月2日</span>
+          <span class="update-badge ub-new">最新</span>
+        </div>
+        <div class="update-text"><b>加拿大Express Entry</b> 发放3,000份贸易类邀请，CRS分数线477，为2026年首次贸易类专项抽签</div>
+        <a class="update-link" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/rounds-invitations.html" target="_blank">官方来源 →</a>
       </div>
-      <div class="update-chip">
-        <span class="uc-flag">🇸🇬</span>
-        <span class="uc-text">ONE Pass <b>月薪门槛 SGD 30,000</b> 生效</span>
-        <span class="update-badge ub-change">更新</span>
-        <span class="uc-date">2025下半年</span>
+      <div class="update-row">
+        <div class="update-meta">
+          <span class="update-flag">🇦🇺</span>
+          <span class="update-date">2026年3月</span>
+          <span class="update-badge ub-change">数据</span>
+        </div>
+        <div class="update-text"><b>南澳大利亚</b> 3月共发放406份邀请（190签证242份、491签证164份），ICT职业全部归入491</div>
+        <a class="update-link" href="https://www.migration.sa.gov.au" target="_blank">官方来源 →</a>
       </div>
-      <div class="update-chip">
-        <span class="uc-flag">🇦🇺</span>
-        <span class="uc-text">482签证更名 <b>SID 技能短缺签证</b>，三流分类</span>
-        <span class="update-badge ub-change">更新</span>
-        <span class="uc-date">2024-25财年</span>
+      <div class="update-row">
+        <div class="update-meta">
+          <span class="update-flag">🇨🇦</span>
+          <span class="update-date">2026年2月</span>
+          <span class="update-badge ub-change">新规</span>
+        </div>
+        <div class="update-text"><b>加拿大</b> 新增10个Express Entry精选类别，含高级管理、研究员、运输工人、技术军人等，工作经验要求从6个月升至12个月</div>
+        <a class="update-link" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/rounds-invitations.html" target="_blank">官方来源 →</a>
       </div>
-      <div class="update-chip">
-        <span class="uc-flag">🇬🇧</span>
-        <span class="uc-text">HPI签证 <b>新增中国高校认可名单</b></span>
-        <span class="update-badge ub-new">新</span>
-        <span class="uc-date">近期</span>
+      <div class="update-row">
+        <div class="update-meta">
+          <span class="update-flag">🇦🇺</span>
+          <span class="update-date">2026年2月</span>
+          <span class="update-badge ub-warn">注意</span>
+        </div>
+        <div class="update-text"><b>澳大利亚</b> 2月起收紧"签证跳跃"规则，在境内无计划转换临时签证类别将受更严格审查</div>
+        <a class="update-link" href="https://immi.homeaffairs.gov.au" target="_blank">官方来源 →</a>
+      </div>
+      <div class="update-row">
+        <div class="update-meta">
+          <span class="update-flag">🇦🇺</span>
+          <span class="update-date">2025年7月</span>
+          <span class="update-badge ub-change">更新</span>
+        </div>
+        <div class="update-text"><b>澳大利亚SID签证</b> 核心技能收入门槛（CSIT）上调至AUD 76,515/年，专业技能门槛（SSIT）升至AUD 141,210/年</div>
+        <a class="update-link" href="https://immi.homeaffairs.gov.au" target="_blank">官方来源 →</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- COUNTRIES -->
+<!-- 目标国家 -->
 <section class="section" id="countries">
   <div class="section-head">
     <div>
-      <div class="section-title">目标国家 · 政策总览</div>
-      <div class="section-en">All data sourced from official immigration authorities</div>
+      <div class="section-title">全球移民目的地</div>
+      <div class="section-en">点击国家卡片查看完整政策详情</div>
     </div>
-    <a class="section-more" href="#">查看全部 →</a>
   </div>
 
-  <div class="country-grid">
+  <!-- 大洲筛选 -->
+  <div class="continent-tabs">
+    <button class="ctab active" onclick="filterContinent(this,'all')">全部</button>
+    <button class="ctab" onclick="filterContinent(this,'oceania')">大洋洲</button>
+    <button class="ctab" onclick="filterContinent(this,'asia')">亚洲</button>
+    <button class="ctab" onclick="filterContinent(this,'europe')">欧洲</button>
+    <button class="ctab" onclick="filterContinent(this,'namerica')">北美洲</button>
+    <button class="ctab" onclick="filterContinent(this,'samerica')">南美洲</button>
+    <button class="ctab" onclick="filterContinent(this,'mideast')">中东</button>
+    <button class="ctab" onclick="filterContinent(this,'africa')">非洲</button>
+  </div>
 
-    <a class="cc" href="australia.html">
-      <div class="cc-head">
-        <span class="cc-flag">🇦🇺</span>
+  <div class="country-grid" id="country-grid">
+
+    <!-- 大洋洲 -->
+    <a class="cc" href="australia.html" data-continent="oceania">
+      <div class="cc-head"><span class="cc-flag">🇦🇺</span>
         <div><div class="cc-zh">澳大利亚</div><div class="cc-en">Australia</div></div>
-        <span class="cc-badge b-hot">热门</span>
-      </div>
+        <span class="cc-badge b-hot">热门</span></div>
       <div class="cc-body">
-        <div class="cc-desc">积分制技术移民，无中国排期，永居路径透明可预期</div>
-        <div class="cc-pills">
-          <span class="cc-pill">189 技术独立</span>
-          <span class="cc-pill">190 州担保</span>
-          <span class="cc-pill">491 偏远地区</span>
-          <span class="cc-pill">SID 雇主担保</span>
-        </div>
+        <div class="cc-desc">积分制技术移民，无中国排期，永居路径透明</div>
+        <div class="cc-pills"><span class="cc-pill">189技术独立</span><span class="cc-pill">190州担保</span><span class="cc-pill">491偏远</span><span class="cc-pill">SID雇主担保</span></div>
         <div class="cc-foot"><span>已有详情页 · 含积分计算器</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
 
-    <a class="cc" href="canada.html">
-      <div class="cc-head">
-        <span class="cc-flag">🇨🇦</span>
-        <div><div class="cc-zh">加拿大</div><div class="cc-en">Canada</div></div>
-        <span class="cc-badge b-hot">热门</span>
-      </div>
-      <div class="cc-body">
-        <div class="cc-desc">Express Entry CRS积分抽签，省提名路径多元</div>
-        <div class="cc-pills">
-          <span class="cc-pill">Express Entry</span>
-          <span class="cc-pill">省提名 PNP</span>
-          <span class="cc-pill">创业签证 SUV</span>
-        </div>
-        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
-      </div>
-    </a>
-
-    <a class="cc" href="singapore.html">
-      <div class="cc-head">
-        <span class="cc-flag">🇸🇬</span>
-        <div><div class="cc-zh">新加坡</div><div class="cc-en">Singapore</div></div>
-        <span class="cc-badge b-hot">热门</span>
-      </div>
-      <div class="cc-body">
-        <div class="cc-desc">亚洲金融中心，高薪专才首选，ONE Pass顶级通道</div>
-        <div class="cc-pills">
-          <span class="cc-pill">就业准证 EP</span>
-          <span class="cc-pill">ONE Pass</span>
-          <span class="cc-pill">Tech.Pass</span>
-        </div>
-        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
-      </div>
-    </a>
-
-    <a class="cc" href="uk.html">
-      <div class="cc-head">
-        <span class="cc-flag">🇬🇧</span>
-        <div><div class="cc-zh">英国</div><div class="cc-en">United Kingdom</div></div>
-        <span class="cc-badge b-new">新政</span>
-      </div>
-      <div class="cc-body">
-        <div class="cc-desc">HPI高潜力签证，名校毕业无需雇主担保直接入境</div>
-        <div class="cc-pills">
-          <span class="cc-pill">技术工人签证</span>
-          <span class="cc-pill">HPI 高潜力</span>
-          <span class="cc-pill">全球人才 GTR</span>
-        </div>
-        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
-      </div>
-    </a>
-
-    <a class="cc" href="japan.html">
-      <div class="cc-head">
-        <span class="cc-flag">🇯🇵</span>
-        <div><div class="cc-zh">日本</div><div class="cc-en">Japan</div></div>
-        <span class="cc-badge b-rise">升温</span>
-      </div>
-      <div class="cc-body">
-        <div class="cc-desc">高度専門職积分制，80分以上仅需1年即可申请永住</div>
-        <div class="cc-pills">
-          <span class="cc-pill">高度専門職</span>
-          <span class="cc-pill">经营管理</span>
-          <span class="cc-pill">数字游民</span>
-        </div>
-        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
-      </div>
-    </a>
-
-    <a class="cc" href="new-zealand.html">
-      <div class="cc-head">
-        <span class="cc-flag">🇳🇿</span>
+    <a class="cc" href="new-zealand.html" data-continent="oceania">
+      <div class="cc-head"><span class="cc-flag">🇳🇿</span>
         <div><div class="cc-zh">新西兰</div><div class="cc-en">New Zealand</div></div>
-        <span class="cc-badge b-new">调整</span>
-      </div>
+        <span class="cc-badge b-new">调整</span></div>
       <div class="cc-body">
         <div class="cc-desc">SMC积分门槛降至160分，生态宜居，适合家庭移民</div>
-        <div class="cc-pills">
-          <span class="cc-pill">技术移民 SMC</span>
-          <span class="cc-pill">雇主担保 AIP</span>
-          <span class="cc-pill">投资者 2类</span>
-        </div>
+        <div class="cc-pills"><span class="cc-pill">技术移民SMC</span><span class="cc-pill">雇主担保AIP</span><span class="cc-pill">投资者2类</span></div>
         <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
 
-    <a class="cc" href="portugal.html">
-      <div class="cc-head">
-        <span class="cc-flag">🇵🇹</span>
-        <div><div class="cc-zh">葡萄牙</div><div class="cc-en">Portugal</div></div>
-        <span class="cc-badge b-rise">变化</span>
-      </div>
+    <!-- 亚洲 -->
+    <a class="cc" href="singapore.html" data-continent="asia">
+      <div class="cc-head"><span class="cc-flag">🇸🇬</span>
+        <div><div class="cc-zh">新加坡</div><div class="cc-en">Singapore</div></div>
+        <span class="cc-badge b-hot">热门</span></div>
       <div class="cc-body">
-        <div class="cc-desc">欧盟护照入口，黄金签证转基金投资，每年仅需居住7天</div>
-        <div class="cc-pills">
-          <span class="cc-pill">黄金签证 GV</span>
-          <span class="cc-pill">D7 被动收入</span>
-          <span class="cc-pill">数字游民 D8</span>
-        </div>
+        <div class="cc-desc">亚洲金融中心，高薪专才首选，ONE Pass顶级通道</div>
+        <div class="cc-pills"><span class="cc-pill">就业准证EP</span><span class="cc-pill">ONE Pass</span><span class="cc-pill">Tech.Pass</span></div>
         <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
 
-    <a class="cc" href="usa.html">
-      <div class="cc-head">
-        <span class="cc-flag">🇺🇸</span>
-        <div><div class="cc-zh">美国</div><div class="cc-en">United States</div></div>
-        <span class="cc-badge b-long">长期规划</span>
+    <a class="cc" href="japan.html" data-continent="asia">
+      <div class="cc-head"><span class="cc-flag">🇯🇵</span>
+        <div><div class="cc-zh">日本</div><div class="cc-en">Japan</div></div>
+        <span class="cc-badge b-rise">升温</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">高度専門職积分制，80分以上仅需1年可申请永住</div>
+        <div class="cc-pills"><span class="cc-pill">高度専門職</span><span class="cc-pill">经营管理</span><span class="cc-pill">数字游民</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
       </div>
+    </a>
+
+    <a class="cc" href="thailand.html" data-continent="asia">
+      <div class="cc-head"><span class="cc-flag">🇹🇭</span>
+        <div><div class="cc-zh">泰国</div><div class="cc-en">Thailand</div></div>
+        <span class="cc-badge b-rise">新兴</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">LTR长期居留签证，低门槛高性价比，适合退休或远程办公</div>
+        <div class="cc-pills"><span class="cc-pill">LTR长居签证</span><span class="cc-pill">SMART Visa</span><span class="cc-pill">退休签证</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="cc" href="uae.html" data-continent="mideast">
+      <div class="cc-head"><span class="cc-flag">🇦🇪</span>
+        <div><div class="cc-zh">阿联酋</div><div class="cc-en">UAE</div></div>
+        <span class="cc-badge b-rise">热门</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">黄金签证0税率，迪拜商业环境优越，中东区域中心</div>
+        <div class="cc-pills"><span class="cc-pill">黄金签证</span><span class="cc-pill">绿色签证</span><span class="cc-pill">自由职业者</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 欧洲 -->
+    <a class="cc" href="uk.html" data-continent="europe">
+      <div class="cc-head"><span class="cc-flag">🇬🇧</span>
+        <div><div class="cc-zh">英国</div><div class="cc-en">United Kingdom</div></div>
+        <span class="cc-badge b-new">新政</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">HPI高潜力签证，名校毕业无需雇主担保直接入境</div>
+        <div class="cc-pills"><span class="cc-pill">技术工人签证</span><span class="cc-pill">HPI高潜力</span><span class="cc-pill">全球人才GTR</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="cc" href="germany.html" data-continent="europe">
+      <div class="cc-head"><span class="cc-flag">🇩🇪</span>
+        <div><div class="cc-zh">德国</div><div class="cc-en">Germany</div></div>
+        <span class="cc-badge b-new">新政</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">机会卡新政，先入境再找工作，EU蓝卡高薪通道</div>
+        <div class="cc-pills"><span class="cc-pill">机会卡</span><span class="cc-pill">EU蓝卡</span><span class="cc-pill">技术工人签证</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="cc" href="portugal.html" data-continent="europe">
+      <div class="cc-head"><span class="cc-flag">🇵🇹</span>
+        <div><div class="cc-zh">葡萄牙</div><div class="cc-en">Portugal</div></div>
+        <span class="cc-badge b-rise">变化</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">欧盟护照入口，黄金签证转基金投资，每年居住仅7天</div>
+        <div class="cc-pills"><span class="cc-pill">黄金签证GV</span><span class="cc-pill">D7被动收入</span><span class="cc-pill">数字游民D8</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="cc" href="spain.html" data-continent="europe">
+      <div class="cc-head"><span class="cc-flag">🇪🇸</span>
+        <div><div class="cc-zh">西班牙</div><div class="cc-en">Spain</div></div>
+        <span class="cc-badge b-new">新兴</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">数字游民签证和创业签证，欧盟生活品质，性价比高</div>
+        <div class="cc-pills"><span class="cc-pill">数字游民签证</span><span class="cc-pill">创业签证</span><span class="cc-pill">非盈利居留</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="cc" href="greece.html" data-continent="europe">
+      <div class="cc-head"><span class="cc-flag">🇬🇷</span>
+        <div><div class="cc-zh">希腊</div><div class="cc-en">Greece</div></div>
+        <span class="cc-badge b-rise">热门</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">黄金签证门槛25万欧元，欧盟申根通行，居住要求极低</div>
+        <div class="cc-pills"><span class="cc-pill">黄金签证</span><span class="cc-pill">数字游民</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 北美洲 -->
+    <a class="cc" href="canada.html" data-continent="namerica">
+      <div class="cc-head"><span class="cc-flag">🇨🇦</span>
+        <div><div class="cc-zh">加拿大</div><div class="cc-en">Canada</div></div>
+        <span class="cc-badge b-hot">热门</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">Express Entry CRS积分抽签，省提名路径多元灵活</div>
+        <div class="cc-pills"><span class="cc-pill">Express Entry</span><span class="cc-pill">省提名PNP</span><span class="cc-pill">创业签证SUV</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="cc" href="usa.html" data-continent="namerica">
+      <div class="cc-head"><span class="cc-flag">🇺🇸</span>
+        <div><div class="cc-zh">美国</div><div class="cc-en">United States</div></div>
+        <span class="cc-badge b-long">长期规划</span></div>
       <div class="cc-body">
         <div class="cc-desc">H-1B抽签制，中国绿卡排期极长，需提前长期布局</div>
-        <div class="cc-pills">
-          <span class="cc-pill">H-1B 工作签</span>
-          <span class="cc-pill">EB-1 杰出人才</span>
-          <span class="cc-pill">EB-5 投资移民</span>
-        </div>
+        <div class="cc-pills"><span class="cc-pill">H-1B工作签</span><span class="cc-pill">EB-1杰出人才</span><span class="cc-pill">EB-5投资移民</span></div>
         <div class="cc-foot"><span>排期特殊 · 详情页建设中</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
 
-    <a class="cc" href="germany.html">
-      <div class="cc-head">
-        <span class="cc-flag">🇩🇪</span>
-        <div><div class="cc-zh">德国</div><div class="cc-en">Germany</div></div>
-        <span class="cc-badge b-new">新政</span>
-      </div>
+    <a class="cc" href="mexico.html" data-continent="namerica">
+      <div class="cc-head"><span class="cc-flag">🇲🇽</span>
+        <div><div class="cc-zh">墨西哥</div><div class="cc-en">Mexico</div></div>
+        <span class="cc-badge b-rise">新兴</span></div>
       <div class="cc-body">
-        <div class="cc-desc">机会卡新政，可先入境德国再找工作，EU蓝卡高薪通道</div>
-        <div class="cc-pills">
-          <span class="cc-pill">机会卡</span>
-          <span class="cc-pill">EU 蓝卡</span>
-          <span class="cc-pill">技术工人签证</span>
-        </div>
+        <div class="cc-desc">数字游民和临时居留签证，生活成本低，近北美市场</div>
+        <div class="cc-pills"><span class="cc-pill">临时居留</span><span class="cc-pill">永久居留</span><span class="cc-pill">退休签证</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 南美洲 -->
+    <a class="cc" href="panama.html" data-continent="samerica">
+      <div class="cc-head"><span class="cc-flag">🇵🇦</span>
+        <div><div class="cc-zh">巴拿马</div><div class="cc-en">Panama</div></div>
+        <span class="cc-badge b-rise">机遇</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">友好国家签证门槛低，无全球收入税，连接南北美</div>
+        <div class="cc-pills"><span class="cc-pill">友好国家签证</span><span class="cc-pill">退休人士签证</span><span class="cc-pill">投资居留</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="cc" href="brazil.html" data-continent="samerica">
+      <div class="cc-head"><span class="cc-flag">🇧🇷</span>
+        <div><div class="cc-zh">巴西</div><div class="cc-en">Brazil</div></div>
+        <span class="cc-badge b-rise">新兴</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">南美最大经济体，创业移民政策开放，葡语圈入口</div>
+        <div class="cc-pills"><span class="cc-pill">投资移民</span><span class="cc-pill">创业居留</span><span class="cc-pill">退休签证</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="cc" href="argentina.html" data-continent="samerica">
+      <div class="cc-head"><span class="cc-flag">🇦🇷</span>
+        <div><div class="cc-zh">阿根廷</div><div class="cc-en">Argentina</div></div>
+        <span class="cc-badge b-rise">新兴</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">永居门槛低，欧洲移民后裔多，申根通道潜力</div>
+        <div class="cc-pills"><span class="cc-pill">退休签证</span><span class="cc-pill">受抚养居留</span><span class="cc-pill">投资居留</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="cc" href="chile.html" data-continent="samerica">
+      <div class="cc-head"><span class="cc-flag">🇨🇱</span>
+        <div><div class="cc-zh">智利</div><div class="cc-en">Chile</div></div>
+        <span class="cc-badge b-rise">新兴</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">南美最稳定经济，Start-Up Chile创业项目国际知名</div>
+        <div class="cc-pills"><span class="cc-pill">创业签证</span><span class="cc-pill">工作居留</span><span class="cc-pill">投资移民</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 中东 -->
+    <a class="cc" href="saudi.html" data-continent="mideast">
+      <div class="cc-head"><span class="cc-flag">🇸🇦</span>
+        <div><div class="cc-zh">沙特阿拉伯</div><div class="cc-en">Saudi Arabia</div></div>
+        <span class="cc-badge b-rise">新兴</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">Vision 2030吸引外籍人才，高薪免税，高级人才居留证</div>
+        <div class="cc-pills"><span class="cc-pill">高级人才居留证</span><span class="cc-pill">工作签证</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 非洲 -->
+    <a class="cc" href="mauritius.html" data-continent="africa">
+      <div class="cc-head"><span class="cc-flag">🇲🇺</span>
+        <div><div class="cc-zh">毛里求斯</div><div class="cc-en">Mauritius</div></div>
+        <span class="cc-badge b-rise">新兴</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">低税率离岸中心，优质生活环境，英联邦护照便利</div>
+        <div class="cc-pills"><span class="cc-pill">退休人士签证</span><span class="cc-pill">职业居留证</span><span class="cc-pill">投资居留</span></div>
+        <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="cc" href="southafrica.html" data-continent="africa">
+      <div class="cc-head"><span class="cc-flag">🇿🇦</span>
+        <div><div class="cc-zh">南非</div><div class="cc-en">South Africa</div></div>
+        <span class="cc-badge b-rise">新兴</span></div>
+      <div class="cc-body">
+        <div class="cc-desc">非洲最大经济体，技术移民政策持续优化，生活成本低</div>
+        <div class="cc-pills"><span class="cc-pill">关键技能签证</span><span class="cc-pill">退休签证</span><span class="cc-pill">投资签证</span></div>
         <div class="cc-foot"><span>详情页建设中</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
@@ -564,92 +689,50 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
   </div>
 </section>
 
-<!-- COMPARE -->
+<!-- 横向对比 -->
 <section class="compare-section" id="compare">
   <div style="max-width:980px;margin:0 auto;">
-    <div class="section-head" style="padding:0;margin-bottom:0;">
+    <div class="section-head" style="margin-bottom:20px;">
       <div>
-        <div class="section-title">横向对比 · 快速决策</div>
-        <div class="section-en">Key metrics compared across destinations</div>
+        <div class="section-title">移民路径横向对比</div>
+        <div class="section-en">Key factors compared · click country name to view details</div>
       </div>
     </div>
+    <div style="overflow-x:auto;">
     <table class="compare-table">
       <thead>
         <tr>
-          <th>国家</th>
-          <th>主要路径</th>
-          <th>最快到永居</th>
-          <th>语言要求</th>
-          <th>薪资门槛参考</th>
-          <th>中国排期</th>
-          <th>综合难度</th>
+          <th>国家</th><th>主要路径</th><th>最快到永居</th>
+          <th>语言要求</th><th>薪资门槛参考</th><th>中国排期</th><th>综合难度</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>🇦🇺 澳大利亚</td><td>技术移民 189/190</td><td>1–2年</td><td>雅思 6.0+</td><td>无硬性要求</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
-        <tr><td>🇨🇦 加拿大</td><td>Express Entry</td><td>1–2年</td><td>英语/法语</td><td>视职业而定</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
-        <tr><td>🇸🇬 新加坡</td><td>EP 就业准证</td><td>2–3年</td><td>英语</td><td>SGD 5,000/月</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中偏高</td></tr>
-        <tr><td>🇬🇧 英国</td><td>技术工人/HPI</td><td>5年</td><td>英语 B1+</td><td>GBP 26,200/年</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
-        <tr><td>🇯🇵 日本</td><td>高度専門職</td><td>1–3年</td><td>无硬性要求</td><td>约 JPY 300万/年</td><td class="tag-g">✓ 无排期</td><td class="tag-g">相对易</td></tr>
-        <tr><td>🇺🇸 美国</td><td>H-1B → EB 绿卡</td><td>10年+</td><td>英语</td><td>USD 60,000+/年</td><td class="tag-r">⚠ 50年+</td><td class="tag-r">极难</td></tr>
-        <tr><td>🇵🇹 葡萄牙</td><td>黄金签证/D7</td><td>5年</td><td>葡语 A2</td><td>无（投资路径）</td><td class="tag-g">✓ 无排期</td><td class="tag-g">相对易</td></tr>
-        <tr><td>🇳🇿 新西兰</td><td>技术移民 SMC</td><td>2–3年</td><td>英语</td><td>NZD 27/小时</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
-        <tr><td>🇩🇪 德国</td><td>EU蓝卡/机会卡</td><td>2–3年</td><td>德语 B1</td><td>EUR 48,300/年</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
+        <tr><td><a href="australia.html">🇦🇺 澳大利亚</a></td><td>技术移民 189/190</td><td>1–2年</td><td>雅思 6.0+</td><td>无硬性要求</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
+        <tr><td><a href="canada.html">🇨🇦 加拿大</a></td><td>Express Entry</td><td>1–2年</td><td>英语/法语</td><td>视职业而定</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
+        <tr><td><a href="singapore.html">🇸🇬 新加坡</a></td><td>EP 就业准证</td><td>2–3年</td><td>英语</td><td>SGD 5,000/月</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中偏高</td></tr>
+        <tr><td><a href="uk.html">🇬🇧 英国</a></td><td>技术工人/HPI</td><td>5年</td><td>英语 B1+</td><td>GBP 26,200/年</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
+        <tr><td><a href="japan.html">🇯🇵 日本</a></td><td>高度専門職</td><td>1–3年</td><td>无硬性要求</td><td>约 JPY 300万/年</td><td class="tag-g">✓ 无排期</td><td class="tag-g">相对易</td></tr>
+        <tr><td><a href="germany.html">🇩🇪 德国</a></td><td>EU蓝卡/机会卡</td><td>2–3年</td><td>德语 B1</td><td>EUR 48,300/年</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
+        <tr><td><a href="portugal.html">🇵🇹 葡萄牙</a></td><td>黄金签证/D7</td><td>5年</td><td>葡语 A2</td><td>无（投资路径）</td><td class="tag-g">✓ 无排期</td><td class="tag-g">相对易</td></tr>
+        <tr><td><a href="new-zealand.html">🇳🇿 新西兰</a></td><td>技术移民 SMC</td><td>2–3年</td><td>英语</td><td>NZD 27/小时</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
+        <tr><td><a href="uae.html">🇦🇪 阿联酋</a></td><td>黄金签证</td><td>即时居留</td><td>无要求</td><td>投资/人才要求</td><td class="tag-g">✓ 无排期</td><td class="tag-g">相对易</td></tr>
+        <tr><td><a href="usa.html">🇺🇸 美国</a></td><td>H-1B → EB 绿卡</td><td>10年+</td><td>英语</td><td>USD 60,000+/年</td><td class="tag-r">⚠ 50年+</td><td class="tag-r">极难</td></tr>
       </tbody>
     </table>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="contact-inner">
-    <div class="contact-card">
-      <div class="contact-card-title">获取专属移民路径评估</div>
-      <div class="contact-card-desc">留下你的基本情况，我们匹配最适合的移民路径，并发送政策更新提醒。</div>
-      <div class="form-group"><input type="text" placeholder="你的姓名"/></div>
-      <div class="form-group"><input type="email" placeholder="电子邮箱（接收政策更新）"/></div>
-      <div class="form-group">
-        <select>
-          <option value="" disabled selected>目标移民国家</option>
-          <option>澳大利亚</option><option>加拿大</option>
-          <option>新加坡</option><option>英国</option>
-          <option>日本</option><option>新西兰</option>
-          <option>葡萄牙</option><option>美国</option>
-          <option>德国</option><option>还在考虑中</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <select>
-          <option value="" disabled selected>移民方式偏好</option>
-          <option>技术移民（积分制）</option>
-          <option>雇主担保</option>
-          <option>投资/商业移民</option>
-          <option>家庭团聚</option>
-          <option>留学后转移民</option>
-          <option>暂不确定</option>
-        </select>
-      </div>
-      <div class="form-group"><textarea placeholder="简单描述你的情况，如学历、工作经验、语言等（选填）"></textarea></div>
-      <button class="form-submit">提交评估申请 →</button>
+<!-- 邮件订阅（替代原表单） -->
+<section class="subscribe-section">
+  <div class="subscribe-inner">
+    <div class="subscribe-title">订阅政策更新提醒</div>
+    <div class="subscribe-desc">留下邮箱，我们会在关键政策变化时第一时间通知你——分数线调整、新签证通道开放、申请窗口开启等。</div>
+    <div class="subscribe-form">
+      <input type="email" placeholder="输入你的邮箱地址..."/>
+      <button>订阅 →</button>
     </div>
-    <div class="trust-cards">
-      <div class="trust-card">
-        <div class="tc-icon">🔒</div>
-        <div><div class="tc-title">信息安全保护</div><div class="tc-desc">你的个人信息严格保密，仅用于路径匹配，不会出售或共享给第三方。</div></div>
-      </div>
-      <div class="trust-card">
-        <div class="tc-icon">📡</div>
-        <div><div class="tc-title">政策更新提醒</div><div class="tc-desc">订阅后第一时间收到关注国家的政策变化推送，分数线调整、新政出台实时通知。</div></div>
-      </div>
-      <div class="trust-card">
-        <div class="tc-icon">🎯</div>
-        <div><div class="tc-title">官方来源 · 中立立场</div><div class="tc-desc">所有评估依据来自各国移民局官方网站，不推荐特定移民中介，不收取任何费用。</div></div>
-      </div>
-      <div class="trust-card">
-        <div class="tc-icon">⚡</div>
-        <div><div class="tc-title">快速响应</div><div class="tc-desc">工作日内发送初步路径分析。如需深度咨询，可连接持牌移民顾问资源。</div></div>
-      </div>
-    </div>
+    <div class="subscribe-note">仅用于政策更新通知，可随时退订</div>
   </div>
 </section>
 
@@ -658,10 +741,10 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
   <div class="footer-grid">
     <div>
       <div class="footer-logo">全球移民<span>·</span>政策大全</div>
-      <div class="footer-desc">所有政策数据来源各国移民局官方网站，AI辅助翻译整理，定期同步更新。本站提供信息参考，不构成法律建议。</div>
+      <div class="footer-desc">所有政策数据来源各国官方移民局网站，定期核查同步更新。本站仅供参考，不构成法律建议。</div>
     </div>
     <div>
-      <div class="footer-col-title">目标国家</div>
+      <div class="footer-col-title">热门目的地</div>
       <ul class="footer-links">
         <li><a href="australia.html">🇦🇺 澳大利亚</a></li>
         <li><a href="canada.html">🇨🇦 加拿大</a></li>
@@ -685,16 +768,67 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
       <ul class="footer-links">
         <li><a href="#">数据来源说明</a></li>
         <li><a href="#">更新频率</a></li>
-        <li><a href="#contact">联系我们</a></li>
+        <li><a href="#">联系我们</a></li>
         <li><a href="#">免责声明</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-disclaimer">⚠️ 本站所有移民政策信息仅供参考，数据来源于各国官方移民局网站。移民政策随时可能变化，具体申请请以官方最新公告为准，并建议咨询持牌移民律师或顾问。</div>
+    <div class="footer-disclaimer">⚠️ 本站所有移民政策信息仅供参考，来源各国官方移民局网站。政策随时可能变化，申请前请以官方最新公告为准，建议咨询持牌移民顾问。</div>
     <div class="footer-copy">© 2026 全球移民政策大全</div>
   </div>
 </footer>
 
+<script>
+// ── 搜索跳转 ──
+const searchMap = {
+  '澳大利亚':'australia.html','澳洲':'australia.html','australia':'australia.html',
+  '加拿大':'canada.html','canada':'canada.html',
+  '新加坡':'singapore.html','singapore':'singapore.html',
+  '英国':'uk.html','uk':'uk.html','united kingdom':'uk.html',
+  '日本':'japan.html','japan':'japan.html',
+  '新西兰':'new-zealand.html','new zealand':'new-zealand.html',
+  '葡萄牙':'portugal.html','portugal':'portugal.html',
+  '美国':'usa.html','usa':'usa.html','united states':'usa.html',
+  '德国':'germany.html','germany':'germany.html',
+  '泰国':'thailand.html','thailand':'thailand.html',
+  '阿联酋':'uae.html','uae':'uae.html','迪拜':'uae.html',
+  '西班牙':'spain.html','spain':'spain.html',
+  '希腊':'greece.html','greece':'greece.html',
+  '巴拿马':'panama.html','panama':'panama.html',
+  '巴西':'brazil.html','brazil':'brazil.html',
+  '阿根廷':'argentina.html','argentina':'argentina.html',
+  '智利':'chile.html','chile':'chile.html',
+  '沙特':'saudi.html','沙特阿拉伯':'saudi.html',
+  '毛里求斯':'mauritius.html','mauritius':'mauritius.html',
+  '南非':'southafrica.html','south africa':'southafrica.html',
+  '墨西哥':'mexico.html','mexico':'mexico.html',
+};
+function doSearch() {
+  const val = document.getElementById('search-input').value.trim().toLowerCase();
+  const msg = document.getElementById('search-msg');
+  if (!val) return;
+  const url = searchMap[val];
+  if (url) {
+    window.location.href = url;
+  } else {
+    msg.textContent = '暂未收录该国家，我们正在持续扩充中。';
+    setTimeout(()=>{ msg.textContent=''; }, 3000);
+  }
+}
+
+// ── 大洲筛选 ──
+function filterContinent(btn, continent) {
+  document.querySelectorAll('.ctab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.cc').forEach(card => {
+    if (continent === 'all' || card.dataset.continent === continent) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+</script>
 </body>
 </html>
