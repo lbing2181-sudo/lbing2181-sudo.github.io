@@ -260,6 +260,47 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
 .badge-new{background:#e0f8e8;color:#1a5c35;border:0.5px solid rgba(26,92,53,.25);}
 .vc-v.gold{color:var(--gold);}
 .visa-note.alert-note{background:var(--red-light);border-left-color:var(--red);color:var(--red);}
+
+/* === LOCKED INSIGHT BOX === */
+.insight-box.locked {
+  position: relative;
+  overflow: hidden;
+  max-height: 160px;
+  cursor: default;
+}
+.insight-box.locked::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(245,245,247,0.97) 72%, rgba(245,245,247,1) 100%);
+  pointer-events: none;
+}
+.insight-unlock {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gold);
+  background: rgba(255,255,255,0.97);
+  padding: 7px 18px;
+  border-radius: 20px;
+  border: 0.5px solid rgba(176,125,42,0.35);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+  text-decoration: none;
+  font-family: inherit;
+}
+.insight-unlock:hover {
+  background: var(--gold-light);
+  border-color: var(--gold);
+}
 </style>
 </head>
 <body>
@@ -392,8 +433,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         <div class="vc-foot">💡 满足3项是门槛，USCIS还会进行"最终实质性审查"</div>
       </div>
     </div>
-    <div class="insight-box">
-      <div class="insight-label">🔍 深度洞察 · 2026年EB-1A三个鲜少被提及的事实</div>
+    <div class="insight-box locked">
+      <div class="insight-label">🔍 深度洞察 · 2026年EB-1A三个鲜少被提及的事实
+<a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
+</div>
       <strong>①现在申请优于等待</strong>——USCIS已预告2026年将出台更严格的EB-1A评判规则草案。在新规实施前申请可锁定当前（相对宽松的）审核框架，存在明显的时间窗口优势。<br><br>
       <strong>②在读博士也可成功申请</strong>——EB-1A不要求已完成学位或已受雇，多所顶级高校的中国博士生已在读期间成功获批（AI/CS/生物医学方向案例有据可查）。关键在于原创贡献：顶级会议论文（NeurIPS/ICML/CVPR）的录用率本身就是"经过评审的杰出贡献"证明。<br><br>
       <strong>③申请EB-1A不影响H-1B/O-1续签</strong>——USCIS明确允许在维持非移民状态的同时推进绿卡申请。移民意图不是拒绝非移民签证的自动理由（Dual Intent原则适用于H-1B和O-1），I-485可与O-1/H-1B并行。
@@ -437,8 +480,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         <div class="vc-foot">💡 NIW是目前中国科研/工程人才性价比最高的独立绿卡路径</div>
       </div>
     </div>
-    <div class="insight-box">
-      <div class="insight-label">🔍 深度洞察 · NIW"立即提交"策略</div>
+    <div class="insight-box locked">
+      <div class="insight-label">🔍 深度洞察 · NIW"立即提交"策略
+<a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
+</div>
       <strong>最被忽视的行动窗口：</strong>NIW的I-140优先日期从USCIS收件当天算起（而非劳工证明申请日），<strong>每早一天提交就早一天排队</strong>。即便中国EB-2排期积压5年，今天提交NIW的人其排队起点仍比明年提交的早整整1年。<br><br>
       更重要的是：2026年USCIS拟出台EB-1A/NIW更严格的规则草案，在新规落地前提交可锁定当前框架。有意向者应在2026年尽快行动，而非等待"准备更充分"。<br><br>
       <strong>另一个隐性红利：</strong>中国EB-2"可提交日期"目前已到2022年1月——意味着已提交I-140且优先日期早于2022年1月的申请人，<strong>可立即提交I-485</strong>，获得工作授权（EAD）和出入境许可（Advance Parole），即便最终绿卡仍需等待。这实际上解放了身份限制。
@@ -482,8 +527,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         <div class="vc-foot">💡 99%待审EB-5申请来自中国投资人，农村类别是当前最优解</div>
       </div>
     </div>
-    <div class="insight-box">
-      <div class="insight-label">🔍 深度洞察 · EB-5资金出境规划（中国申请人特别注意）</div>
+    <div class="insight-box locked">
+      <div class="insight-label">🔍 深度洞察 · EB-5资金出境规划（中国申请人特别注意）
+<a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
+</div>
       这是EB-5中国申请人最核心的实操问题，<strong>合规路径存在但需要专业规划</strong>：<br><br>
       ①<strong>资金出境合规方式</strong>：使用家庭成员每人$5万外汇配额分散汇款；或通过已在境外合法持有的香港账户/海外公司分红汇款。<br><br>
       ②<strong>USCIS追溯要求</strong>：不仅需要解释资金如何出境，还须追溯资金最初来源5–7年（含工资、投资收益、房产出售等），任何来源不明的资金将导致申请被拒。<br><br>
@@ -528,8 +575,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         <div class="vc-foot">⚠️ 黄金卡存在未决诉讼，法律地位仍在确认中</div>
       </div>
     </div>
-    <div class="insight-box">
-      <div class="insight-label">🔍 深度洞察 · 黄金卡三个关键不确定性</div>
+    <div class="insight-box locked">
+      <div class="insight-label">🔍 深度洞察 · 黄金卡三个关键不确定性
+<a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
+</div>
       <strong>①法律挑战悬而未决</strong>——多位美国宪法学者和国会议员认为，总统不经国会授权单方面修改绿卡发放规则存在宪法争议。已有法律挑战案件进入司法程序，判决结果可能影响所有已批准的黄金卡。<br><br>
       <strong>②没有独立配额，7%国家限制或仍适用</strong>——官方未宣布黄金卡是否享有独立配额。若适用现有EB-1/EB-2配额，中国申请人仍面临排期问题，"最快"处理或只是I-140批得快，而非绿卡到得快。<br><br>
       <strong>③铂金卡税务承诺面临宪法障碍</strong>——铂金卡承诺的"270天内不触发美国所得税"涉及修改Substantial Presence Test税法，必须经国会立法，总统行政令无法单方面实现，铂金卡能否落地存在极大不确定性。
@@ -573,8 +622,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         <div class="vc-foot">🔗 来源：<a href="https://www.uscis.gov/o-1" target="_blank">uscis.gov/O-1</a></div>
       </div>
     </div>
-    <div class="insight-box">
-      <div class="insight-label">🔍 深度洞察 · O-1自己担保自己（2025年政策更新）</div>
+    <div class="insight-box locked">
+      <div class="insight-label">🔍 深度洞察 · O-1自己担保自己（2025年政策更新）
+<a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
+</div>
       <strong>2025年USCIS更新明确允许受益人所有的法律实体（LLC/Corporation）作为O-1担保方</strong>，只要有合理的监督机制（董事会/顾问委员会）。这意味着：不需要找美国公司雇主，可以先在美国注册一家LLC（成本约$50–200），由该LLC担保你自己申请O-1。<br><br>
       这对自由职业者、独立研究者、创业者极为重要：<strong>O-1证据包与EB-1A高度重叠（60–80%可复用）</strong>，先做O-1打底（3–6周审批），并行做EB-1A（4–6个月），两条线同时推进。O-1获批先稳住在美身份，EB-1A获批后转绿卡，是目前业内最认可的"中国人才最优化操作"路径。
     </div>
