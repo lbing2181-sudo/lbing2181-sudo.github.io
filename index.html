@@ -290,6 +290,13 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
   white-space: nowrap; pointer-events: none;
 }
 #wip-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Premium locked card */
+.cc[data-premium="1"] .cc-foot { color: var(--gold); }
+.cc[data-premium="1"] .cc-foot span:first-child { display: flex; align-items: center; gap: 5px; }
+.cc[data-premium="1"] { border-color: rgba(176,125,42,0.22); }
+.cc[data-premium="1"]:hover { border-color: rgba(176,125,42,0.5); box-shadow: 0 4px 20px rgba(176,125,42,0.10); }
+
 </style>
 </head>
 <body>
@@ -300,6 +307,7 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
     <a class="nav-link" href="#updates">政策动态</a>
     <a class="nav-link" href="#countries">目标国家</a>
     <a class="nav-link" href="#compare">移民指南</a>
+    <a class="nav-link" href="membership.html">会员服务</a>
     <a class="nav-btn" href="tools.html">积分工具 →</a>
   </div>
 </nav>
@@ -410,84 +418,84 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
   </div>
   <div class="country-grid" id="country-grid">
 
-    <a class="cc" href="javascript:void(0)" data-wip="1" title="详情页建设中，敬请期待" data-continent="namerica" data-main="1">
+    <a class="cc" href="usa.html" data-premium="1" data-continent="namerica" data-main="1">
       <div class="cc-head"><span class="cc-flag">🇺🇸</span>
         <div><div class="cc-zh">美国</div><div class="cc-en">United States</div></div>
         <span class="cc-badge b-long">长期规划</span></div>
       <div class="cc-body">
         <div class="cc-desc">H-1B抽签制，中国绿卡排期极长，需提前长期布局</div>
         <div class="cc-pills"><span class="cc-pill">H-1B工作签</span><span class="cc-pill">EB-1杰出人才</span><span class="cc-pill">EB-5投资移民</span></div>
-        <div class="cc-foot"><span>排期特殊 · 详情页建设中</span><span class="cc-arrow">→</span></div>
+        <div class="cc-foot"><span>🔒 含深度会员内容</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
-    <a class="cc" href="canada.html" data-continent="namerica" data-main="1">
+    <a class="cc" href="canada.html" data-premium="1" data-continent="namerica" data-main="1">
       <div class="cc-head"><span class="cc-flag">🇨🇦</span>
         <div><div class="cc-zh">加拿大</div><div class="cc-en">Canada</div></div>
         <span class="cc-badge b-hot">热门</span></div>
       <div class="cc-body">
         <div class="cc-desc">Express Entry CRS积分抽签，省提名路径多元灵活</div>
         <div class="cc-pills"><span class="cc-pill">Express Entry</span><span class="cc-pill">省提名PNP</span><span class="cc-pill">创业签证SUV</span></div>
-        <div class="cc-foot"><span>✅ 已有详情页</span><span class="cc-arrow">→</span></div>
+        <div class="cc-foot"><span>🔒 含深度会员内容</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
-    <a class="cc" href="uk.html" data-continent="europe" data-main="1">
+    <a class="cc" href="uk.html" data-premium="1" data-continent="europe" data-main="1">
       <div class="cc-head"><span class="cc-flag">🇬🇧</span>
         <div><div class="cc-zh">英国</div><div class="cc-en">United Kingdom</div></div>
         <span class="cc-badge b-new">新政</span></div>
       <div class="cc-body">
         <div class="cc-desc">HPI高潜力签证，名校毕业无需雇主担保直接入境</div>
         <div class="cc-pills"><span class="cc-pill">技术工人签证</span><span class="cc-pill">HPI高潜力</span><span class="cc-pill">全球人才GTR</span></div>
-        <div class="cc-foot"><span>✅ 已有详情页</span><span class="cc-arrow">→</span></div>
+        <div class="cc-foot"><span>🔒 含深度会员内容</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
-    <a class="cc" href="australia.html" data-continent="oceania" data-main="1">
+    <a class="cc" href="australia.html" data-premium="1" data-continent="oceania" data-main="1">
       <div class="cc-head"><span class="cc-flag">🇦🇺</span>
         <div><div class="cc-zh">澳大利亚</div><div class="cc-en">Australia</div></div>
         <span class="cc-badge b-hot">热门</span></div>
       <div class="cc-body">
         <div class="cc-desc">积分制技术移民，无中国排期，永居路径透明可预期</div>
         <div class="cc-pills"><span class="cc-pill">189技术独立</span><span class="cc-pill">190州担保</span><span class="cc-pill">491偏远</span><span class="cc-pill">SID雇主担保</span></div>
-        <div class="cc-foot"><span>✅ 已有详情页 · 含积分计算器</span><span class="cc-arrow">→</span></div>
+        <div class="cc-foot"><span>🔒 含深度会员内容 · 积分计算器</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
-    <a class="cc" href="new-zealand.html" data-continent="oceania" data-main="1">
+    <a class="cc" href="new-zealand.html" data-premium="1" data-continent="oceania" data-main="1">
       <div class="cc-head"><span class="cc-flag">🇳🇿</span>
         <div><div class="cc-zh">新西兰</div><div class="cc-en">New Zealand</div></div>
         <span class="cc-badge b-adj">调整</span></div>
       <div class="cc-body">
         <div class="cc-desc">SMC积分门槛低，生态宜居，2026年8月重大改革即将生效</div>
         <div class="cc-pills"><span class="cc-pill">技术移民SMC</span><span class="cc-pill">绿色清单</span><span class="cc-pill">雇主担保AEWV</span></div>
-        <div class="cc-foot"><span>✅ 已有详情页 · 含积分计算器</span><span class="cc-arrow">→</span></div>
+        <div class="cc-foot"><span>🔒 含深度会员内容 · 积分计算器</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
-    <a class="cc" href="germany.html" data-continent="europe" data-main="1">
+    <a class="cc" href="germany.html" data-premium="1" data-continent="europe" data-main="1">
       <div class="cc-head"><span class="cc-flag">🇩🇪</span>
         <div><div class="cc-zh">德国</div><div class="cc-en">Germany</div></div>
         <span class="cc-badge b-new">新政</span></div>
       <div class="cc-body">
         <div class="cc-desc">机会卡新政，先入境再找工作，EU蓝卡高薪通道</div>
         <div class="cc-pills"><span class="cc-pill">机会卡</span><span class="cc-pill">EU蓝卡</span><span class="cc-pill">技术工人签证</span></div>
-        <div class="cc-foot"><span>✅ 已有详情页</span><span class="cc-arrow">→</span></div>
+        <div class="cc-foot"><span>🔒 含深度会员内容</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
-    <a class="cc" href="singapore.html" data-continent="asia" data-main="1">
+    <a class="cc" href="singapore.html" data-premium="1" data-continent="asia" data-main="1">
       <div class="cc-head"><span class="cc-flag">🇸🇬</span>
         <div><div class="cc-zh">新加坡</div><div class="cc-en">Singapore</div></div>
         <span class="cc-badge b-hot">热门</span></div>
       <div class="cc-body">
         <div class="cc-desc">亚洲金融中心，高薪专才首选，ONE Pass顶级通道</div>
         <div class="cc-pills"><span class="cc-pill">就业准证EP</span><span class="cc-pill">ONE Pass</span><span class="cc-pill">Tech.Pass</span></div>
-        <div class="cc-foot"><span>✅ 已有详情页</span><span class="cc-arrow">→</span></div>
+        <div class="cc-foot"><span>🔒 含深度会员内容</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
-    <a class="cc" href="japan.html" data-continent="asia" data-main="1">
+    <a class="cc" href="japan.html" data-premium="1" data-continent="asia" data-main="1">
       <div class="cc-head"><span class="cc-flag">🇯🇵</span>
         <div><div class="cc-zh">日本</div><div class="cc-en">Japan</div></div>
         <span class="cc-badge b-rise">升温</span></div>
       <div class="cc-body">
         <div class="cc-desc">高度専門職积分制，80分以上仅需1年可申请永住</div>
         <div class="cc-pills"><span class="cc-pill">高度専門職</span><span class="cc-pill">经营管理</span><span class="cc-pill">数字游民</span></div>
-        <div class="cc-foot"><span>✅ 已有详情页</span><span class="cc-arrow">→</span></div>
+        <div class="cc-foot"><span>🔒 含深度会员内容</span><span class="cc-arrow">→</span></div>
       </div>
     </a>
     <a class="cc" href="korea.html" data-continent="asia" data-main="1">
