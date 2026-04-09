@@ -751,13 +751,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
   </div>
 </div>
 
-<script>
-
-function switchPath(btn, id) {
+<script>function showPath(btn, id) {
   document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.pathway-content').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById('path-'+id).classList.add('active');
+  document.getElementById(id).classList.add('active');
 }
 function toggleFaq(el) {
   const item = el.closest('.faq-item');
@@ -771,8 +769,6 @@ window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
   navItems.forEach(n => { n.classList.toggle('active', n.getAttribute('href') === '#'+current); });
-});
-
-</script>
+});</script>
 </body>
 </html>
