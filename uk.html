@@ -202,6 +202,104 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
 }
 .fade-in{animation:fadeUp .5s ease both;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── REFINED VISUAL LAYER ── */
+.ov-icon-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px; color: var(--gold-mid);
+  font-weight: 500; letter-spacing: .05em;
+  margin-bottom: 10px; opacity: 0.7;
+}
+.insight-box {
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+  border-radius: 0 var(--r-md) var(--r-md) 0 !important;
+}
+.faq-icon {
+  width: 18px !important; height: 18px !important;
+  border: 0.5px solid var(--border-strong) !important;
+  border-radius: 2px !important;
+}
+.faq-item.open .faq-icon {
+  background: var(--ink) !important;
+  border-color: var(--ink) !important;
+  color: var(--paper) !important;
+  border-radius: 2px !important;
+  transform: rotate(45deg) !important;
+}
+.visa-card:hover {
+  box-shadow: none !important;
+  border-color: var(--border-strong) !important;
+  transform: none !important;
+}
+.vc-v.highlight { color: var(--ink) !important; font-weight: 600 !important; }
+.vc-v.alert { color: var(--ink-soft) !important; font-style: italic !important; }
+.overview-highlight {
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+  border-radius: 0 var(--r-md) var(--r-md) 0 !important;
+  color: var(--ink-soft) !important;
+  padding: 18px 22px !important;
+}
+.hl-label {
+  font-size: 10px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gold);
+  font-weight: 600; margin-right: 8px;
+}
+.hero-tag.hot {
+  border-color: var(--border-mid) !important;
+  color: var(--ink-soft) !important;
+  background: var(--paper-warm) !important;
+}
+.ub-new { background: transparent !important; border: 0.5px solid var(--border-mid) !important; border-radius: 3px !important; color: var(--ink-muted) !important; }
+.ub-change { background: transparent !important; border: 0.5px solid rgba(176,125,42,.3) !important; border-radius: 3px !important; color: var(--gold) !important; }
+.ub-warn { background: transparent !important; border: 0.5px solid var(--border-mid) !important; border-radius: 3px !important; color: var(--ink-soft) !important; }
+.badge-note { background: var(--paper-mid) !important; color: var(--ink-muted) !important; border: 0.5px solid var(--border-mid) !important; }
+.visa-note { border-left-width: 2px !important; background: var(--paper-warm) !important; border-color: var(--border-mid) !important; color: var(--ink-soft) !important; }
+.cost-table td, .cost-table th { border-left: none !important; border-right: none !important; }
+
+/* ── LOCKED INSIGHT BOX ── */
+.insight-box.locked {
+  position: relative; overflow: hidden;
+  max-height: 260px; cursor: default;
+  font-size: 13px; line-height: 1.85;
+  padding: 18px 20px;
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+  border-radius: 0 var(--r-md) var(--r-md) 0 !important;
+}
+.insight-box.locked::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 52%, rgba(245,245,247,0.94) 80%, rgba(245,245,247,1) 100%);
+  pointer-events: none;
+}
+.insight-label {
+  font-size: 11px; font-weight: 600; color: var(--gold);
+  letter-spacing: .10em; text-transform: uppercase;
+  margin-bottom: 10px; display: block; line-height: 1.4;
+}
+.insight-read-more {
+  display: inline-block; font-size: 12px;
+  color: var(--blue-mid); font-weight: 500;
+  text-decoration: none; position: absolute;
+  bottom: 40px; left: 20px; z-index: 6;
+}
+.insight-read-more:hover { text-decoration: underline; }
+.insight-unlock {
+  position: absolute; bottom: 12px; left: 50%;
+  transform: translateX(-50%); z-index: 10;
+  font-size: 12px; font-weight: 500; color: var(--gold);
+  background: rgba(255,255,255,0.97);
+  padding: 7px 20px; border-radius: 20px;
+  border: 0.5px solid rgba(176,125,42,0.35);
+  cursor: pointer; text-decoration: none;
+  white-space: nowrap; transition: all 0.15s; font-family: inherit;
+}
+.insight-unlock:hover { background: var(--gold-light); }
+
 </style>
 </head>
 <body>
@@ -271,32 +369,32 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
 
     <div class="overview-grid">
       <div class="ov-card">
-        <div class="ov-icon">🎓</div>
+        <div class="ov-icon-num">01</div>
         <div class="ov-title">世界顶尖高等教育</div>
         <div class="ov-text">牛津、剑桥、LSE、帝国理工等全球前10名校云集。子女在英就读顶尖高校的教育资源，是许多中国家庭选择英国的核心驱动力。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">💼</div>
+        <div class="ov-icon-num">02</div>
         <div class="ov-title">全球金融科技中心</div>
         <div class="ov-text">伦敦金融城是全球三大金融中心之一，金融、法律、咨询、科技行业薪资水平高。对金融、AI、量化、生物医药领域顶尖人才吸引力强。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">🌐</div>
+        <div class="ov-icon-num">03</div>
         <div class="ov-title">英语母语环境</div>
         <div class="ov-text">英国是全球最纯正的英语环境之一，对有意在国际化环境中提升职业发展的申请人，在语言和文化融入上优势明显。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">🏥</div>
+        <div class="ov-icon-num">04</div>
         <div class="ov-title">NHS国民健康服务</div>
         <div class="ov-text">持有合法签证即可享受NHS公立医疗系统，就医无需支付大额费用。工签持有人通常缴纳健康附加费（IHS），PR和公民免缴。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">⭐</div>
+        <div class="ov-icon-num">05</div>
         <div class="ov-title">全球人才快速通道</div>
         <div class="ov-text">Global Talent签证无薪资门槛、无雇主绑定，凭借领域成就申请，3年可ILR。HPI高潜力人才签证全球顶尖高校毕业生免提工作offer，2年工作权。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">⚠️</div>
+        <div class="ov-icon-num">06</div>
         <div class="ov-title">政策收紧趋势明显</div>
         <div class="ov-text">2025–2026年为英国移民政策史上收紧幅度最大的时期：薪资门槛、技能门槛、语言门槛同步上调；ILR永居年限拟从5年延至10年；签证费大涨32%。</div>
       </div>
@@ -321,10 +419,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
     </div>
 
     <div class="pathway-tabs">
-      <button class="ptab active" onclick="switchPath(this,'sw')">💼 技术工人签证</button>
-      <button class="ptab" onclick="switchPath(this,'gt')">⭐ 全球人才签证</button>
-      <button class="ptab" onclick="switchPath(this,'hpi')">🎓 高潜力人才HPI</button>
-      <button class="ptab" onclick="switchPath(this,'if')">🚀 Innovator Founder</button>
+      <button class="ptab active" onclick="switchPath(this,'sw')">技术工人签证</button>
+      <button class="ptab" onclick="switchPath(this,'gt')">全球人才签证</button>
+      <button class="ptab" onclick="switchPath(this,'hpi')">高潜力人才 HPI</button>
+      <button class="ptab" onclick="switchPath(this,'if')">Innovator Founder</button>
     </div>
 
     <!-- 技术工人签证 -->
@@ -377,7 +475,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
       </div>
 
       <div class="visa-note-warn">⚠️ <strong>Skilled Worker签证的核心挑战（2026年）：</strong>①薪资门槛£41,700仅是底线——许多热门职位（金融分析师、软件工程师等）的市场薪资（Going Rate）远高于此，两个门槛取高者；②技能门槛提升到RQF 6后，111个职位已从资格名单移除；③临时短缺清单（TSL）上的RQF 3–5职业可申请签证，但<strong>无法携带家属</strong>，且该清单本身将于2026年12月31日到期；④Immigration Skills Charge（雇主技能税）2025年12月已上调32%，5年签证大雇主需额外支付£6,600，增加了雇主的招聘成本，进一步降低了雇主的担保意愿。</div>
+    
+    <div class="insight-box locked">
+      <div class="insight-label">Earned Settlement十年新规——过渡期的保护边界在哪里，律所不会主动算清楚</div>
+      2026年4月起英国ILR年限从5年延至10年，这是英国技术移民政策近年来最重大的一次收紧。但这项政策的核心复杂性不在于"10年"本身，而在于过渡安排的边界条件——哪些已在英国的申请人可以按旧规则5年申请，哪些人已经被纳入新的10年轨道。<br><br>
+      这个问题的答案取决于你的工签首次获批日期、续签记录、以及是否在特定时间窗口内提交了相关申请。边界条件相当精细，且移民局的官方指引措辞模糊，导致即便是专业律所给出的解读也存在差异。<br><br>
+      有申请人因为误判自己属于旧规则保护范围，延误了关键申请节点，最终被纳入10年轨道。这个判断在申请任何续签之前就应该做清楚，而不是等到第五年才去核实。
+      <a class="insight-read-more" href="membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
     </div>
+  </div>
 
     <!-- 全球人才签证 -->
     <div class="pathway-content" id="path-gt">
@@ -428,7 +535,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
       </div>
       <div class="visa-note-green">⭐ <strong>为什么Global Talent是顶尖人才的最优路径：</strong>①<strong>无需雇主担保</strong>，不受任何单一雇主或职位限制，可自由创业、换工作、做自由职业；②<strong>ILR最快3年</strong>（卓越人才通道），远优于技术工人签证的10年新规；③配偶同等工作权无限制；④不受薪资门槛限制，低薪创业期或学术期均可保持身份。对于有技术成就积累（如GitHub活跃贡献、发表论文、技术奖项）的中国IT/科研人才，投入时间准备GT申请，回报显著高于等待Skilled Worker门槛的长期规划。</div>
+    
+    <div class="insight-box locked">
+      <div class="insight-label">Global Talent数字科技通道：背书申请的拒绝率为什么比你想象的高</div>
+      Global Talent签证在中国申请人中的声誉是"顶尖人才才能拿到"，但实际上数字科技通道（Tech UK背书）的申请拒绝模式有一个规律：被拒的申请人往往并不是因为成就不够，而是因为申请材料的叙事方式与审核委员会的预期存在结构性错位。<br><br>
+      Tech UK审核委员会对"卓越人才"和"有前景人才"的证据框架有明确但非公开的偏好——哪类证据权重高、哪类证据被视为"堆砌"而非"质量证明"，这些判断标准在官方申请指南里看不到，但在真实的申请反馈案例中有迹可循。<br><br>
+      有申请人论文发表数量可观、引用数据扎实，但因为叙事框架不符合委员会期待而被拒；也有人成就相对较少，但因为证据组织方式精准而获批。材料本身和材料的呈现方式，在GT申请里同等重要。
+      <a class="insight-read-more" href="membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
     </div>
+  </div>
 
     <!-- HPI签证 -->
     <div class="pathway-content" id="path-hpi">
@@ -479,7 +595,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
       </div>
       <div class="visa-note">&#128161; <strong>HPI签证使用策略：</strong>HPI的核心价值是来英后有2年时间自由探索工作市场，不需要事先拿到工作offer。但需注意：①HPI本身<strong>不直接通向ILR</strong>，需要在HPI有效期内转换为Skilled Worker或Global Talent签证，再从那条路径走向永居；②英语要求已从B1升至B2（雅思各项6分），部分院校毕业生可能需要提前准备；③院校名单每年更新，清华/北大通常稳定在前50，其他学校需提前核实。</div>
+    
+    <div class="insight-box locked">
+      <div class="insight-label">HPI签证之后怎么转永居——这条路没有人帮你想清楚过</div>
+      HPI（高潜力人才签证）的最大吸引力是无需工作offer即可入境英国，且申请相对简单。但HPI本身是一个2年（博士3年）的非移民签证，持有HPI本身并不会自动带来永居路径。<br><br>
+      在英国目前的规则下，HPI持有人在英找到工作后，通常需要转换到Skilled Worker签证才能开始计算永居年限。这个转换过程看似简单，但其中有几个细节会直接影响永居时间线：你在HPI期间的工作记录如何被计入、转换时的薪资门槛如何适用、以及Earned Settlement新规对你的永居年限计算是否产生影响。<br><br>
+      很多HPI持有人在抵达英国后才意识到，入境只是第一步，后续的路径规划需要在更早的阶段就想清楚。
+      <a class="insight-read-more" href="membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
     </div>
+  </div>
 
     <!-- Innovator Founder -->
     <div class="pathway-content" id="path-if">
@@ -726,7 +851,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
         <div class="faq-a"><div class="faq-a-inner">
           这是当前在英中国申请人最紧迫的问题。根据2026年4月起实施的Earned Settlement改革，大多数工签持有人ILR年限将从5年延至10年。关键在于：<strong>过渡安排是否保护已在英国的人目前仍在确认中</strong>，但大方向是新规对已在路径上的人也会有影响。如果你已持有Skilled Worker类签证满4年，<strong>强烈建议立即咨询持牌移民律师</strong>，评估是否在政策完全落地前提前申请ILR（如满足连续居住要求）。错过窗口期可能意味着额外等待5年，这对个人规划影响巨大。
-        </div></div>
+<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">Earned Settlement过渡期保护范围判断 · <a href="membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
       </div>
 
       <div class="faq-item">
@@ -736,7 +861,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
         <div class="faq-a"><div class="faq-a-inner">
           £41,700是大多数新申请人的标准门槛，但有几个合法折扣通道：①<strong>新入职折扣（New Entrant）</strong>：刚毕业、转行或在英首份技术工作者，可申请70%市场薪资或£33,400（取高者），但<strong>总计最多4年</strong>（包含Graduate Visa时间）；②<strong>相关博士学位</strong>：持有与工作相关的博士学位，可减至£33,400；③<strong>医疗/教育国家薪资体系职位</strong>：按NHS Agenda for Change等国家薪资表执行，起点约£25,000；④<strong>临时短缺清单（TSL）职位</strong>：RQF 3–5职业仍可担保，但须达到标准薪资，且无家属携带权利。注意：折扣不能低于£25,000的绝对底线。
-        </div></div>
+<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">技术工人签证薪资折扣完整适用条件 · <a href="membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
       </div>
 
       <div class="faq-item">
@@ -746,7 +871,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
         <div class="faq-a"><div class="faq-a-inner">
           数字科技通道是中国IT人才申请Global Talent最常用的路径，背书机构现为Tech UK。申请分两类：<strong>卓越人才（Exceptional Leader）</strong>要求已在行业有实质性影响——如主导过重要开源项目（GitHub Stars 1,000+量级）、发表顶会论文（NeurIPS/ICLR/ICML等）、持有重要专利、担任技术高管并有可证明的成就；<strong>杰出潜力（Exceptional Promise）</strong>要求最近5年内的快速成长，适合年轻技术人才。<strong>难度说明：</strong>卓越人才通过率约50–60%，需要强有力的证明材料和推荐信（通常需要2封来自英国技术界知名人士的信）；杰出潜力相对宽松，但仍需明确的成长轨迹。建议在申请前对照Tech UK官方评估标准逐条自检。
-        </div></div>
+<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">Global Talent数字科技通道申请策略 · <a href="membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
       </div>
 
       <div class="faq-item">
@@ -756,7 +881,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
         <div class="faq-a"><div class="faq-a-inner">
           HPI签证要求申请人从同时在<strong>QS世界大学排名</strong>和<strong>泰晤士高等教育（THE）排名</strong>两个榜单均在前50名的院校毕业。<strong>清华大学和北京大学</strong>通常两个榜单均可进入前50，一般符合资格，但每年名单有细微调整，申请时须核实当年最新版本。<strong>复旦大学、上海交通大学</strong>在QS排名较高，但在THE排名可能有年际波动，需要两个榜单同时满足。<strong>重要：</strong>英国院校不在HPI资格名单内，因此在英国读完学位后不能用英国学历申请HPI；院校名单每年1月更新，申请前必须核实gov.uk最新版本，不要依赖过期信息。
-        </div></div>
+<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">HPI资格院校判断与转永居路径规划 · <a href="membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
       </div>
 
       <div class="faq-item">
