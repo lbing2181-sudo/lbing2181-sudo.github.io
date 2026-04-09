@@ -297,6 +297,70 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
 .cc[data-premium="1"] { border-color: rgba(176,125,42,0.22); }
 .cc[data-premium="1"]:hover { border-color: rgba(176,125,42,0.5); box-shadow: 0 4px 20px rgba(176,125,42,0.10); }
 
+
+/* ── INDEX REFINED VISUAL ── */
+
+/* Card hover: border only, no lift */
+.cc:hover {
+  box-shadow: var(--shadow-sm) !important;
+  transform: none !important;
+  border-color: var(--border-mid) !important;
+}
+.cc[data-premium="1"]:hover {
+  border-color: rgba(176,125,42,0.45) !important;
+  box-shadow: none !important;
+}
+
+/* cc-foot: premium lock color */
+.cc[data-premium="1"] .cc-foot {
+  color: var(--gold, #b07d2a) !important;
+  opacity: 0.85;
+}
+
+/* Update badges: flat, no filled bg */
+.upd-badge {
+  background: transparent !important;
+  border: 0.5px solid var(--border-2, rgba(28,26,22,0.18)) !important;
+  border-radius: 3px !important;
+  color: var(--text-2, #6e6e73) !important;
+  font-size: 10px !important;
+}
+.upd-badge.hot {
+  color: var(--gold, #b07d2a) !important;
+  border-color: rgba(176,125,42,0.3) !important;
+}
+
+/* Compare table: cleaner */
+.guide-table td, .guide-table th {
+  border-left: none !important;
+  border-right: none !important;
+}
+.td-check {
+  color: var(--text-1, #1d1d1f);
+  font-size: 12px;
+}
+
+/* Search input: cleaner focus */
+.search-input:focus {
+  outline: none !important;
+  border-color: var(--gold, #b07d2a) !important;
+  box-shadow: none !important;
+}
+
+/* Section titles: consistent with subpages */
+.section-title {
+  letter-spacing: -0.01em !important;
+}
+
+/* Nav link membership: subtle gold */
+.nav-link[href="membership.html"] {
+  color: var(--gold, #b07d2a) !important;
+  font-weight: 500 !important;
+}
+.nav-link[href="membership.html"]:hover {
+  opacity: 0.75 !important;
+}
+
 </style>
 </head>
 <body>
@@ -945,7 +1009,7 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
         <tr><th>国家</th><th>主要路径</th><th>最快到永居</th><th>语言要求</th><th>薪资门槛参考</th><th>中国排期</th><th>综合难度</th></tr>
       </thead>
       <tbody>
-        <tr><td><a href="javascript:void(0)" data-wip="1" title="详情页建设中，敬请期待">🇺🇸 美国</a></td><td>H-1B → EB 绿卡</td><td>10年+</td><td>英语</td><td>USD 60,000+/年</td><td class="tag-r">⚠ 50年+</td><td class="tag-r">极难</td></tr>
+        <tr><td><a href="usa.html" data-wip="1" title="详情页建设中，敬请期待">🇺🇸 美国</a></td><td>H-1B → EB 绿卡</td><td>10年+</td><td>英语</td><td>USD 60,000+/年</td><td class="tag-r" style="color:var(--text-muted,#a1a1a6)">50年+</td><td class="tag-r">极难</td></tr>
         <tr><td><a href="canada.html">🇨🇦 加拿大</a></td><td>Express Entry</td><td>1–2年</td><td>英语/法语</td><td>视职业而定</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
         <tr><td><a href="uk.html">🇬🇧 英国</a></td><td>技术工人/HPI</td><td>5年</td><td>英语 B1+</td><td>GBP 26,200/年</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
         <tr><td><a href="australia.html">🇦🇺 澳大利亚</a></td><td>技术移民 189/190</td><td>1–2年</td><td>雅思 6.0+</td><td>无硬性要求</td><td class="tag-g">✓ 无排期</td><td class="tag-y">中等</td></tr>
@@ -1095,6 +1159,6 @@ document.querySelectorAll('.cc[data-wip="1"]').forEach(card => {
 });
 </script>
 
-<div id="wip-toast">📋 详情页建设中，敬请期待</div>
+<div id="wip-toast">详情页建设中，敬请期待</div>
 </body>
 </html>
