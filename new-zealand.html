@@ -245,6 +245,104 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
 /* ── ANIMATIONS ── */
 .fade-in{animation:fadeUp .5s ease both;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── REFINED VISUAL LAYER ── */
+.ov-icon-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px; color: var(--gold-mid);
+  font-weight: 500; letter-spacing: .05em;
+  margin-bottom: 10px; opacity: 0.7;
+}
+.insight-box {
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+  border-radius: 0 var(--r-md) var(--r-md) 0 !important;
+}
+.faq-icon {
+  width: 18px !important; height: 18px !important;
+  border: 0.5px solid var(--border-strong) !important;
+  border-radius: 2px !important;
+}
+.faq-item.open .faq-icon {
+  background: var(--ink) !important;
+  border-color: var(--ink) !important;
+  color: var(--paper) !important;
+  border-radius: 2px !important;
+  transform: rotate(45deg) !important;
+}
+.visa-card:hover {
+  box-shadow: none !important;
+  border-color: var(--border-strong) !important;
+  transform: none !important;
+}
+.vc-v.highlight { color: var(--ink) !important; font-weight: 600 !important; }
+.vc-v.alert { color: var(--ink-soft) !important; font-style: italic !important; }
+.overview-highlight {
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+  border-radius: 0 var(--r-md) var(--r-md) 0 !important;
+  color: var(--ink-soft) !important;
+  padding: 18px 22px !important;
+}
+.hl-label {
+  font-size: 10px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gold);
+  font-weight: 600; margin-right: 8px;
+}
+.hero-tag.hot {
+  border-color: var(--border-mid) !important;
+  color: var(--ink-soft) !important;
+  background: var(--paper-warm) !important;
+}
+.ub-new { background: transparent !important; border: 0.5px solid var(--border-mid) !important; border-radius: 3px !important; color: var(--ink-muted) !important; }
+.ub-change { background: transparent !important; border: 0.5px solid rgba(176,125,42,.3) !important; border-radius: 3px !important; color: var(--gold) !important; }
+.ub-warn { background: transparent !important; border: 0.5px solid var(--border-mid) !important; border-radius: 3px !important; color: var(--ink-soft) !important; }
+.badge-note { background: var(--paper-mid) !important; color: var(--ink-muted) !important; border: 0.5px solid var(--border-mid) !important; }
+.visa-note { border-left-width: 2px !important; background: var(--paper-warm) !important; border-color: var(--border-mid) !important; color: var(--ink-soft) !important; }
+.cost-table td, .cost-table th { border-left: none !important; border-right: none !important; }
+
+/* ── LOCKED INSIGHT BOX ── */
+.insight-box.locked {
+  position: relative; overflow: hidden;
+  max-height: 260px; cursor: default;
+  font-size: 13px; line-height: 1.85;
+  padding: 18px 20px;
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+  border-radius: 0 var(--r-md) var(--r-md) 0 !important;
+}
+.insight-box.locked::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 52%, rgba(245,245,247,0.94) 80%, rgba(245,245,247,1) 100%);
+  pointer-events: none;
+}
+.insight-label {
+  font-size: 11px; font-weight: 600; color: var(--gold);
+  letter-spacing: .10em; text-transform: uppercase;
+  margin-bottom: 10px; display: block; line-height: 1.4;
+}
+.insight-read-more {
+  display: inline-block; font-size: 12px;
+  color: var(--blue-mid); font-weight: 500;
+  text-decoration: none; position: absolute;
+  bottom: 40px; left: 20px; z-index: 6;
+}
+.insight-read-more:hover { text-decoration: underline; }
+.insight-unlock {
+  position: absolute; bottom: 12px; left: 50%;
+  transform: translateX(-50%); z-index: 10;
+  font-size: 12px; font-weight: 500; color: var(--gold);
+  background: rgba(255,255,255,0.97);
+  padding: 7px 20px; border-radius: 20px;
+  border: 0.5px solid rgba(176,125,42,0.35);
+  cursor: pointer; text-decoration: none;
+  white-space: nowrap; transition: all 0.15s; font-family: inherit;
+}
+.insight-unlock:hover { background: var(--gold-light); }
+
 </style>
 </head>
 <body>
@@ -313,32 +411,32 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
 
     <div class="overview-grid">
       <div class="ov-card">
-        <div class="ov-icon">🌿</div>
+        <div class="ov-icon-num">01</div>
         <div class="ov-title">生态宜居，家庭友好</div>
         <div class="ov-text">新西兰以优美自然环境、低人口密度著称，生活节奏适合家庭安居，是"生活质量"导向移民者的首选。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">🎯</div>
+        <div class="ov-icon-num">02</div>
         <div class="ov-title">积分制，门槛较低</div>
         <div class="ov-text">SMC技术移民最低仅需6分，相较于其他国家更易达到，核心要求是在新西兰有匹配工作并达到工资门槛。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">🚀</div>
+        <div class="ov-icon-num">03</div>
         <div class="ov-title">绿色清单直通永居</div>
         <div class="ov-text">高需求职业（绿色清单）持有者，如医护、工程师、IT等，可直接申请永居，无需先获临时签证。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">🏗️</div>
+        <div class="ov-icon-num">04</div>
         <div class="ov-title">技工路径新增</div>
         <div class="ov-text">2026年8月起新增"技工/技术员路径"，持Level 4资质的水电工、建筑工等也可直接申请永居，门槛显著降低。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">💼</div>
+        <div class="ov-icon-num">05</div>
         <div class="ov-title">雇主担保灵活</div>
         <div class="ov-text">认可雇主工作签证（AEWV）是主流入境路径，获得工作后可逐步积累新西兰工作经验申请永居。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">🌏</div>
+        <div class="ov-icon-num">06</div>
         <div class="ov-title">与澳大利亚互通</div>
         <div class="ov-text">新西兰永居或公民可自由前往澳大利亚工作生活（特殊类别签证），是"两地通"策略的重要考量。</div>
       </div>
@@ -394,11 +492,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
     </div>
 
     <div class="pathway-tabs">
-      <button class="ptab active" onclick="switchPath(this,'skilled')">🎯 技术移民SMC</button>
-      <button class="ptab" onclick="switchPath(this,'greenlist')">🟢 绿色清单直通</button>
-      <button class="ptab" onclick="switchPath(this,'employer')">💼 雇主担保</button>
-      <button class="ptab" onclick="switchPath(this,'investor')">💰 投资移民</button>
-      <button class="ptab" onclick="switchPath(this,'family')">👨‍👩‍👧 家庭团聚</button>
+      <button class="ptab active" onclick="switchPath(this,'skilled')">技术移民 SMC</button>
+      <button class="ptab" onclick="switchPath(this,'greenlist')">绿色清单直通</button>
+      <button class="ptab" onclick="switchPath(this,'employer')">雇主担保</button>
+      <button class="ptab" onclick="switchPath(this,'investor')">投资移民</button>
+      <button class="ptab" onclick="switchPath(this,'family')">家庭团聚</button>
     </div>
 
     <!-- 技术移民SMC -->
@@ -450,7 +548,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
       </div>
       <div class="visa-note">💡 <strong>关于2026年8月改革：</strong>目前（2026年4月）现行积分系统仍有效。如果你已满足6分条件，建议尽快在8月前申请，按现行更简单的规则处理。8月后将引入新的"路径"分类体系，并新增红色/琥珀色清单职业限制。</div>
+    
+    <div class="insight-box locked">
+      <div class="insight-label">2026年8月改革窗口——现在申请和等改革后申请，代价是什么</div>
+      新西兰SMC的2026年8月改革是近年来最大的一次规则重构：新增技工路径、新学历积分制、红色/琥珀色职业清单。对于正在考虑申请的人，"等改革还是现在申请"这个问题背后有一个被大多数人忽视的时间成本。<br><br>
+      现行2023年积分制在4月30日仍然有效，且规则相对简单——只要积分达到6分且满足工资要求即可申请。8月之后，职业清单限制生效，部分职业将被纳入琥珀色或红色清单，申请条件实质上变得更复杂。<br><br>
+      但有一类申请人反而应该等待：职业被纳入新技工路径的人。新路径设计了专门针对技工职业的积分规则，在新规下反而更容易满足条件。判断自己属于哪一类，需要先确认职业在新清单中的归属。
+      <a class="insight-read-more" href="membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
     </div>
+  </div>
 
     <!-- 绿色清单 -->
     <div class="pathway-content" id="path-greenlist">
@@ -499,7 +606,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
       </div>
       <div class="visa-note">💡 <strong>绿色清单覆盖职业包括：</strong>医疗（医生、护士、牙医、药剂师）、工程（土木、机械、电气工程师）、建筑（建筑师、测量师）、IT（软件开发、网络工程）、农业及教育等。中国申请人中IT和工程类最为常见。完整清单以官方发布为准。</div>
+    
+    <div class="insight-box locked">
+      <div class="insight-label">绿色清单Tier 1直通永居——审核细节里最容易被忽视的一个条件</div>
+      绿色清单Tier 1职业（如医生、注册护士、ICT管理类）的最大吸引力是"直通永居"——无需先拿工作签证再等待转永居，直接以永居身份入境。这个路径对中国医疗和IT背景的申请人理论上极具价值。<br><br>
+      但在实际申请中，Tier 1的审核有一个细节在很多申请指南里被轻描淡写：对于中国申请人，职业资质认证（Registration）的获取本身就是一道门槛，且认证机构对中国学历和培训背景的审查标准，与在新西兰本地取得资质的申请人有结构性差异。<br><br>
+      部分申请人在提交绿色清单申请后，因资质认证的细节问题收到补件要求，导致整个申请时间线大幅延长。这个风险在申请前就可以被识别和规避。
+      <a class="insight-read-more" href="membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
     </div>
+  </div>
 
     <!-- 雇主担保 -->
     <div class="pathway-content" id="path-employer">
@@ -546,7 +662,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
       </div>
       <div class="visa-note">💡 <strong>找认可雇主：</strong>新西兰AEWV要求雇主持有INZ颁发的"认可资质"（Accreditation）。求职时需确认雇主是否为认可雇主，可在<a href="https://www.immigration.govt.nz" target="_blank">immigration.govt.nz</a>核查雇主认可状态。</div>
+    
+    <div class="insight-box locked">
+      <div class="insight-label">AEWV雇主担保：换雇主的自由度——和你以为的不一样</div>
+      AEWV（认可雇主工作签证）在名义上是"雇主担保"签证，很多持有人认为在转永居之前必须一直跟着同一个雇主。这个认知在某些情况下是正确的，但在另一些情况下会让申请人错失合理的职业流动机会。<br><br>
+      新西兰移民局对AEWV持有人换雇主的政策在2023年改革后有具体的规定：在满足特定条件的情况下，换雇主不会影响最终PR申请的资格——但"特定条件"是关键，不同的工资水平和工作年限，换雇主的合规要求不同。<br><br>
+      有人因为误以为不能换雇主而在不合适的工作环境中坚持，也有人在不了解规则的情况下换雇主后发现PR申请受阻。这两种情况都可以通过提前了解规则来避免。
+      <a class="insight-read-more" href="membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
     </div>
+  </div>
 
     <!-- 投资移民 -->
     <div class="pathway-content" id="path-investor">
@@ -847,7 +972,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
         <div class="faq-a"><div class="faq-a-inner">
           两国积分体系完全不同，不能直接比较。<strong>新西兰SMC最低6分</strong>，但这6分需要"从单一来源获得"——要么通过收入达到最高5分再加工作经验，要么通过职业注册或学历得满分。核心门槛是：必须在新西兰的认可雇主工作，且工资达到中位工资（NZD $35/小时）。与澳大利亚最大的不同是，<strong>NZ要求申请人已在新西兰有实际工作</strong>，而澳大利亚可以在海外提交EOI等待邀请。
-        </div></div>
+<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">SMC积分评估与提分策略 · <a href="membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
       </div>
 
       <div class="faq-item">
@@ -867,7 +992,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
         <div class="faq-a"><div class="faq-a-inner">
           要看你的具体情况。<strong>如果你现在已满足6分条件，建议尽快在8月前申请</strong>，现行规则更简单，没有红色/琥珀色清单的限制。<strong>如果你的职业在未来的技工路径列表内</strong>（如水电工、建筑工等），等8月改革后反而有更适合你的新路径，门槛实际降低。<strong>如果你的职业在红色清单内</strong>，改革后使用新路径的资格会受限，提前申请可能更有利。总之：确认你的职业是否在清单内，再决定策略。
-        </div></div>
+<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">2026年8月改革前后申请时机判断 · <a href="membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
       </div>
 
       <div class="faq-item">
@@ -877,7 +1002,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
         <div class="faq-a"><div class="faq-a-inner">
           IT类职业中，<strong>软件工程师（Software Engineer）、软件开发人员（Software Developer）等在绿色清单Tier 2内</strong>，可通过"工作2年转永居"路径申请永居，不能直通永居。医疗类（医生、注册护士）、部分工程师（土木、结构）在Tier 1，可直通永居。完整清单以<a href="https://www.immigration.govt.nz/new-zealand-visas/preparing-a-visa-application/green-list" target="_blank">官方绿色清单页面</a>为准，清单会不定期更新。查找方法：在官网搜索你的ANZSCO代码，确认是否在清单内及对应Tier级别。
-        </div></div>
+<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">绿色清单职业资质认证完整指引 · <a href="membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
       </div>
 
       <div class="faq-item">
@@ -887,7 +1012,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
         <div class="faq-a"><div class="faq-a-inner">
           新西兰SMC对英语有要求，但<strong>不像澳大利亚那样计入积分</strong>。SMC要求申请人在申请时需证明英语能力，通常要求雅思均分6.5（某些职业更高）。绿色清单Tier 1职业通常要求各项不低于6.5。部分持有新西兰认可职业注册的申请人，英语测试有效期2026年8月起延长至5年。如果你在英语国家有连续5年以上工作/学习记录，可申请豁免英语测试。
-        </div></div>
+<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">英语提分与SMC申请时机策略 · <a href="membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
       </div>
 
       <div class="faq-item">
