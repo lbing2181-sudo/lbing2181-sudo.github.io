@@ -413,6 +413,72 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
   border-color: var(--border-mid) !important;
   color: var(--ink-soft) !important;
 }
+
+/* ── LOCKED INSIGHT BOX ── */
+.insight-box.locked {
+  position: relative;
+  overflow: hidden;
+  max-height: 260px;
+  cursor: default;
+  font-size: 13px;
+  line-height: 1.85;
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+  border-radius: 0 var(--r-md) var(--r-md) 0 !important;
+  padding: 18px 20px;
+}
+.insight-box.locked::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 52%, rgba(245,245,247,0.94) 80%, rgba(245,245,247,1) 100%);
+  pointer-events: none;
+}
+.insight-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+  line-height: 1.4;
+}
+.insight-read-more {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--blue-mid);
+  font-weight: 500;
+  margin-top: 10px;
+  text-decoration: none;
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  z-index: 6;
+}
+.insight-read-more:hover { text-decoration: underline; }
+.insight-unlock {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gold);
+  background: rgba(255,255,255,0.97);
+  padding: 7px 20px;
+  border-radius: 20px;
+  border: 0.5px solid rgba(176,125,42,0.35);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.insight-unlock:hover { background: var(--gold-light); }
+
 </style>
 </head>
 <body>
@@ -617,7 +683,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
       </div>
       <div class="visa-note"><strong>189 vs 190 怎么选？</strong> 如果你的EOI积分在85分以上，优先等待189邀请（无居住限制）。如果积分在65-84分之间，考虑190——州提名额外加5分且邀请分数线通常低于189。两者都是直接永居，法律权益完全相同。</div>
+    
+    <div class="insight-box locked">
+      <div class="insight-label">EOI积分的隐形上限——为什么很多人卡在80分却不知道怎么突破</div>
+      澳大利亚技术移民的EOI积分系统表面上是一套透明的打分机制，但实际运作中有一个大多数申请人没有意识到的结构性问题：当你的基础分（学历+工作经验+英语）稳定在某个区间后，继续等待并不会让你的分数自然上升，而同期池中的竞争者数量却在持续增加。<br><br>
+      这意味着"等待"本身是一种隐性的竞争劣势。每多等一个月，你的相对排位有可能在下滑，而不是在前进。<br><br>
+      有几类加分项是绝大多数中国申请人没有充分利用的——不是因为不符合条件，而是因为准备材料的方式和时机会直接影响能否被计入。其中有一项与配偶的技能申报有关，一旦操作正确，可为EOI增加最多10分，但绝大多数申请材料里这一项是空白的。
+      <a class="insight-read-more" href="membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
     </div>
+  </div>
 
     <!-- 雇主担保 -->
     <div class="pathway-content" id="path-employer">
@@ -664,7 +739,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
       </div>
       <div class="visa-note"><strong>雇主担保路径说明：</strong>最常见的路径是先申请482临时工作签证来到澳大利亚，在同一雇主工作满2-3年后，由雇主通过186（临时居民流）担保转为永居。这个路径技术移民分数要求低，适合分数不够高但能找到愿意担保的雇主的申请人。</div>
+    
+    <div class="insight-box locked">
+      <div class="insight-label">SID雇主担保：薪资门槛之外，雇主最不想告诉你的续签风险</div>
+      SID（482签证）雇主担保路径的核心机制是雇主和员工之间的绑定关系——在获得186永居之前，你的签证状态完全依赖于当前雇主。这个绑定关系在移民局的设计中有明确的保护机制，但在实际劳动关系中，有几种情形会让申请人在不知情的情况下陷入被动。<br><br>
+      最常见的一种：雇主在担保期间发生人事变动（新管理层、公司架构调整、收购合并），导致担保义务的延续性出现法律争议。这种情况下，员工并没有违规，但签证续期可能受阻。<br><br>
+      了解在482期间哪些情形可以合法更换雇主、哪些情形需要提前布局，是在拿到186之前保持主动权的关键。这部分信息在签证申请阶段几乎没有律所会主动讲清楚。
+      <a class="insight-read-more" href="membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
     </div>
+  </div>
 
     <!-- 偏远地区 -->
     <div class="pathway-content" id="path-regional">
@@ -728,7 +812,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
       </div>
       <div class="visa-note"><strong>偏远地区路径的核心优势：</strong>491的州提名可额外加15分（是190的3倍），对于积分在65-79分的申请人是获邀的最佳途径。"偏远地区"不只是荒漠，悉尼和墨尔本以外的大多数城市（如黄金海岸、阿德莱德、珀斯郊区等）都属于偏远地区范围。</div>
+    
+    <div class="insight-box locked">
+      <div class="insight-label">491转191永居——时间要求之外，没有人提前告诉你的那些审核细节</div>
+      491签证的设计逻辑是：在偏远地区住满3年、工作满3年，然后申请191永居。这个路径在纸面上是清晰的，但在实际申请191时，移民局的审核维度远比"住够了三年"复杂得多。<br><br>
+      "实质居住"的认定标准、工作记录的完整性要求、以及191申请窗口开放与个人优先日期之间的时间差——这些细节在491签证获批时没有人会告诉你，但它们会在三年之后直接影响你的191是否顺利获批。<br><br>
+      有申请人在完成三年居住后，因为工作记录的某一段存在合规性争议，导致191审核时间大幅延长。了解这些细节，并从491获批的第一天起就按正确方式留存记录，比任何技巧都重要。
+      <a class="insight-read-more" href="membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="membership.html">🔒 订阅会员 · 解锁完整内容</a>
     </div>
+  </div>
 
     <!-- 投资移民 -->
     <div class="pathway-content" id="path-business">
@@ -1099,7 +1192,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
         <div class="faq-a"><div class="faq-a-inner">
           <strong>可以，海外工作经验完全有效。</strong>只要你的海外工作经验与提名职业相关，且通过了对应评估机构的技能评估，就可以计入EOI积分。海外经验（含中国）按以下标准加分：3年以下不加分，3-5年加5分，5-8年加10分，8年以上加15分。注意：工作经验必须是提名职业申请时评估的同一职业。
-        </div></div>
+<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">澳大利亚技术移民EOI积分详细策略 · <a href="membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
       </div>
 
       <div class="faq-item">
@@ -1109,7 +1202,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
         <div class="faq-a"><div class="faq-a-inner">
           两者没有绝对的好坏之分，<strong>关键看你的积分水平</strong>。如果你的EOI积分（不含提名加分）能达到85分以上，建议等待189邀请，无居住限制，生活自由度更高。如果积分在65-84分之间，190是更实际的路径——州提名加5分，且各州邀请门槛通常低于189全国轮次。建议同时提交EOI，注明"同时申请190提名"，这样两个机会都能把握。
-        </div></div>
+<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">189 vs 190详细决策框架 · <a href="membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
       </div>
 
       <div class="faq-item">
@@ -1119,7 +1212,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
         <div class="faq-a"><div class="faq-a-inner">
           IT职业（如软件工程师、数据分析师等）近期竞争激烈，<strong>189全国轮次通常需要85-90分以上</strong>（截至2026年4月数据）。各州190提名分数线相对低一些，但NSW已暂停IT类提名，可关注VIC、QLD、SA等州的动态。积分不足的IT从业者可考虑：1）通过提升英语成绩加分；2）通过配偶技能加分；3）转向491偏远地区提名路径（加分更多）；4）寻找雇主通过482签证路径。
-        </div></div>
+<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">IT职业积分提升与州提名申请策略 · <a href="membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
       </div>
 
       <div class="faq-item">
@@ -1139,7 +1232,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </div>
         <div class="faq-a"><div class="faq-a-inner">
           <strong>有机会，但门槛更高。</strong>技术移民要求申请时不超过45岁，40-44岁年龄段仍可申请，积分为15分（比25-32岁的最高30分少15分）。这意味着你需要在其他项目（英语、工作经验、学历等）取得更高分来弥补年龄分差。40岁以上的申请人通常需要更丰富的工作经验、熟练或卓越英语水平，或配偶技能加分来达到竞争性分数。
-        </div></div>
+<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">40岁以上申请人积分优化路径 · <a href="membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
       </div>
 
       <div class="faq-item">
