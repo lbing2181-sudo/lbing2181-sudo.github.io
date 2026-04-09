@@ -122,8 +122,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
 .vc-badge{font-size:10px;padding:3px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
 .badge-pr{background:var(--green-light);color:var(--green);border:0.5px solid rgba(26,92,53,.2);}
 .badge-temp{background:var(--blue-light);color:var(--blue-mid);border:0.5px solid rgba(42,95,168,.2);}
-.badge-regional{background:var(--amber-light);color:var(--amber);border:0.5px solid rgba(124,77,0,.2);}
-.badge-business{background:#f3e8ff;color:#5b21b6;border:0.5px solid rgba(91,33,182,.2);}
+.badge-note{background:var(--amber-light);color:var(--amber);border:0.5px solid rgba(124,77,0,.2);}
+.badge-note{background:#f3e8ff;color:#5b21b6;border:0.5px solid rgba(91,33,182,.2);}
 .vc-rows{padding:14px 18px;}
 .vc-row{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:0.5px solid var(--border);font-size:13px;gap:12px;}
 .vc-row:last-child{border:none;}
@@ -240,6 +240,179 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
 /* ── ANIMATIONS ── */
 .fade-in{animation:fadeUp .5s ease both;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── REFINED VISUAL LAYER ── */
+
+/* Overview icon replacement: numbered */
+.ov-icon-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  color: var(--gold-mid);
+  font-weight: 500;
+  letter-spacing: .05em;
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+/* insight-box: clean white background */
+.insight-box {
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+  border-radius: 0 var(--r-md) var(--r-md) 0 !important;
+}
+
+/* FAQ icon: thin line, no circle */
+.faq-icon {
+  width: 18px !important;
+  height: 18px !important;
+  border: 0.5px solid var(--border-strong) !important;
+  border-radius: 2px !important;
+  font-size: 14px !important;
+  color: var(--ink-muted) !important;
+  font-weight: 300 !important;
+}
+.faq-item.open .faq-icon {
+  background: var(--ink) !important;
+  border-color: var(--ink) !important;
+  color: var(--paper) !important;
+  border-radius: 2px !important;
+  transform: rotate(45deg) !important;
+}
+
+/* Visa cards: remove hover transform, only border deepens */
+.visa-card:hover {
+  box-shadow: none !important;
+  border-color: var(--border-strong) !important;
+  transform: none !important;
+}
+
+/* vc-v color consolidation: reduce green/red/amber noise */
+.vc-v.highlight { color: var(--ink) !important; font-weight: 600 !important; }
+.vc-v.alert { color: var(--ink-soft) !important; font-style: italic !important; }
+/* warn stays amber for genuine caution */
+
+/* ov-card: more breathing room */
+.ov-card { padding: 22px 20px !important; }
+
+/* Section title: stronger hierarchy */
+.sec-title {
+  font-size: 20px !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* sec-sub: more muted */
+.sec-sub { 
+  font-size: 12.5px !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* vc-row: slightly more height */
+.vc-row { padding: 7px 0 !important; }
+
+/* overview-highlight: more refined */
+.overview-highlight {
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+  border-radius: 0 var(--r-md) var(--r-md) 0 !important;
+  color: var(--ink-soft) !important;
+  padding: 18px 22px !important;
+}
+.hl-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* Badge consolidation */
+.badge-note {
+  background: var(--paper-mid) !important;
+  color: var(--ink-muted) !important;
+  border: 0.5px solid var(--border-mid) !important;
+}
+
+/* Path guide: more space */
+.pg-step { padding: 22px 20px !important; background: var(--paper-warm); }
+.pg-num { 
+  font-size: 28px !important; 
+  color: var(--border-mid) !important;
+  margin-bottom: 12px !important;
+}
+
+/* hero-tag: remove hot special color, unify */
+.hero-tag.hot {
+  border-color: var(--border-mid) !important;
+  color: var(--ink-soft) !important;
+  background: var(--paper-warm) !important;
+}
+
+/* Cost table: more refined */
+.cost-table th { 
+  background: transparent !important;
+  border-bottom: 1px solid var(--border-mid) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  padding: 8px 14px !important;
+}
+.cost-table td {
+  border-left: none !important;
+  border-right: none !important;
+  border-color: var(--border) !important;
+}
+
+/* Update badges: simpler */
+.ub-new { 
+  background: transparent !important;
+  color: var(--ink-muted) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-radius: 3px !important;
+}
+.ub-change {
+  background: transparent !important;
+  color: var(--gold) !important;
+  border: 0.5px solid rgba(176,125,42,.3) !important;
+  border-radius: 3px !important;
+}
+.ub-warn {
+  background: transparent !important;
+  color: var(--ink-soft) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-radius: 3px !important;
+}
+
+/* Update dates: slightly heavier */
+.update-date {
+  font-size: 11px !important;
+  color: var(--ink-muted) !important;
+  min-width: 80px !important;
+  font-weight: 500 !important;
+  letter-spacing: .02em !important;
+}
+
+/* Update title: proper weight */
+.update-title { 
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+}
+
+/* Sticky nav: thinner, quieter */
+.snav-item {
+  padding: 13px 16px !important;
+  font-size: 12.5px !important;
+}
+
+/* visa-note: quieter */
+.visa-note {
+  border-left-width: 2px !important;
+  background: var(--paper-warm) !important;
+  border-color: var(--border-mid) !important;
+  color: var(--ink-soft) !important;
+}
 </style>
 </head>
 <body>
@@ -272,7 +445,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
       <div class="hero-en">Australia Immigration Guide 2026</div>
       <p class="hero-desc">全面覆盖澳大利亚所有主流移民路径，包括技术移民、雇主担保、偏远地区、投资移民等。所有数据来源澳大利亚内政部官方网站（immi.homeaffairs.gov.au），定期同步更新。</p>
       <div class="hero-tags">
-        <span class="hero-tag hot">🔥 中国人热门目的地</span>
+        <span class="hero-tag hot">中国人热门目的地</span>
         <span class="hero-tag">无中国专属排期</span>
         <span class="hero-tag">永居路径清晰</span>
         <span class="hero-tag">积分制可预测</span>
@@ -308,39 +481,39 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
 
     <div class="overview-grid">
       <div class="ov-card">
-        <div class="ov-icon">🎯</div>
+        <div class="ov-icon-num">01</div>
         <div class="ov-title">积分制，可预测</div>
         <div class="ov-text">技术移民采用EOI打分系统，申请人提前知道自己的分数，结果透明可预期，不依赖抽签运气。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">🌏</div>
+        <div class="ov-icon-num">02</div>
         <div class="ov-title">无中国专属排期</div>
         <div class="ov-text">与美国绿卡不同，澳大利亚技术移民对中国籍申请人无额外排期，符合条件即可获邀。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">🏠</div>
+        <div class="ov-icon-num">03</div>
         <div class="ov-title">永居路径明确</div>
         <div class="ov-text">大多数技术移民路径直接给予永久居留权（PR），或在1-3年临时签证后可直接转永居。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">🌿</div>
+        <div class="ov-icon-num">04</div>
         <div class="ov-title">偏远地区加分</div>
         <div class="ov-text">选择在偏远地区工作和生活可获额外积分，并享有专属签证通道（491/494），降低移民门槛。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">🎓</div>
+        <div class="ov-icon-num">05</div>
         <div class="ov-title">留学生友好</div>
         <div class="ov-text">在澳大利亚完成学习后可申请485毕业生签证，积累本地工作经验后更容易获得技术移民邀请。</div>
       </div>
       <div class="ov-card">
-        <div class="ov-icon">👔</div>
+        <div class="ov-icon-num">06</div>
         <div class="ov-title">雇主担保多样</div>
         <div class="ov-text">提供临时到永居的多条雇主担保路径（482→186/491→191），即使技术移民分数不够也有出路。</div>
       </div>
     </div>
 
     <div class="overview-highlight">
-      ⚠️ <strong>重要提示：</strong>澳大利亚移民政策每年7月1日随新财年更新，签证费用、职业清单和邀请分数线均可能调整。本页信息基于2025-26财年政策，请以<a href="https://immi.homeaffairs.gov.au" style="color:var(--gold)">官方网站</a>最新公告为准。
+      <strong class="hl-label">注意</strong>澳大利亚移民政策每年7月1日随新财年更新，签证费用、职业清单和邀请分数线均可能调整。本页信息基于2025-26财年政策，请以<a href="https://immi.homeaffairs.gov.au" style="color:var(--gold)">官方网站</a>最新公告为准。
     </div>
   </section>
 
@@ -385,12 +558,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
     </div>
 
     <div class="pathway-tabs">
-      <button class="ptab active" onclick="switchPath(this,'skilled')">🎯 我想技术移民</button>
-      <button class="ptab" onclick="switchPath(this,'employer')">💼 我有雇主愿意担保</button>
-      <button class="ptab" onclick="switchPath(this,'regional')">🌿 我愿意去偏远地区</button>
-      <button class="ptab" onclick="switchPath(this,'business')">💰 我想投资/创业移民</button>
-      <button class="ptab" onclick="switchPath(this,'family')">👨‍👩‍👧 家庭团聚</button>
-      <button class="ptab" onclick="switchPath(this,'graduate')">🎓 留学生转移民</button>
+      <button class="ptab active" onclick="switchPath(this,'skilled')">技术移民</button>
+      <button class="ptab" onclick="switchPath(this,'employer')">雇主担保</button>
+      <button class="ptab" onclick="switchPath(this,'regional')">偏远地区</button>
+      <button class="ptab" onclick="switchPath(this,'business')">投资创业</button>
+      <button class="ptab" onclick="switchPath(this,'family')">家庭团聚</button>
+      <button class="ptab" onclick="switchPath(this,'graduate')">留学转移民</button>
     </div>
 
     <!-- 技术移民 -->
@@ -417,7 +590,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">处理周期</span><span class="vc-v">约6-18个月</span></div>
             <div class="vc-row"><span class="vc-k">无需雇主/州担保</span><span class="vc-v highlight">✓ 是</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-independent-189" target="_blank">immi.homeaffairs.gov.au · 189签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-independent-189" target="_blank">immi.homeaffairs.gov.au · 189签证官方页面</a></div>
         </div>
 
         <div class="visa-card">
@@ -440,10 +613,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">申请费用</span><span class="vc-v">AUD 4,910（主申请人）</span></div>
             <div class="vc-row"><span class="vc-k">处理周期</span><span class="vc-v">约6-15个月</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-nominated-190" target="_blank">immi.homeaffairs.gov.au · 190签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-nominated-190" target="_blank">immi.homeaffairs.gov.au · 190签证官方页面</a></div>
         </div>
       </div>
-      <div class="visa-note">💡 <strong>189 vs 190 怎么选？</strong> 如果你的EOI积分在85分以上，优先等待189邀请（无居住限制）。如果积分在65-84分之间，考虑190——州提名额外加5分且邀请分数线通常低于189。两者都是直接永居，法律权益完全相同。</div>
+      <div class="visa-note"><strong>189 vs 190 怎么选？</strong> 如果你的EOI积分在85分以上，优先等待189邀请（无居住限制）。如果积分在65-84分之间，考虑190——州提名额外加5分且邀请分数线通常低于189。两者都是直接永居，法律权益完全相同。</div>
     </div>
 
     <!-- 雇主担保 -->
@@ -467,7 +640,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">转永居路径</span><span class="vc-v">满足条件后申请186永居</span></div>
             <div class="vc-row"><span class="vc-k">换雇主</span><span class="vc-v">可换，但需新雇主重新担保</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-skill-shortage-482" target="_blank">immi.homeaffairs.gov.au · 482签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-skill-shortage-482" target="_blank">immi.homeaffairs.gov.au · 482签证官方页面</a></div>
         </div>
 
         <div class="visa-card">
@@ -487,10 +660,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">英语要求</span><span class="vc-v">雅思均分6.0（临时居民流可豁免）</span></div>
             <div class="vc-row"><span class="vc-k">申请费用</span><span class="vc-v">AUD 4,770（主申请人）</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/employer-nomination-scheme-186" target="_blank">immi.homeaffairs.gov.au · 186签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/employer-nomination-scheme-186" target="_blank">immi.homeaffairs.gov.au · 186签证官方页面</a></div>
         </div>
       </div>
-      <div class="visa-note">💡 <strong>雇主担保路径说明：</strong>最常见的路径是先申请482临时工作签证来到澳大利亚，在同一雇主工作满2-3年后，由雇主通过186（临时居民流）担保转为永居。这个路径技术移民分数要求低，适合分数不够高但能找到愿意担保的雇主的申请人。</div>
+      <div class="visa-note"><strong>雇主担保路径说明：</strong>最常见的路径是先申请482临时工作签证来到澳大利亚，在同一雇主工作满2-3年后，由雇主通过186（临时居民流）担保转为永居。这个路径技术移民分数要求低，适合分数不够高但能找到愿意担保的雇主的申请人。</div>
     </div>
 
     <!-- 偏远地区 -->
@@ -503,7 +676,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
               <div class="vc-title">偏远地区技术移民（临时）</div>
               <div class="vc-en">Skilled Work Regional (Provisional)</div>
             </div>
-            <span class="vc-badge badge-regional">偏远地区</span>
+            <span class="vc-badge badge-note">偏远地区</span>
           </div>
           <div class="vc-rows">
             <div class="vc-row"><span class="vc-k">签证类型</span><span class="vc-v">临时签证（5年，可转永居）</span></div>
@@ -514,7 +687,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">转永居路径</span><span class="vc-v">申请191签证</span></div>
             <div class="vc-row"><span class="vc-k">申请费用</span><span class="vc-v">AUD 4,910（主申请人）</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-work-regional-provisional-491" target="_blank">immi.homeaffairs.gov.au · 491签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-work-regional-provisional-491" target="_blank">immi.homeaffairs.gov.au · 491签证官方页面</a></div>
         </div>
 
         <div class="visa-card">
@@ -524,7 +697,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
               <div class="vc-title">偏远地区雇主担保（临时）</div>
               <div class="vc-en">Skilled Employer Sponsored Regional</div>
             </div>
-            <span class="vc-badge badge-regional">偏远地区</span>
+            <span class="vc-badge badge-note">偏远地区</span>
           </div>
           <div class="vc-rows">
             <div class="vc-row"><span class="vc-k">签证类型</span><span class="vc-v">临时签证（5年，可转永居）</span></div>
@@ -533,7 +706,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">最低年薪</span><span class="vc-v">AUD 76,515 (CSIT，2025年7月起)</span></div>
             <div class="vc-row"><span class="vc-k">转永居路径</span><span class="vc-v">持签3年后申请191永居</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-employer-sponsored-regional-494" target="_blank">immi.homeaffairs.gov.au · 494签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-employer-sponsored-regional-494" target="_blank">immi.homeaffairs.gov.au · 494签证官方页面</a></div>
         </div>
 
         <div class="visa-card">
@@ -551,10 +724,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">居住合规</span><span class="vc-v">需在偏远地区实质居住</span></div>
             <div class="vc-row"><span class="vc-k">签证结果</span><span class="vc-v highlight">永久居留，全国自由移动</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/permanent-residence-skilled-regional-191" target="_blank">immi.homeaffairs.gov.au · 191签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/permanent-residence-skilled-regional-191" target="_blank">immi.homeaffairs.gov.au · 191签证官方页面</a></div>
         </div>
       </div>
-      <div class="visa-note">💡 <strong>偏远地区路径的核心优势：</strong>491的州提名可额外加15分（是190的3倍），对于积分在65-79分的申请人是获邀的最佳途径。"偏远地区"不只是荒漠，悉尼和墨尔本以外的大多数城市（如黄金海岸、阿德莱德、珀斯郊区等）都属于偏远地区范围。</div>
+      <div class="visa-note"><strong>偏远地区路径的核心优势：</strong>491的州提名可额外加15分（是190的3倍），对于积分在65-79分的申请人是获邀的最佳途径。"偏远地区"不只是荒漠，悉尼和墨尔本以外的大多数城市（如黄金海岸、阿德莱德、珀斯郊区等）都属于偏远地区范围。</div>
     </div>
 
     <!-- 投资移民 -->
@@ -567,7 +740,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
               <div class="vc-title">商业创新与投资（临时）</div>
               <div class="vc-en">Business Innovation and Investment</div>
             </div>
-            <span class="vc-badge badge-business">投资移民</span>
+            <span class="vc-badge badge-note">投资移民</span>
           </div>
           <div class="vc-rows">
             <div class="vc-row"><span class="vc-k">A流（创业）</span><span class="vc-v">营业额≥AUD50万，净资产≥AUD80万</span></div>
@@ -577,7 +750,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">转永居</span><span class="vc-v">申请888永居签证</span></div>
             <div class="vc-row"><span class="vc-k">申请方式</span><span class="vc-v">需州/领地提名</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/business-innovation-investment-188" target="_blank">immi.homeaffairs.gov.au · 188签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/business-innovation-investment-188" target="_blank">immi.homeaffairs.gov.au · 188签证官方页面</a></div>
         </div>
 
         <div class="visa-card">
@@ -596,7 +769,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">居住要求</span><span class="vc-v">至少1年在澳居住</span></div>
             <div class="vc-row"><span class="vc-k">结果</span><span class="vc-v highlight">永久居留，无居住州限制</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/business-innovation-investment-888" target="_blank">immi.homeaffairs.gov.au · 888签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/business-innovation-investment-888" target="_blank">immi.homeaffairs.gov.au · 888签证官方页面</a></div>
         </div>
 
         <div class="visa-card">
@@ -615,7 +788,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">无年龄限制</span><span class="vc-v">是</span></div>
             <div class="vc-row"><span class="vc-k">直接永居</span><span class="vc-v highlight">✓ 是</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/national-innovation-visa-858" target="_blank">immi.homeaffairs.gov.au · 858签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/national-innovation-visa-858" target="_blank">immi.homeaffairs.gov.au · 858签证官方页面</a></div>
         </div>
       </div>
     </div>
@@ -639,7 +812,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">申请费用</span><span class="vc-v">AUD 8,850（主申请人）</span></div>
             <div class="vc-row"><span class="vc-k">处理周期</span><span class="vc-v">约12-36个月</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/partner-820-801" target="_blank">immi.homeaffairs.gov.au · 820/801签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/partner-820-801" target="_blank">immi.homeaffairs.gov.au · 820/801签证官方页面</a></div>
         </div>
 
         <div class="visa-card">
@@ -658,7 +831,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">排期</span><span class="vc-v warn">约5-7年</span></div>
             <div class="vc-row"><span class="vc-k">临时选项</span><span class="vc-v">可先申请173临时父母签证</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/contributory-parent-143" target="_blank">immi.homeaffairs.gov.au · 143签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/contributory-parent-143" target="_blank">immi.homeaffairs.gov.au · 143签证官方页面</a></div>
         </div>
       </div>
     </div>
@@ -683,10 +856,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
             <div class="vc-row"><span class="vc-k">后续路径</span><span class="vc-v">积累工作经验后申请技术移民</span></div>
             <div class="vc-row"><span class="vc-k">申请费用</span><span class="vc-v">AUD 1,895</span></div>
           </div>
-          <div class="vc-foot">🔗 <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485" target="_blank">immi.homeaffairs.gov.au · 485签证官方页面</a></div>
+          <div class="vc-foot"><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485" target="_blank">immi.homeaffairs.gov.au · 485签证官方页面</a></div>
         </div>
       </div>
-      <div class="visa-note">💡 <strong>留学生移民路径建议：</strong>在澳完成学业 → 申请485毕业生签证（2-4年）→ 在澳积累工作经验 → 通过工作经验提升EOI积分 → 申请189/190技术移民。在澳本地工作经验和在澳完成学历均可获得额外积分加成，留学生相较于海外申请人有显著优势。</div>
+      <div class="visa-note"><strong>留学生移民路径建议：</strong>在澳完成学业 → 申请485毕业生签证（2-4年）→ 在澳积累工作经验 → 通过工作经验提升EOI积分 → 申请189/190技术移民。在澳本地工作经验和在澳完成学历均可获得额外积分加成，留学生相较于海外申请人有显著优势。</div>
     </div>
   </section>
 
@@ -862,7 +1035,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         </tbody>
       </table>
     </div>
-    <div class="visa-note" style="margin-top:12px;">⚠️ 以上费用为签证申请费，不含技能评估费（约AUD 500-1,000）、英语考试费（约AUD 380）、体检费（约AUD 300-500）等附加费用。实际总花费请以<a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-pricing/paying-for-a-visa" target="_blank">官方费用页面</a>为准。</div>
+    <div class="visa-note" style="margin-top:12px;">以上费用为签证申请费，不含技能评估费（约AUD 500-1,000）、英语考试费（约AUD 380）、体检费（约AUD 300-500）等附加费用。实际总花费请以<a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-pricing/paying-for-a-visa" target="_blank">官方费用页面</a>为准。</div>
   </section>
 
   <!-- ⑥ 政策动态 -->
@@ -878,7 +1051,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         <div class="update-body">
           <div class="update-title">NSW 190签证4月邀请轮次确认：4月13日当周开放，EOI截止更新4月12日</div>
           <div class="update-desc">新南威尔士州移民局正式确认2026年4月邀请轮次计划：190技术提名签证邀请将在4月13日当周发出；491偏远地区签证（Pathway 2）将在4月27日当周进行。申请人须在截止日期前确保SkillSelect EOI信息最新，NSW仅向其技能清单内职业的最高分EOI发出邀请。</div>
-          <div class="update-source">来源：<a href="https://www.nsw.gov.au/skilled-migration" target="_blank">nsw.gov.au/skilled-migration</a> · 2026年4月1日</div>
+          <div class="update-source" style="margin-top:5px;">来源：<a href="https://www.nsw.gov.au/skilled-migration" target="_blank">nsw.gov.au/skilled-migration</a> · 2026年4月1日</div>
         </div>
       </div>
       <div class="update-item">
@@ -887,7 +1060,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         <div class="update-body">
           <div class="update-title">南澳2026年3月发放406份技术移民邀请，ICT职业全部归入491</div>
           <div class="update-desc">南澳大利亚州3月邀请轮次共发放406份邀请：190签证242份，491签证164份。医疗卫生职业获邀数量最多（97份），工程类53份，ICT类42份（全部为491偏远地区签证）。2025-26财年迄今南澳已累计发放1,686份邀请。</div>
-          <div class="update-source">来源：<a href="https://www.migration.sa.gov.au" target="_blank">migration.sa.gov.au</a> · 2026年3月</div>
+          <div class="update-source" style="margin-top:5px;">来源：<a href="https://www.migration.sa.gov.au" target="_blank">migration.sa.gov.au</a> · 2026年3月</div>
         </div>
       </div>
       <div class="update-item">
@@ -896,7 +1069,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         <div class="update-body">
           <div class="update-title">澳大利亚2月起收紧"签证跳跃"规则，临时签证转换受更严格审查</div>
           <div class="update-desc">自2026年2月2日起，澳大利亚实施新规限制在境内频繁转换签证类别的行为（俗称"visa hopping"）。无明确移民路径、多次短期延签或无计划转签的申请将面临更高拒签风险。申请人需提前规划清晰的签证路径策略。</div>
-          <div class="update-source">来源：<a href="https://immi.homeaffairs.gov.au" target="_blank">immi.homeaffairs.gov.au</a> · 2026年2月</div>
+          <div class="update-source" style="margin-top:5px;">来源：<a href="https://immi.homeaffairs.gov.au" target="_blank">immi.homeaffairs.gov.au</a> · 2026年2月</div>
         </div>
       </div>
       <div class="update-item">
@@ -905,7 +1078,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);l
         <div class="update-body">
           <div class="update-title">SID签证薪资门槛上调：CSIT从AUD 73,150升至AUD 76,515</div>
           <div class="update-desc">自2025年7月1日起，雇主担保类签证核心技能收入门槛（CSIT）上调4.6%至AUD 76,515/年（不含超级年金），专业技能门槛（SSIT）升至AUD 141,210/年。影响482（SID）核心技能流、186直接入境流及494区域雇主担保签证的新提名申请。</div>
-          <div class="update-source">来源：<a href="https://immi.homeaffairs.gov.au" target="_blank">immi.homeaffairs.gov.au</a> · 2025年7月1日生效</div>
+          <div class="update-source" style="margin-top:5px;">来源：<a href="https://immi.homeaffairs.gov.au" target="_blank">immi.homeaffairs.gov.au</a> · 2025年7月1日生效</div>
         </div>
       </div>
     </div>
