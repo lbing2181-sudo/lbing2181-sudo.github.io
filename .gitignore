@@ -1,0 +1,4 @@
+# Internal documents - do not publish
+docs/*.docx
+docs/*.pdf
+docs/*.xlsx
