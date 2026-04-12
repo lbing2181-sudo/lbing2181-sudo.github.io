@@ -107,7 +107,7 @@ nav {
 /* ── HERO ── */
 .hero {
   background: linear-gradient(160deg, #0a1628 0%, #122240 40%, #1a2d4a 70%, #0f1d32 100%);
-  padding: 100px 40px 80px;
+  padding: 64px 40px 40px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -126,28 +126,28 @@ nav {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 12px; color: rgba(255,255,255,0.65);
   background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.12);
-  padding: 5px 14px; border-radius: 20px; margin-bottom: 32px;
+  padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
   letter-spacing: .02em;
 }
 .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: #34c759; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 h1 {
   font-family: 'Noto Serif SC', serif;
-  font-size: 56px; font-weight: 600; line-height: 1.18;
-  color: #ffffff; margin-bottom: 16px; letter-spacing: -.02em;
+  font-size: 48px; font-weight: 600; line-height: 1.18;
+  color: #ffffff; margin-bottom: 10px; letter-spacing: -.02em;
 }
 h1 em { font-style: normal; color: var(--gold); }
 .hero-sub {
   font-family: 'Instrument Serif', serif;
-  font-size: 20px; color: rgba(255,255,255,0.4); font-style: italic;
-  margin-bottom: 18px; letter-spacing: .01em;
+  font-size: 18px; color: rgba(255,255,255,0.4); font-style: italic;
+  margin-bottom: 10px; letter-spacing: .01em;
 }
 .hero-desc {
-  font-size: 16px; color: rgba(255,255,255,0.5); max-width: 520px;
-  margin: 0 auto 36px; line-height: 1.8;
+  font-size: 15px; color: rgba(255,255,255,0.5); max-width: 520px;
+  margin: 0 auto 20px; line-height: 1.7;
 }
 .hero-search {
-  display: flex; max-width: 480px; margin: 0 auto 20px;
+  display: flex; max-width: 480px; margin: 0 auto 14px;
   background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.14);
   border-radius: 14px; overflow: hidden;
   transition: border-color .2s;
@@ -164,9 +164,9 @@ h1 em { font-style: normal; color: var(--gold); }
   font-family: inherit; cursor: pointer; transition: all .15s;
 }
 .hero-search button:hover { background: #c8951a; }
-#search-msg { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: -8px; margin-bottom: 12px; min-height: 20px; }
+#search-msg { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: -6px; margin-bottom: 6px; min-height: 18px; }
 .hero-cta {
-  display: flex; justify-content: center; gap: 12px; margin-bottom: 44px;
+  display: flex; justify-content: center; gap: 12px; margin-bottom: 20px;
 }
 .hero-cta-btn {
   display: inline-flex; align-items: center; gap: 6px;
@@ -188,7 +188,7 @@ h1 em { font-style: normal; color: var(--gold); }
   border: 0.5px solid rgba(255,255,255,0.1); border-radius: 14px;
   overflow: hidden; background: rgba(255,255,255,0.03);
 }
-.hs { padding: 16px 24px; text-align: center; border-right: 0.5px solid rgba(255,255,255,0.08); }
+.hs { padding: 12px 22px; text-align: center; border-right: 0.5px solid rgba(255,255,255,0.08); }
 .hs:last-child { border-right: none; }
 .hs-n { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 500; color: #ffffff; }
 .hs-l { font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: .06em; margin-top: 3px; text-transform: uppercase; }
@@ -314,8 +314,8 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
 @media(max-width:768px){
   nav { padding: 0 16px; }
   .nav-links { display: none; }
-  .hero { padding: 60px 20px 48px; }
-  h1 { font-size: 34px; }
+  .hero { padding: 40px 20px 28px; }
+  h1 { font-size: 30px; }
   .hero-cta { flex-direction: column; align-items: center; gap: 8px; }
   .hero-cta-btn { width: 100%; max-width: 260px; justify-content: center; }
   .hero-stats { display: grid; grid-template-columns: repeat(2,1fr); }
