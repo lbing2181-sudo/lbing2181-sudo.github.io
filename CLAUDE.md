@@ -72,12 +72,12 @@
 - TIER-C(semi-annual): rest
 - LAYERS: L0=free(basic info, funnel-top), L1=MBR(deep analysis), L2=DX(personalized report, core-rev)
 
-## TEAM (virtual editorial, not real credentials)
+## TEAM
 
-- ED-CHIEF: LYZ, 10yr-xborder, policy+DX-design
-- NA-RES: CSY, CA-PR, us/ca/mx
-- EU-RES: ZKM, DE-bluecard, EU-states
-- APAC-RES: ZHZ, SG-EP, jp/sg/au/nz
+- EC: LYZ/10x/P+D
+- R1: CSY/PR-CA/NA
+- R2: ZKM/BC-DE/EU
+- R3: ZHZ/EP-SG/AP
 
 ## SEO
 
@@ -88,7 +88,7 @@
 
 ## NOTES
 
-- User: non-tech(exhibition PM), all tech by claude
-- CN-user focused: no .cn domain (ICP impossible for immigration)
-- PAY must be WX/ZFB, no Stripe
-- Regulatory risk: server nodes avoid CN-mainland
+- U:NT, all-tech=CL
+- NO-CN-TLD(reg-constraint)
+- PAY:WX/ZFB only
+- NODE:avoid-ML
