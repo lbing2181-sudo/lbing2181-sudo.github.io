@@ -29,16 +29,21 @@
 
 ```
 lbing2181-sudo.github.io/
-├── index.html                 # 首页（独立CSS/JS，与国家页不共享）
+├── index.html                 # 首页（独立CSS/JS）
+├── diagnosis.html             # AI 诊断页
 ├── membership.html            # 会员页（独立CSS/JS）
-├── caribbean-guide.html       # 加勒比护照对比指南
-├── 62个国家页面.html           # 共享 css/country.css + js/country.js
+├── about.html                 # 关于我们（E-E-A-T）
+├── countries/                 # 62个国家页面（共享 css/country.css + js/country.js）
+│   ├── australia.html
+│   ├── canada.html
+│   ├── caribbean-guide.html   # 加勒比护照对比指南
+│   └── ...
 ├── css/
 │   └── country.css            # 国家页公共样式（14.7KB）
 ├── js/
-│   └── country.js             # 国家页公共脚本（导航栏、路径切换、FAQ、滚动监听）
-├── sitemap.xml                # 64个URL，含所有页面
-├── robots.txt                 # 允许所有爬虫
+│   └── country.js             # 国家页公共脚本
+├── sitemap.xml                # 67个URL
+├── robots.txt
 ├── google58ee8f44b2f15d56.html # Google 验证文件
 ├── CLAUDE.md                  # 本文件 - 项目上下文
 └── docs/
@@ -50,27 +55,28 @@ lbing2181-sudo.github.io/
 ### 国家页面修改
 - **改样式**：编辑 `css/country.css`，62个国家页自动生效
 - **改导航栏/页脚**：编辑 `js/country.js` 中的 nav/footer 生成函数
-- **改特定国家内容**：直接编辑对应的 `.html` 文件
-- **页面特有样式**：A类国家（usa/uk/canada/australia/new-zealand）有页面内 `<style>` 块，其他国家无内联样式
+- **改特定国家内容**：直接编辑 `countries/` 下对应的 `.html` 文件
+- **页面特有样式**：A类国家（usa/uk/canada/australia/new-zealand）有页面内 `<style>` 块
+- **路径注意**：国家页在 `countries/` 子目录，引用 CSS/JS 用 `../css/country.css`、`../js/country.js`
 
 ### index.html 与 membership.html
 - 这两个页面的 CSS/JS 完全独立，与国家页不共享
 - index.html 使用旧版 CSS 变量命名（--bg/--text），国家页使用新版（--ink/--paper）
 - 修改时分别处理，不要混淆
+- 链接到国家页时使用 `countries/xxx.html` 路径
 
 ### 新增国家页面
-1. 复制一个现有国家页（如 `albania.html`）作为模板
+1. 复制 `countries/` 下一个现有国家页（如 `albania.html`）作为模板
 2. 修改 `<title>`、`<meta>` 和页面内容
-3. 确保 `<head>` 中有 `<link rel="stylesheet" href="css/country.css">`
-4. 确保 `</body>` 前有 `<script src="js/country.js"></script>`
+3. 确保 `<head>` 中有 `<link rel="stylesheet" href="../css/country.css">`
+4. 确保 `</body>` 前有 `<script src="../js/country.js"></script>`
 5. 导航栏使用 `<nav class="nav" id="main-nav"></nav>`
-6. 在 `sitemap.xml` 中添加对应 URL
+6. 在 `sitemap.xml` 中添加对应 URL（注意路径含 `countries/`）
 7. 在 `index.html` 的国家卡片列表中添加入口
 
 ### Git 工作流
-- 开发分支命名：`claude/功能描述-随机ID`
-- 完成后合并到 `main`，GitHub Pages 自动部署
-- 每个 Phase 完成后更新 `docs/project-tracker.md`
+- 直接在 `main` 分支开发并推送（改完即部署）
+- 每次完成工作后更新 `docs/project-tracker.md` 并展示摘要
 
 ## 设计系统
 
@@ -114,14 +120,47 @@ lbing2181-sudo.github.io/
 
 > 注意：不伪造真实资质（如持牌律师），只设定合理的研究/实践经验背景。
 
+## Claude 能力期望
+
+### 商业思维
+- 所有功能开发都要先问"这对变现有什么帮助"
+- 给出建议时附带竞品参考和市场数据
+- 关注用户转化漏斗：流量→注册→付费，每个环节都要有策略
+- 功能优先级按商业价值排序，不做"技术上有趣但不赚钱"的东西
+
+### SEO 与运营
+- 每个新页面都要有完整的 meta title/description/canonical/JSON-LD
+- 内容要考虑搜索意图，不只是堆信息
+- 建议长尾关键词策略时给出具体的关键词和预估搜索量
+- 内链结构要有规划：国家页 ↔ 对比指南 ↔ 诊断工具 ↔ 博客文章
+- 每次新增/修改页面后检查 sitemap.xml 是否需要更新
+
+### 设计与体验
+- 保持设计系统一致性（配色/字体/间距/圆角）
+- 每次 UI 改动必须考虑移动端适配（768px 断点）
+- 重大视觉改动先描述方案让用户确认，不要直接上线
+- 关注首屏体验：关键信息和 CTA 必须在首屏可见
+
+### 数据与安全
+- 涉及支付/用户数据的功能要考虑安全性
+- API Key 等敏感信息绝不能出现在前端代码中
+- Claude 知识截止 2025年5月，实时性数据（费用、配额、分数线）必须标注需要用户核实
+
+### 工作习惯
+- 每次完成工作后更新总控表（docs/project-tracker.md）并展示摘要
+- 代码直接在 main 分支开发推送，改完即部署
+- 保持中立客观，不吹捧不夸大
+- 有不确定的信息要明确标注
+
 ## SEO 策略要点
 
-- Google Search Console 已于 2026-04-09 提交，等待收录
-- robots.txt 和 sitemap.xml 配置正确，无技术障碍
+- Google Analytics 已接入（G-7T4EQEHBCG），全站 65+ 页面
+- Google Search Console 已于 2026-04-09 提交
+- About Us 页面已创建（about.html）
+- robots.txt 和 sitemap.xml 配置正确
 - JSON-LD 结构化数据：WebSite + ItemList（首页）
-- 内容合规策略：来源标注 + 原创分析 + 时效性信号（非纯 AI 搬运）
-- E-E-A-T 建设：需创建 About Us 页面展示编辑团队背景
-- 待建：博客/文章区（长尾关键词）、Google Analytics、百度统计
+- 内容合规策略：来源标注 + 原创分析 + 时效性信号
+- 待建：博客/文章区（长尾关键词）、百度统计
 
 ## 注意事项
 

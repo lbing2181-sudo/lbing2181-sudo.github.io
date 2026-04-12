@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美国移民居留指南 2026 | 全球移民政策大全</title>
+<meta name="description" content="美国2026年最新移民政策全解析：EB-1A杰出人才、EB-2 NIW国家利益豁免、EB-5投资移民、黄金卡（Trump Gold Card）、O-1/H-1B工作签证及中国排期现状。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/country.css">
+<style>
+/* USA-specific: insight box */
+.insight-box{background:linear-gradient(135deg,rgba(26,63,111,0.04) 0%,rgba(176,125,42,0.04) 100%);border:0.5px solid rgba(176,125,42,.3);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:18px 20px;margin:16px 0;font-size:13px;color:var(--ink-soft);line-height:1.85;}
+.insight-label{font-size:11px;font-weight:600;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+.insight-box strong{color:var(--ink);}
+.insight-box a{color:var(--blue-mid);text-decoration:none;}
+.site-disclaimer{background:rgba(139,26,26,0.04);border:0.5px solid rgba(139,26,26,0.15);border-radius:var(--r-md);padding:14px 18px;margin-bottom:32px;font-size:12px;color:var(--ink-muted);line-height:1.7;}
+.site-disclaimer strong{color:var(--red);}
+.backlog-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px;}
+.backlog-table th{text-align:left;padding:10px 14px;background:var(--paper-warm);border:0.5px solid var(--border);font-weight:500;color:var(--ink-soft);font-size:12px;}
+.backlog-table td{padding:10px 14px;border:0.5px solid var(--border);color:var(--ink-soft);}
+.backlog-table tr:hover td{background:var(--gold-light);}
+.backlog-table td:first-child{font-weight:500;color:var(--ink);}
+.td-good{color:var(--green);font-weight:500;}.td-warn{color:var(--amber);font-weight:500;}.td-alert{color:var(--red);font-weight:500;}.td-gold{color:var(--gold);font-weight:500;}
+.badge-invest{background:var(--gold-light);color:var(--gold);border:0.5px solid rgba(176,125,42,.2);}
+.badge-warn{background:var(--red-light);color:var(--red);border:0.5px solid rgba(139,26,26,.2);}
+.badge-new{background:#e0f8e8;color:#1a5c35;border:0.5px solid rgba(26,92,53,.25);}
+.vc-v.gold{color:var(--gold);}
+.visa-note.alert-note{background:var(--red-light);border-left-color:var(--red);color:var(--red);}
+/* === LOCKED INSIGHT BOX === */
+.insight-box.locked {
+  position: relative;
+  overflow: hidden;
+  max-height: 160px;
+  cursor: default;
+}
+.insight-box.locked::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 52%, rgba(245,245,247,0.94) 80%, rgba(245,245,247,1) 100%);
+  pointer-events: none;
+}
+.insight-unlock {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gold);
+  background: rgba(255,255,255,0.97);
+  padding: 7px 18px;
+  border-radius: 20px;
+  border: 0.5px solid rgba(176,125,42,0.35);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+  text-decoration: none;
+  font-family: inherit;
+}
+.insight-unlock:hover {
+  background: var(--gold-light);
+  border-color: var(--gold);
+}
+/* ── REFINED VISUAL LAYER ── */
+/* Overview icon replacement: numbered */
+.ov-icon-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  color: var(--gold-mid);
+  font-weight: 500;
+  letter-spacing: .05em;
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+/* insight-box: clean white background */
+.insight-box {
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+  border-radius: 0 var(--r-md) var(--r-md) 0 !important;
+}
+/* FAQ icon: thin line, no circle */
+.faq-icon {
+  width: 18px !important;
+  height: 18px !important;
+  border: 0.5px solid var(--border-strong) !important;
+  border-radius: 2px !important;
+  font-size: 14px !important;
+  color: var(--ink-muted) !important;
+  font-weight: 300 !important;
+}
+.faq-item.open .faq-icon {
+  background: var(--ink) !important;
+  border-color: var(--ink) !important;
+  color: var(--paper) !important;
+  border-radius: 2px !important;
+  transform: rotate(45deg) !important;
+}
+/* Visa cards: remove hover transform, only border deepens */
+.visa-card:hover {
+  box-shadow: none !important;
+  border-color: var(--border-strong) !important;
+  transform: none !important;
+}
+/* vc-v color consolidation: reduce green/red/amber noise */
+.vc-v.highlight { color: var(--ink) !important; font-weight: 600 !important; }
+.vc-v.alert { color: var(--ink-soft) !important; font-style: italic !important; }
+/* warn stays amber for genuine caution */
+/* ov-card: more breathing room */
+.ov-card { padding: 22px 20px !important; }
+/* Section title: stronger hierarchy */
+.sec-title {
+  font-size: 20px !important;
+  letter-spacing: -0.01em !important;
+}
+/* sec-sub: more muted */
+.sec-sub { 
+  font-size: 12.5px !important;
+  letter-spacing: 0.01em !important;
+}
+/* vc-row: slightly more height */
+.vc-row { padding: 7px 0 !important; }
+/* overview-highlight: more refined */
+.overview-highlight {
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+  border-radius: 0 var(--r-md) var(--r-md) 0 !important;
+  color: var(--ink-soft) !important;
+  padding: 18px 22px !important;
+}
+.hl-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-right: 8px;
+}
+/* Badge consolidation */
+.badge-note {
+  background: var(--paper-mid) !important;
+  color: var(--ink-muted) !important;
+  border: 0.5px solid var(--border-mid) !important;
+}
+/* Path guide: more space */
+.pg-step { padding: 22px 20px !important; background: var(--paper-warm); }
+.pg-num { 
+  font-size: 28px !important; 
+  color: var(--border-mid) !important;
+  margin-bottom: 12px !important;
+}
+/* hero-tag: remove hot special color, unify */
+.hero-tag.hot {
+  border-color: var(--border-mid) !important;
+  color: var(--ink-soft) !important;
+  background: var(--paper-warm) !important;
+}
+/* Cost table: more refined */
+.cost-table th { 
+  background: transparent !important;
+  border-bottom: 1px solid var(--border-mid) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  padding: 8px 14px !important;
+}
+.cost-table td {
+  border-left: none !important;
+  border-right: none !important;
+  border-color: var(--border) !important;
+}
+/* Update badges: simpler */
+.ub-new { 
+  background: transparent !important;
+  color: var(--ink-muted) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-radius: 3px !important;
+}
+.ub-change {
+  background: transparent !important;
+  color: var(--gold) !important;
+  border: 0.5px solid rgba(176,125,42,.3) !important;
+  border-radius: 3px !important;
+}
+.ub-warn {
+  background: transparent !important;
+  color: var(--ink-soft) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-radius: 3px !important;
+}
+/* Update dates: slightly heavier */
+.update-date {
+  font-size: 11px !important;
+  color: var(--ink-muted) !important;
+  min-width: 80px !important;
+  font-weight: 500 !important;
+  letter-spacing: .02em !important;
+}
+/* Update title: proper weight */
+.update-title { 
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+}
+/* Sticky nav: thinner, quieter */
+.snav-item {
+  padding: 13px 16px !important;
+  font-size: 12.5px !important;
+}
+/* visa-note: quieter */
+.visa-note {
+  border-left-width: 2px !important;
+  background: var(--paper-warm) !important;
+  border-color: var(--border-mid) !important;
+  color: var(--ink-soft) !important;
+}
+/* USA-specific refinements */
+.site-disclaimer {
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+  border-radius: 0 var(--r-md) var(--r-md) 0 !important;
+  color: var(--ink-soft) !important;
+  padding: 14px 20px !important;
+}
+.insight-box.locked {
+  background: var(--paper-warm) !important;
+  border: 0.5px solid var(--border-mid) !important;
+  border-left: 2.5px solid var(--gold) !important;
+}
+.insight-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+/* Backlog table rows */
+.backlog-table tr:hover td {
+  background: var(--paper-warm) !important;
+}
+.visa-note.warn-note{background:var(--amber-light)!important;border-left-color:var(--amber)!important;color:var(--amber)!important;}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7T4EQEHBCG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7T4EQEHBCG');
+</script>
+</head>
+<body>
+<nav class="nav" id="main-nav"></nav>
+<div class="sticky-nav">
+  <div class="sticky-nav-inner">
+    <a class="snav-item active" href="#overview">概览</a>
+    <a class="snav-item" href="#pathways">移民路径</a>
+    <a class="snav-item" href="#backlog">排期现状</a>
+    <a class="snav-item" href="#process">申请流程</a>
+    <a class="snav-item" href="#costs">费用参考</a>
+    <a class="snav-item" href="#updates">政策动态</a>
+    <a class="snav-item" href="#faq">常见问题</a>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-inner fade-in">
+    <div>
+      <div class="hero-eyebrow">北美洲 · 美利坚合众国</div>
+      <h1 class="hero-title">美国移民绿卡<br>政策全解析</h1>
+      <div class="hero-en">U.S. Green Card & Immigration Guide 2026</div>
+      <p class="hero-desc">全面覆盖美国所有主流移民路径：EB-1A杰出人才、EB-2 NIW国家利益豁免、EB-5投资移民、黄金卡（Trump Gold Card）、O-1/H-1B工作签证转绿卡全流程。所有数据来源USCIS及国务院官网，2026年4月最新核实。</p>
+      <div class="hero-tags">
+        <span class="hero-tag">中国申请人最复杂热门目的地</span>
+        <span class="hero-tag">全球最强护照之一</span>
+        <span class="hero-tag">EB-1A/NIW无需雇主</span>
+        <span class="hero-tag">中国排期严重积压</span>
+        <span class="hero-tag">2026年政策频繁变动</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-flag">🇺🇸</div>
+      <div class="hero-card-title">关键数据一览（2026年4月）</div>
+      <div class="quick-stats">
+        <div class="qs"><div class="qs-num">2023年2月</div><div class="qs-label">EB-1中国最终行动日期</div></div>
+        <div class="qs"><div class="qs-num">2021年9月</div><div class="qs-label">EB-2中国最终行动日期</div></div>
+        <div class="qs"><div class="qs-num">$800K</div><div class="qs-label">EB-5 TEA最低投资额</div></div>
+        <div class="qs"><div class="qs-num">$1M</div><div class="qs-label">黄金卡捐赠额</div></div>
+      </div>
+      <a class="official-link" href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        travel.state.gov — 签证公告（每月更新）
+      </a>
+      <a class="official-link" href="https://www.uscis.gov" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        uscis.gov — 美国移民局官网
+      </a>
+      <a class="official-link" href="https://www.trumpcard.gov" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        trumpcard.gov — 黄金卡官方申请入口
+      </a>
+    </div>
+  </div>
+</div>
+<div class="content">
+<div class="site-disclaimer">
+  <strong>重要声明：</strong>本页包含对美国移民政策的深度解读，涉及部分在中文信息渠道鲜少披露的"边界信息"。这些内容均来源于美国政府官方网站及专业移民律师的公开分析，在合理范围内为读者提供参考。本站不承担任何法律责任，所有操作均应在取得专业移民律师指导后进行，并须符合中华人民共和国相关法律法规的要求。
+</div>
+<section class="sec" id="overview">
+  <div class="sec-header">
+    <div class="sec-title">美国移民概览</div>
+    <div class="sec-sub">中国申请人核心优势、主要挑战与路径选择逻辑</div>
+  </div>
+  <div class="overview-grid">
+    <div class="ov-card"><div class="ov-icon-num">01</div><div class="ov-title">绿卡：全球最强身份之一</div><div class="ov-text">美国绿卡允许在美无限期居留、就业、经商，10年后可申请公民（护照免签186国）。绿卡持有人子女若在美出生即自动获得美国国籍，这一出生地原则使美国绿卡的代际价值极高。</div></div>
+    <div class="ov-card"><div class="ov-icon-num">02</div><div class="ov-title">中国排期：全球最严重积压</div><div class="ov-text">美国每国配额仅7%，中国申请人占比极高导致严重积压。EB-2/EB-3中国排期积压数年至十年以上。选对路径——而非机械跟着雇主走——是决定美国绿卡能否在合理时间内拿到的核心变量。</div></div>
+    <div class="ov-card"><div class="ov-icon-num">03</div><div class="ov-title">EB-1A/NIW：无需雇主的自我申请</div><div class="ov-text">对中国高端人才而言，EB-1A杰出人才和EB-2 NIW国家利益豁免是最具竞争力的路径——无需美国雇主担保，可自主申请，中国排期相对较短（EB-1约3年，NIW约5年），且绕过PERM劳工证明流程。</div></div>
+    <div class="ov-card"><div class="ov-icon-num">04</div><div class="ov-title">H-1B境外新申请加征$10万费</div><div class="ov-text">2025年9月起，境外新递交的H-1B申请加征$100,000额外费用（约¥72万）。境内续签/延期/身份调整不受影响。此举大幅推高雇主担保路径成本，加速了对O-1/EB-1A路径的需求。</div></div>
+    <div class="ov-card"><div class="ov-icon-num">05</div><div class="ov-title">全新黄金卡：$100万直通绿卡快速通道</div><div class="ov-text">2025年12月正式上线的Trump Gold Card，捐赠$100万（约¥726万）给美国政府即可申请绿卡快速通道，无需雇主，无需就业创造，但存在宪法法律争议，且捐赠不可退款。</div></div>
+    <div class="ov-card"><div class="ov-icon-num">06</div><div class="ov-title">社交媒体审查全面扩展</div><div class="ov-text">2025年12月15日起，H-1B/H-4申请人须在DS-160表格中申报所有社交媒体账号，明确包括微博、优酷、知乎、豆瓣等中国平台。漏报可导致签证被拒，是中国申请人特别需要注意的新规。</div></div>
+  </div>
+  <div class="overview-highlight">
+    <strong>中国申请人核心策略：</strong>大多数人走H-1B→EB-2/EB-3路径，实际上是最拥堵的选择。<strong>聪明的做法：</strong>①先申请O-1锁定在美身份（无年度限额）；②同步提交EB-1A I-140锁定优先日期（越早越好）；③有条件者同步提交NIW I-140（双路径并行，费用约$700）；④资本充足者考虑EB-5农村TEA项目（目前无中国积压，6–12个月可获条件绿卡）；⑤黄金卡作为法律明朗后的备选。排期问题不是绝境，是路径选择优先级的游戏。
+  </div>
+    <div class="overview-star">
+      ⭐ <strong>2026年美国绿卡申请的核心策略逻辑：双轨并行，优先锁定优先日期</strong><br><br>
+      对于中国出生申请人，排期积压是结构性问题，无法回避，但可以主动管理。最关键的一步不是"等排期到了再申请"，而是尽早提交I-140请愿，<strong>锁定最早的优先日期（Priority Date）</strong>——因为优先日期一旦锁定，即使主申请人换工作、换雇主，日期仍然保留。<br><br>
+      双轨策略：同时推进EB-1A（杰出人才，无需雇主担保）和EB-2 NIW（国家利益豁免），两条路径I-140审批相互独立，总花费约$700–1,400，但可以用最早的那个优先日期排队。对于已有H-1B、O-1或其他合法身份的申请人，<strong>现在提交I-140是零成本的时间窗口——每推迟一年，就是排队晚一年。</strong>
+    </div>
+    <div class="visa-note warn-note" style="margin-top:12px;">
+      💡 <strong>2026年三大紧迫提醒：</strong>①<strong>黄金卡（Gold Card）法律状态仍不明朗</strong>，预计2026年下半年有实质进展，现阶段不建议以此为唯一规划；②<strong>EB-5农村TEA项目当前中国无积压</strong>，6–12个月可获条件绿卡，但国会每年可能调整配额分配规则，窗口随时可能关闭；③<strong>H-1B转绿卡期间换工作有风险</strong>，I-485待批状态下换雇主须走AC21法规，条件判断需在操作前确认，而非事后补救。
+    </div>
+</section>
+
+<section class="sec" id="pathways">
+  <div class="sec-header">
+    <div class="sec-title">主要移民路径详解</div>
+    <div class="sec-sub">按申请人背景和资产情况选择最匹配的路径</div>
+  </div>
+  <div class="pathway-tabs">
+    <button class="ptab active" onclick="showPath(this,'eb1a')">EB-1A 杰出人才</button>
+    <button class="ptab" onclick="showPath(this,'niw')">EB-2 NIW 国家利益豁免</button>
+    <button class="ptab" onclick="showPath(this,'eb5')">EB-5 投资移民</button>
+    <button class="ptab" onclick="showPath(this,'goldcard')">黄金卡 Gold Card</button>
+    <button class="ptab" onclick="showPath(this,'work')">工作签证 O-1 / H-1B</button>
+  </div>
+
+  <div class="pathway-content active" id="path-eb1a">
+    <div class="visa-grid">
+      <div class="visa-card featured">
+        <div class="vc-head">
+          <div><div class="vc-title">EB-1A 杰出人才绿卡</div><div class="vc-en">Extraordinary Ability · "Einstein Visa"</div></div>
+          <div style="text-align:right"><div class="vc-num">EB-1</div><span class="vc-badge badge-pr">自我申请</span></div>
+        </div>
+        <div class="vc-rows">
+          <div class="vc-row"><span class="vc-k">核心优势</span><span class="vc-v highlight">无需雇主 · 无需工作offer · 无需PERM劳工证明</span></div>
+          <div class="vc-row"><span class="vc-k">中国排期（2026年4月）</span><span class="vc-v warn">最终行动日：2023年2月1日（约3年积压）</span></div>
+          <div class="vc-row"><span class="vc-k">门槛逻辑</span><span class="vc-v">满足10项标准中≥3项 + 最终实质性审查</span></div>
+          <div class="vc-row"><span class="vc-k">I-140标准审批</span><span class="vc-v">4–6个月 / 加急：15个工作日</span></div>
+          <div class="vc-row"><span class="vc-k">FY2025获批率</span><span class="vc-v gold">全年约67%；Q4降至53%（审查趋严）</span></div>
+          <div class="vc-row"><span class="vc-k">职业领域</span><span class="vc-v">科学 · 艺术 · 教育 · 商业 · 体育</span></div>
+          <div class="vc-row"><span class="vc-k">律师费参考</span><span class="vc-v">$5,000–15,000（视案件复杂度）</span></div>
+          <div class="vc-row"><span class="vc-k">2026年趋势</span><span class="vc-v warn">USCIS拟出台更严格评判标准，建议尽早申请</span></div>
+        </div>
+        <div class="vc-foot">来源：<a href="https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-first-preference-eb-1" target="_blank">uscis.gov/EB-1</a></div>
+      </div>
+      <div class="visa-card">
+        <div class="vc-head">
+          <div><div class="vc-title">EB-1A · 10项审核标准详解</div><div class="vc-en">Meet ≥3 of 10 Criteria</div></div>
+          <div style="text-align:right"><div class="vc-num">10项</div><span class="vc-badge badge-temp">≥3项达标</span></div>
+        </div>
+        <div class="vc-rows">
+          <div class="vc-row"><span class="vc-k">①奖项</span><span class="vc-v">国家/国际级重大奖项（学术奖/行业奖均可）</span></div>
+          <div class="vc-row"><span class="vc-k">②会员资格</span><span class="vc-v">杰出成就要求的专业协会成员</span></div>
+          <div class="vc-row"><span class="vc-k">③媒体报道</span><span class="vc-v">主流媒体/专业出版物关于你的报道</span></div>
+          <div class="vc-row"><span class="vc-k">④评审者</span><span class="vc-v">担任他人作品/申请/论文的评审（含期刊/会议）</span></div>
+          <div class="vc-row"><span class="vc-k">⑤原创贡献</span><span class="vc-v">对所在领域的重大原创性贡献（专利/引用等）</span></div>
+          <div class="vc-row"><span class="vc-k">⑥学术文章</span><span class="vc-v">在专业期刊/顶级会议发表文章</span></div>
+          <div class="vc-row"><span class="vc-k">⑦展览/演出</span><span class="vc-v">在杰出场所展示或演出</span></div>
+          <div class="vc-row"><span class="vc-k">⑧领导角色</span><span class="vc-v">在知名组织中担任领导或关键角色</span></div>
+          <div class="vc-row"><span class="vc-k">⑨高薪酬</span><span class="vc-v">薪酬明显高于同行（百分位数证明）</span></div>
+          <div class="vc-row"><span class="vc-k">⑩商业成功</span><span class="vc-v">在表演艺术领域取得商业成功</span></div>
+        </div>
+        <div class="vc-foot">满足3项是门槛，USCIS还会进行"最终实质性审查"</div>
+      </div>
+    </div>
+    <div class="insight-box locked">
+      <div class="insight-label">今年申请，比明年申请值钱——原因不在你，在规则</div>
+      USCIS已在内部备忘录中明确将对EB-1A"最终实质性审查"标准进行现代化修订，提高一致性并收紧边界案例的认定。草案预计2026年下半年进入公众评论期，一旦落地，现有的判断弹性将大幅收窄。<br><br>这意味着什么？今天你用来申请的证据逻辑，12个月后可能需要更强的独立性背书才能达标。不是你的成就变少了，是裁判换了打分标准。<br><br>更少有人知道的是：现行规则下USCIS对"评审者"标准的认定存在一个被忽视的灵活空间——覆盖这一点，往往是申请成功与收到RFE之间真正的分水岭。在新规落地之前，这个窗口仍然有效。
+      <a class="insight-read-more" href="../membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="../membership.html">🔒 订阅会员 · 解锁完整内容</a>
+    </div>
+  </div>
+
+  <div class="pathway-content" id="path-niw">
+    <div class="visa-grid">
+      <div class="visa-card featured">
+        <div class="vc-head">
+          <div><div class="vc-title">EB-2 NIW 国家利益豁免</div><div class="vc-en">National Interest Waiver · Self-Petition</div></div>
+          <div style="text-align:right"><div class="vc-num">EB-2</div><span class="vc-badge badge-pr">自我申请</span></div>
+        </div>
+        <div class="vc-rows">
+          <div class="vc-row"><span class="vc-k">核心优势</span><span class="vc-v highlight">无需雇主 · 无需PERM · 跳过1–2年劳工证明</span></div>
+          <div class="vc-row"><span class="vc-k">中国排期（最终行动日）</span><span class="vc-v alert">2021年9月1日（约5年积压）</span></div>
+          <div class="vc-row"><span class="vc-k">中国排期（可提交日）</span><span class="vc-v warn">2022年1月1日——可提前递I-485获EAD</span></div>
+          <div class="vc-row"><span class="vc-k">门槛逻辑</span><span class="vc-v">Dhanasar三步测试（2016年立案先例）</span></div>
+          <div class="vc-row"><span class="vc-k">I-140标准审批</span><span class="vc-v">8–20个月（2026年因USCIS人员削减延长）</span></div>
+          <div class="vc-row"><span class="vc-k">加急处理（I-907）</span><span class="vc-v">45个工作日，加费$2,805</span></div>
+          <div class="vc-row"><span class="vc-k">学历要求</span><span class="vc-v">硕士及以上；或学士+5年同领域工作经验</span></div>
+          <div class="vc-row"><span class="vc-k">2025年政策更新</span><span class="vc-v warn">USCIS强化"国家层面重要性"审查，拒绝模板化申请</span></div>
+        </div>
+        <div class="vc-foot">来源：<a href="https://www.uscis.gov/eb-2" target="_blank">uscis.gov/EB-2</a></div>
+      </div>
+      <div class="visa-card">
+        <div class="vc-head">
+          <div><div class="vc-title">NIW · Dhanasar三步测试</div><div class="vc-en">Three-Prong Test · All Three Required</div></div>
+          <div style="text-align:right"><div class="vc-num">3步</div><span class="vc-badge badge-temp">全部满足</span></div>
+        </div>
+        <div class="vc-rows">
+          <div class="vc-row"><span class="vc-k">第1步（实质价值）</span><span class="vc-v">拟开展工作具有实质性价值和国家重要性</span></div>
+          <div class="vc-row"><span class="vc-k">第2步（资质匹配）</span><span class="vc-v">申请人具备良好资质推进该工作</span></div>
+          <div class="vc-row"><span class="vc-k">第3步（豁免利益）</span><span class="vc-v">豁免雇主要求符合美国国家利益</span></div>
+          <div class="vc-row"><span class="vc-k">联邦优先领域（高通过率）</span><span class="vc-v highlight">AI · 清洁能源 · 半导体 · 公共卫生 · 航空航天</span></div>
+          <div class="vc-row"><span class="vc-k">双路径并行技巧</span><span class="vc-v gold">EB-1A + NIW 同时提交，分别锁定优先日期</span></div>
+          <div class="vc-row"><span class="vc-k">绕过PERM价值</span><span class="vc-v highlight">省去15–24个月劳工证明流程，自主掌控时间线</span></div>
+          <div class="vc-row"><span class="vc-k">2025年高通过率行业</span><span class="vc-v">AI/ML · 医疗 · 清洁能源 · 国防相关技术</span></div>
+          <div class="vc-row"><span class="vc-k">2025年政策更新</span><span class="vc-v warn">政府机构/国家实验室背书信件权重大幅提升</span></div>
+        </div>
+        <div class="vc-foot">NIW是目前中国科研/工程人才性价比最高的独立绿卡路径</div>
+      </div>
+    </div>
+    <div class="insight-box locked">
+      <div class="insight-label">大多数人在委托律所之后才知道可以做这件事——但其实现在就可以</div>
+      NIW的I-140申请，优先日期从USCIS收件当天开始计算。它的含义是：你现在提交和六个月后提交，在排队顺序上相差的不是六个月，而是六个月加上未来所有可能的排期倒退幅度。<br><br>律所的工作流程通常是：先签合同，先收费，再准备材料，再提交。整个过程快则三个月，慢则半年。而NIW的材料门槛并不要求完美——一份合理的"拟开展工作说明"加上已有的学历和发表记录，可以先提交基础版本锁定日期，后续补强。<br><br>这个操作在专业律师圈内叫"日期保全策略"，很少有律所会在你还没付款的时候主动告诉你。
+      <a class="insight-read-more" href="../membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="../membership.html">🔒 订阅会员 · 解锁完整内容</a>
+    </div>
+  </div>
+
+  <div class="pathway-content" id="path-eb5">
+    <div class="visa-grid">
+      <div class="visa-card featured">
+        <div class="vc-head">
+          <div><div class="vc-title">EB-5 · 农村TEA区域中心（预留类别）</div><div class="vc-en">EB-5 Rural TEA · Set-Aside · No China Backlog</div></div>
+          <div style="text-align:right"><div class="vc-num">EB-5</div><span class="vc-badge badge-new">绕过积压</span></div>
+        </div>
+        <div class="vc-rows">
+          <div class="vc-row"><span class="vc-k">最低投资额（TEA区域）</span><span class="vc-v gold">$800,000（约¥580万），农村/高失业率地区</span></div>
+          <div class="vc-row"><span class="vc-k">非TEA区最低投资额</span><span class="vc-v">$1,050,000（约¥762万）</span></div>
+          <div class="vc-row"><span class="vc-k">就业创造要求</span><span class="vc-v">10个全职就业岗位（区域中心可间接创造）</span></div>
+          <div class="vc-row"><span class="vc-k">农村类别I-526E审批</span><span class="vc-v highlight">平均6–12个月（优先处理）</span></div>
+          <div class="vc-row"><span class="vc-k">中国农村类别排期</span><span class="vc-v highlight">当前（C），无积压，最快路径</span></div>
+          <div class="vc-row"><span class="vc-k">中国非预留类别排期</span><span class="vc-v alert">2014年1月22日（积压约12年，不建议选择）</span></div>
+          <div class="vc-row"><span class="vc-k">资金来源要求</span><span class="vc-v warn">全球合法来源，需追溯5–7年财务记录</span></div>
+          <div class="vc-row"><span class="vc-k">区域中心授权</span><span class="vc-v">2022年RIA改革法授权至2027年9月30日</span></div>
+        </div>
+        <div class="vc-foot">来源：<a href="https://www.uscis.gov/eb-5" target="_blank">uscis.gov/EB-5</a></div>
+      </div>
+      <div class="visa-card">
+        <div class="vc-head">
+          <div><div class="vc-title">EB-5 · 农村 vs 非农村 排期对比</div><div class="vc-en">Reserved vs Unreserved · Critical Choice</div></div>
+          <div style="text-align:right"><div class="vc-num">对比</div><span class="vc-badge badge-warn">关键选择</span></div>
+        </div>
+        <div class="vc-rows">
+          <div class="vc-row"><span class="vc-k">农村项目（Reserved）</span><span class="vc-v highlight">无积压 · 最快6–12个月获条件绿卡</span></div>
+          <div class="vc-row"><span class="vc-k">高失业率城区（Reserved）</span><span class="vc-v">约18–24个月，较快</span></div>
+          <div class="vc-row"><span class="vc-k">基础设施项目（Reserved）</span><span class="vc-v">约18–24个月</span></div>
+          <div class="vc-row"><span class="vc-k">非预留类别（中国申请人）</span><span class="vc-v alert">2014年1月排期，约12年等待</span></div>
+          <div class="vc-row"><span class="vc-k">黄金卡 vs EB-5</span><span class="vc-v gold">黄金卡$100万不可退 vs EB-5$80万可能有回报</span></div>
+          <div class="vc-row"><span class="vc-k">风险</span><span class="vc-v warn">项目失败无退款，须尽职调查</span></div>
+          <div class="vc-row"><span class="vc-k">家庭随行</span><span class="vc-v highlight">配偶+21岁以下子女同获绿卡</span></div>
+          <div class="vc-row"><span class="vc-k">建议</span><span class="vc-v gold">农村TEA区域中心是中国人绕过积压唯一路径</span></div>
+        </div>
+        <div class="vc-foot">99%待审EB-5申请来自中国投资人，农村类别是当前最优解</div>
+      </div>
+    </div>
+    <div class="insight-box locked">
+      <div class="insight-label">合规的资金出境方式存在——但没有人会主动告诉你，因为每一步都需要你自己去问</div>
+      EB-5对中国申请人最大的隐形门槛不是$80万，是那$80万怎么从中国账户到达美国区域中心账户，同时留下USCIS认可的合法来源证明。<br><br>中国每人每年$5万的外汇额度，意味着一个家庭用16年才能凑齐$80万。真实的操作方式，没有人会在公开文章里写得很详细——因为每个人的资产结构不同，每条路径的合规边界也不同。<br><br>我们能告诉你的是：这件事有解，但需要同时聘用国内外汇合规顾问和美国移民律师两个角色，而且顺序很重要——先做哪步，决定了资金路径能不能被USCIS接受。
+      <a class="insight-read-more" href="../membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="../membership.html">🔒 订阅会员 · 解锁完整内容</a>
+    </div>
+  </div>
+
+  <div class="pathway-content" id="path-goldcard">
+    <div class="visa-grid">
+      <div class="visa-card featured">
+        <div class="vc-head">
+          <div><div class="vc-title">Trump Gold Card（黄金卡）</div><div class="vc-en">Trump Gold Card · Launched Dec 10, 2025</div></div>
+          <div style="text-align:right"><div class="vc-num">新</div><span class="vc-badge badge-new">2025年12月上线</span></div>
+        </div>
+        <div class="vc-rows">
+          <div class="vc-row"><span class="vc-k">申请处理费</span><span class="vc-v gold">$15,000，不可退（信用卡/ACH支付）</span></div>
+          <div class="vc-row"><span class="vc-k">个人捐赠额</span><span class="vc-v gold">$1,000,000（约¥726万），捐赠给美国政府</span></div>
+          <div class="vc-row"><span class="vc-k">获批身份</span><span class="vc-v">EB-1或EB-2永久居留权</span></div>
+          <div class="vc-row"><span class="vc-k">就业创造要求</span><span class="vc-v highlight">无（区别于EB-5）</span></div>
+          <div class="vc-row"><span class="vc-k">是否可退款</span><span class="vc-v alert">不可退（捐赠性质，非投资）</span></div>
+          <div class="vc-row"><span class="vc-k">家庭随行</span><span class="vc-v warn">配偶+子女每人另付$100万+$15,000</span></div>
+          <div class="vc-row"><span class="vc-k">企业黄金卡</span><span class="vc-v">$200万，可为员工申请，可转让（5%转让费）</span></div>
+          <div class="vc-row"><span class="vc-k">申请入口</span><span class="vc-v">trumpcard.gov（I-140G表格）</span></div>
+        </div>
+        <div class="vc-foot">官方：<a href="https://www.trumpcard.gov" target="_blank">trumpcard.gov</a>（I-140G表格）</div>
+      </div>
+      <div class="visa-card">
+        <div class="vc-head">
+          <div><div class="vc-title">黄金卡 vs EB-5 · 核心对比</div><div class="vc-en">Gold Card vs EB-5 Decision Guide</div></div>
+          <div style="text-align:right"><div class="vc-num">vs</div><span class="vc-badge badge-temp">决策参考</span></div>
+        </div>
+        <div class="vc-rows">
+          <div class="vc-row"><span class="vc-k">最低出资</span><span class="vc-v">黄金卡 $100万 / EB-5 TEA $80万</span></div>
+          <div class="vc-row"><span class="vc-k">资金性质</span><span class="vc-v alert">黄金卡：捐赠不可退 / EB-5：投资可能有回报</span></div>
+          <div class="vc-row"><span class="vc-k">就业创造</span><span class="vc-v">黄金卡：无要求 / EB-5：10个全职岗位</span></div>
+          <div class="vc-row"><span class="vc-k">法律地位</span><span class="vc-v warn">黄金卡：存在宪法挑战 / EB-5：成熟法定路径</span></div>
+          <div class="vc-row"><span class="vc-k">签证配额</span><span class="vc-v warn">黄金卡是否有独立配额尚不明确</span></div>
+          <div class="vc-row"><span class="vc-k">处理速度</span><span class="vc-v gold">黄金卡声称"record time" / EB-5农村实测6–12个月</span></div>
+          <div class="vc-row"><span class="vc-k">铂金卡（即将推出）</span><span class="vc-v gold">$500万，270天内不触发美国所得税（合法性争议）</span></div>
+          <div class="vc-row"><span class="vc-k">建议</span><span class="vc-v">法律争议明朗前，EB-5农村路径可控性更高</span></div>
+        </div>
+        <div class="vc-foot">黄金卡存在未决诉讼，法律地位仍在确认中</div>
+      </div>
+    </div>
+    <div class="insight-box locked">
+      <div class="insight-label">律所合同里不会写的三件事——关于黄金卡，你需要在付钱之前知道</div>
+      黄金卡的官方页面写得很漂亮：$100万，绿卡快速通道，DHS安全审查，"record time"。但有三件事在任何律所的服务说明里都不会出现，因为写出来会劝退客户。<br><br>第一件事关于配额。第二件事关于那$100万在联邦法律框架下的定性——这个定性，直接决定了你拿到的绿卡在未来是否面临追溯风险。第三件事关于铂金卡"270天不触发美国所得税"的承诺，在宪法层面目前是否真的可执行。<br><br>这三件事每一件单独拿出来都不足以让你放弃黄金卡。但合在一起，会影响你决定先做哪一步。
+      <a class="insight-read-more" href="../membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="../membership.html">🔒 订阅会员 · 解锁完整内容</a>
+    </div>
+  </div>
+
+  <div class="pathway-content" id="path-work">
+    <div class="visa-grid">
+      <div class="visa-card">
+        <div class="vc-head">
+          <div><div class="vc-title">H-1B 专业工作签证</div><div class="vc-en">H-1B Specialty Occupation Visa</div></div>
+          <div style="text-align:right"><div class="vc-num">3yr</div><span class="vc-badge badge-temp">雇主担保</span></div>
+        </div>
+        <div class="vc-rows">
+          <div class="vc-row"><span class="vc-k">年度配额</span><span class="vc-v warn">65,000个（普通）+ 20,000个（美国硕士）</span></div>
+          <div class="vc-row"><span class="vc-k">境外新申请加征费</span><span class="vc-v alert">$100,000（2025年9月起），约¥72万</span></div>
+          <div class="vc-row"><span class="vc-k">境内续签/延期</span><span class="vc-v highlight">不受$10万新费影响，正常续签</span></div>
+          <div class="vc-row"><span class="vc-k">社交媒体审查</span><span class="vc-v warn">须申报微博/知乎/豆瓣等，2025年12月起强制</span></div>
+          <div class="vc-row"><span class="vc-k">H-4配偶工作权</span><span class="vc-v warn">2025年起DHS取消H-4 EAD自动延期</span></div>
+          <div class="vc-row"><span class="vc-k">有效期</span><span class="vc-v">3年，可续签3年，总计6年</span></div>
+          <div class="vc-row"><span class="vc-k">转绿卡</span><span class="vc-v warn">→ EB-2/EB-3（需PERM，中国排期长）</span></div>
+          <div class="vc-row"><span class="vc-k">建议</span><span class="vc-v gold">在境内时同步独立申请EB-1A/NIW</span></div>
+        </div>
+        <div class="vc-foot">来源：<a href="https://www.uscis.gov/h-1b" target="_blank">uscis.gov/H-1B</a></div>
+      </div>
+      <div class="visa-card featured">
+        <div class="vc-head">
+          <div><div class="vc-title">O-1 杰出能力工作签证</div><div class="vc-en">O-1A Extraordinary Ability · No Cap</div></div>
+          <div style="text-align:right"><div class="vc-num">3yr</div><span class="vc-badge badge-pr">推荐优先</span></div>
+        </div>
+        <div class="vc-rows">
+          <div class="vc-row"><span class="vc-k">核心优势</span><span class="vc-v highlight">无H-1B抽签 · 无年度限额 · 每次可1年续签</span></div>
+          <div class="vc-row"><span class="vc-k">境外新申请</span><span class="vc-v highlight">不受H-1B $10万新费影响</span></div>
+          <div class="vc-row"><span class="vc-k">审批周期</span><span class="vc-v">2–4个月 / 加急：15天</span></div>
+          <div class="vc-row"><span class="vc-k">标准</span><span class="vc-v">与EB-1A类似，但门槛略低</span></div>
+          <div class="vc-row"><span class="vc-k">2025年更新</span><span class="vc-v highlight">早期职业人才（在读生）更容易获批</span></div>
+          <div class="vc-row"><span class="vc-k">AI领域新增认定</span><span class="vc-v highlight">GitHub贡献/顶会论文/数字成就均可用</span></div>
+          <div class="vc-row"><span class="vc-k">自雇可行</span><span class="vc-v highlight">2025年允许个人LLC作为雇主担保自己</span></div>
+          <div class="vc-row"><span class="vc-k">最优组合</span><span class="vc-v gold">O-1 + EB-1A并行是中国人才最优路径</span></div>
+        </div>
+        <div class="vc-foot">来源：<a href="https://www.uscis.gov/o-1" target="_blank">uscis.gov/O-1</a></div>
+      </div>
+    </div>
+    <div class="insight-box locked">
+      <div class="insight-label">O-1和EB-1A的证据，重叠率有多高——以及哪些你以为可以复用的，其实需要重写</div>
+      O-1和EB-1A使用高度相似的证据框架，这是业内共识。但"高度相似"不等于"可以直接复制"，这个差距正是大多数人在做EB-1A时最容易低估的地方。<br><br>O-1审查的是"你是否具备杰出能力"，EB-1A在此基础上还要求"这种能力是否具有持续的国际或国家级认可"——证明方式在细节上有关键差异。同一封推荐信，用于O-1可能足够，但用于EB-1A的Final Merits Determination，USCIS会追问推荐人与你的独立性。<br><br>2025年USCIS已在多个RFE案例中明确指出这一点。哪些证据可以复用，哪些必须用新维度重新构建——这是现在最值得花时间想清楚的问题。
+      <a class="insight-read-more" href="../membership.html">阅读完整分析 →</a>
+      <a class="insight-unlock" href="../membership.html">🔒 订阅会员 · 解锁完整内容</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="backlog">
+  <div class="sec-header">
+    <div class="sec-title">中国申请人排期现状（2026年4月签证公告）</div>
+    <div class="sec-sub">数据来源：美国国务院签证公告（Visa Bulletin）2026年4月版 · 每月更新</div>
+  </div>
+  <div style="overflow-x:auto;">
+    <table class="backlog-table">
+      <thead>
+        <tr><th>绿卡类别</th><th>中国最终行动日</th><th>中国可提交日</th><th>等待周期（估）</th><th>策略建议</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>EB-1（杰出/研究/跨国高管）</td><td class="td-warn">2023年2月1日</td><td class="td-warn">2023年10月1日</td><td class="td-warn">约3年</td><td>目前最可行的快速路径，建议优先</td></tr>
+        <tr><td>EB-2（高学历/NIW/特殊能力）</td><td class="td-alert">2021年9月1日</td><td class="td-warn">2022年1月1日</td><td class="td-alert">约5年</td><td>NIW可绕过PERM，但排期无法绕过；可提交日可提早递I-485</td></tr>
+        <tr><td>EB-3（专业/技术/非技术工人）</td><td class="td-alert">约2021年（持续变化）</td><td class="td-alert">约2021年</td><td class="td-alert">约5年+</td><td>需雇主+PERM，路径最长，不推荐作首选</td></tr>
+        <tr><td>EB-5 预留类别（农村/高失业区）</td><td class="td-good">当前（Current）</td><td class="td-good">当前（Current）</td><td class="td-good">无积压，最快路径</td><td>中国申请人最快绿卡路径，需$80万投资</td></tr>
+        <tr><td>EB-5 非预留类别（中国申请人）</td><td class="td-alert">2014年1月22日</td><td class="td-alert">2016年10月1日</td><td class="td-alert">约12年积压</td><td>不建议中国申请人走此路，改选农村TEA</td></tr>
+        <tr><td>黄金卡（Gold Card）</td><td class="td-gold">待定（法律未明确）</td><td class="td-gold">理论上无积压</td><td class="td-gold">处理速度待观察</td><td>高净值人士关注，建议等待法律争议明朗后决策</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="visa-note" style="margin-top:12px;">
+    签证公告每月更新，上述数据为2026年4月版。排期可能前进也可能倒退（retrogression）。实时数据请查询：<a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank">travel.state.gov/Visa-Bulletin</a>
+  </div>
+  <div class="insight-box" style="margin-top:16px;">
+    <div class="insight-label">深度洞察 · 排期加速的隐形窗口</div>
+    <strong>每年10月（美国新财年开始）是最值得关注的时机：</strong>配额重置，且若上一财年某些类别配额未用完，数量会"溢出"到优先级更高的类别（overflow机制）。2025年10月因多国签证暂停导致大量配额溢出，直接推动EB-1和EB-2排期明显前进。<br><br>
+    <strong>实操建议：</strong>每年8–9月密切关注国务院关于下一财年配额预测通知。同时，确认当月USCIS是否允许使用"可提交日期（Dates for Filing）"图表——使用该表可以提前递交I-485，在排期到达前先获得工作授权（EAD）和出入境许可（Advance Parole），解放身份限制。2026年4月USCIS已确认可使用可提交日期图表。
+  </div>
+</section>
+
+<section class="sec" id="process">
+  <div class="sec-header">
+    <div class="sec-title">EB-1A / NIW 申请流程</div>
+    <div class="sec-sub">以中国境外申请（领事馆处理）为例，全程约18–36个月</div>
+  </div>
+  <div class="path-guide">
+    <div class="pg-step">
+      <div class="pg-num">01</div>
+      <div class="pg-title">策略规划 · 证据准备</div>
+      <div class="pg-text">与移民律师评估路径（EB-1A / NIW / 双路并行）。EB-1A整理10项标准证据（引用数、评审经历、媒体报道等）；NIW撰写"拟开展工作"说明及Dhanasar三步论证。证据包通常需2–6个月准备。</div>
+      <div class="pg-arrow">→</div>
+    </div>
+    <div class="pg-step">
+      <div class="pg-num">02</div>
+      <div class="pg-title">提交 I-140 · 锁定优先日期</div>
+      <div class="pg-text">向USCIS提交I-140移民申请（EB-1A或NIW均为$730）。如需加急，加交$2,805，45个工作日内有结果。<strong>优先日期从USCIS收件当天算起</strong>，越早提交越早排队——这是最关键的行动节点。</div>
+      <div class="pg-arrow">→</div>
+    </div>
+    <div class="pg-step">
+      <div class="pg-num">03</div>
+      <div class="pg-title">等待排期 · 移民签证处理</div>
+      <div class="pg-text">I-140获批后，等待签证公告中国EB类别日期到达你的优先日期。日期到达后向国家签证中心（NVC）递交文件，安排大使馆移民签证面谈（北京/广州/上海领事馆）。若在美境内，排期到达后可提交I-485。</div>
+      <div class="pg-arrow">→</div>
+    </div>
+    <div class="pg-step">
+      <div class="pg-num">04</div>
+      <div class="pg-title">体检 · 面签 · 获绿卡</div>
+      <div class="pg-text">在指定医疗机构完成体检（DS-2053），参加移民签证面谈，获批后以移民签证入境美国，入境即获条件绿卡或永久绿卡。持绿卡满5年后可申请公民，取得美国护照。</div>
+    </div>
+  </div>
+  <div class="visa-note" style="margin-top:16px;">
+    <strong>社交媒体申报特别提示（2025年12月15日起强制执行）：</strong>DS-160签证申请表中必须申报所有社交媒体账号，明确包括微博（Sina Weibo）、腾讯微博、优酷（Youku）、QQ空间（Qzone）、知乎、豆瓣等中国平台。申报必须完整真实，漏报被发现可直接导致签证被拒。建议在提交前与律师确认申报策略，确保所有历史使用账号均完整列出。
+  </div>
+</section>
+
+<section class="sec" id="costs">
+  <div class="sec-header">
+    <div class="sec-title">主要费用参考</div>
+    <div class="sec-sub">数据来源：USCIS官方收费标准（2026年）及美国国务院公告 · 1 USD ≈ 人民币 7.26元</div>
+  </div>
+  <div style="overflow-x:auto;">
+    <table class="cost-table">
+      <thead>
+        <tr><th>费用项目</th><th>金额（美元）</th><th>人民币参考</th><th>备注</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>I-140申请费（EB-1A/NIW/EB-1B等）</td><td class="price">$730</td><td>约¥5,300</td><td>USCIS官方费，2024年调整后</td></tr>
+        <tr><td>I-140加急处理费（I-907）</td><td class="price">$2,805</td><td>约¥2.04万</td><td>45个工作日内决定，不影响优先日期</td></tr>
+        <tr><td>I-526E申请费（EB-5区域中心）</td><td class="price">$4,675</td><td>约¥3.4万</td><td>2022年RIA后费用，含$1,000 RIA附加费</td></tr>
+        <tr><td>I-829撤销条件申请费</td><td class="price">$3,750</td><td>约¥2.72万</td><td>EB-5条件绿卡2年后申请永居</td></tr>
+        <tr><td>I-485身份调整（在美境内）</td><td class="price">$1,440</td><td>约¥1.05万</td><td>含生物特征采集费，每名申请人</td></tr>
+        <tr><td>DS-260移民签证申请费（境外）</td><td class="price">$325</td><td>约¥2,360</td><td>NVC阶段，每人</td></tr>
+        <tr><td>领事签证完整性费（2025年新增）</td><td class="price">$250</td><td>约¥1,815</td><td>所有领事馆签证均须缴，不含境内申请</td></tr>
+        <tr><td>黄金卡申请处理费</td><td class="price">$15,000</td><td>约¥10.9万</td><td>不可退；捐赠$100万另计</td></tr>
+        <tr><td>H-1B境外新申请加征费</td><td class="price">$100,000</td><td>约¥72.6万</td><td>2025年9月起；境内续签不受影响</td></tr>
+        <tr><td>移民律师费（EB-1A/NIW）</td><td class="price">$5,000–15,000</td><td>约¥3.6万–10.9万</td><td>视案件复杂度和律所差异</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="visa-note" style="margin-top:12px;">费用随政策频繁变动，2024年USCIS已进行一次大规模调整，2026年或再次调整。请以 <a href="https://www.uscis.gov/forms/filing-fees" target="_blank">uscis.gov/filing-fees</a> 最新公示为准。以上未含体检费（约$200–500）、翻译认证费及其他杂项。</div>
+</section>
+
+<section class="sec" id="updates">
+  <div class="sec-header">
+    <div class="sec-title">近期政策动态</div>
+    <div class="sec-sub">来源：USCIS官网（uscis.gov）、美国国务院（travel.state.gov）及白宫官方公告</div>
+  </div>
+  <div class="updates-list">
+    <div class="update-item">
+      <div class="update-date">2026年4月</div>
+      <div class="update-badge ub-new">最新</div>
+      <div class="update-body">
+        <div class="update-title">2026年4月签证公告：中国EB-1可提交日前进至2023年10月，EB-2可提交日至2022年1月</div>
+        <div class="update-desc">国务院2026年4月签证公告显示，USCIS确认使用"可提交日期"图表受理I-485。中国EB-1可提交日推进至2023年10月1日，EB-2推进至2022年1月1日。符合条件的申请人可提前递交I-485，在最终绿卡获批前先获得工作授权（EAD）和出入境许可（Advance Parole），实现身份自由化。</div>
+        <div class="update-source">来源：<a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank">travel.state.gov</a>（2026年4月签证公告）</div>
+      </div>
+    </div>
+    <div class="update-item">
+      <div class="update-date">2025年12月</div>
+      <div class="update-badge ub-new">重大</div>
+      <div class="update-body">
+        <div class="update-title">Trump Gold Card正式上线，trumpcard.gov开始接受申请，I-140G表格启用</div>
+        <div class="update-desc">2025年12月10日，黄金卡官网正式开放申请。个人申请须缴纳不可退的$15,000处理费，通过DHS安全审查后捐赠$100万即可申请绿卡快速通道（EB-1或EB-2身份）。企业可为员工申请，捐赠额为$200万，可转让（5%转让费+$20,000年维护费）。法律专家指出该计划面临宪法挑战，且是否有独立配额尚不明确。</div>
+        <div class="update-source">来源：<a href="https://www.trumpcard.gov" target="_blank">trumpcard.gov</a>（官方申请网站）· 2025年12月10日</div>
+      </div>
+    </div>
+    <div class="update-item">
+      <div class="update-date">2025年12月</div>
+      <div class="update-badge ub-warn">注意</div>
+      <div class="update-body">
+        <div class="update-title">H-1B/H-4须申报微博、优酷、知乎等中国社交媒体账号，2025年12月15日起强制执行</div>
+        <div class="update-desc">美国国务院公告，DS-160表格社交媒体审查范围扩大，H-1B及H-4须完整列出所有账号，明确包括：新浪微博（Sina Weibo）、腾讯微博、优酷（Youku）、QQ空间（Qzone）。漏报可导致签证被拒。此为全球最严格的签证社交媒体审查之一，建议申报前咨询律师策略。</div>
+        <div class="update-source">来源：<a href="https://travel.state.gov" target="_blank">travel.state.gov</a>（国务院官方公告）· 2025年12月3日</div>
+      </div>
+    </div>
+    <div class="update-item">
+      <div class="update-date">2025年9月</div>
+      <div class="update-badge ub-warn">重大</div>
+      <div class="update-body">
+        <div class="update-title">H-1B境外新申请加征$100,000额外费用，境内续签/延期/身份变更不受影响</div>
+        <div class="update-desc">2025年9月19日，川普总统签署行政令，对所有2025年9月21日后从境外新提交的H-1B申请加征$100,000费用（约¥72万），不适用于境内续签、延期、修改，也不追溯已提交申请。大批跨国公司将工程师/研究人员的H-1B申请模式从"境外新申请"切换为"境内申请/转换身份"，以规避该费用。</div>
+        <div class="update-source">来源：<a href="https://www.whitehouse.gov" target="_blank">whitehouse.gov</a>（总统公告 EO）· 2025年9月19日</div>
+      </div>
+    </div>
+    <div class="update-item">
+      <div class="update-date">2026年</div>
+      <div class="update-badge ub-change">预告</div>
+      <div class="update-body">
+        <div class="update-title">【已宣布·2026年出台草案】USCIS拟现代化EB-1A/NIW评判规则，门槛或进一步提高</div>
+        <div class="update-desc">USCIS已宣布将于2026年发布EB-1A和EB-2 NIW规则现代化草案，目标是统一审判标准、强化防欺诈、将现行政策备忘录法规化。法律专家普遍预计新规将提高"最终实质性审查"门槛。草案公布后将经历公众评论期，最终正式生效。建议有意申请者在新规落地前尽快提交，以锁定当前相对宽松的审核框架。</div>
+        <div class="update-source">来源：<a href="https://berardiimmigrationlaw.com/uscis-plans-to-modernize-employment-based-green-card-rules-what-to-expect/" target="_blank">Berardi Immigration Law / USCIS公告</a> · 2026年</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="sec-header">
+    <div class="sec-title">常见问题解答</div>
+    <div class="sec-sub">针对中国申请人10个最高频问题，含深度策略分析</div>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-q-text">我走H-1B路线，公司在排EB-3绿卡，我还有别的选择吗？</div><div class="faq-icon">+</div></div>
+      <div class="faq-a"><div class="faq-a-inner">H-1B路线下你拥有的选择，比公司告诉你的要多。核心问题不是"能不能换路径"，而是你现在的每一天都在影响未来的排队顺序——这个逻辑大多数人在找律所之后才意识到。<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">具体路径选择与时机判断 · <a href="../membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-q-text">EB-1A需要诺贝尔奖级别的成就吗？普通科研人员能申请吗？</div><div class="faq-icon">+</div></div>
+      <div class="faq-a"><div class="faq-a-inner">EB-1A的门槛比大多数人以为的低——不需要诺贝尔奖，也不需要顶刊十篇。USCIS的评判标准有10项，满足3项即可进入审查。但选哪3项、怎么证明，比"你有没有资格"更重要。<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">如何判断申请资格与证据组合 · <a href="../membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-q-text">NIW适合什么背景的人？我是中国互联网从业者，能申请吗？</div><div class="faq-icon">+</div></div>
+      <div class="faq-a"><div class="faq-a-inner">NIW的适用范围远比名字暗示的宽。"国家利益"不是固定的行业清单，而是一套可以被构建的论证框架。互联网从业者申请成功的案例存在，关键在于如何重新定义你的工作与美国利益的关系。<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">针对你的背景建立NIW论证框架 · <a href="../membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-q-text">中国每年5万美元外汇限额，怎么把钱合规汇出去做EB-5投资？</div><div class="faq-icon">+</div></div>
+      <div class="faq-a"><div class="faq-a-inner">合规的资金路径是存在的，但它不是一个标准答案——每个人的资产结构不同，路径和时间安排也不同。这件事需要在申请之前就开始规划。<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">资金合规路径的核心框架与规划节点 · <a href="../membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-q-text">黄金卡捐赠$100万值得吗？和EB-5相比哪个更好？</div><div class="faq-icon">+</div></div>
+      <div class="faq-a"><div class="faq-a-inner">黄金卡和EB-5的核心差异不只是金额，而是资金的法律性质和绿卡在未来面临的风险结构不同。目前大多数专业律师建议谨慎观望，但这个判断本身也有时间窗口。<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">黄金卡 vs EB-5完整风险对比 · <a href="../membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-q-text">我有美国绿卡，以后还需要放弃中国国籍吗？入籍美国会失去中国国籍？</div><div class="faq-icon">+</div></div>
+      <div class="faq-a"><div class="faq-a-inner">持有绿卡阶段不影响中国国籍——绿卡是居留权，不是国籍。申请入籍才涉及国籍选择，两者之间通常有5年的缓冲期，时间足够想清楚。</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-q-text">申请美国移民会影响我在中国的工作和户口吗？</div><div class="faq-icon">+</div></div>
+      <div class="faq-a"><div class="faq-a-inner">持有绿卡本身对国内户籍没有直接影响，但有几类情况需要提前了解——特定岗位的申报要求，以及长期在美居住对中国税务居民身份的潜在影响。这些不是障碍，但忽视可能带来不必要的麻烦。</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-q-text">2025–2026年美国签证大幅收紧，中国申请人还安全吗？</div><div class="faq-icon">+</div></div>
+      <div class="faq-a"><div class="faq-a-inner">中国不在2026年签证暂停国家名单内。目前对中国申请人新增的主要变化是社交媒体申报要求（2025年12月起强制），以及对部分技术背景申请人的安全审查趋严。EB系列路径整体未受实质性限制。</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-q-text">我已经有O-1签证，下一步怎么操作才最有利？</div><div class="faq-icon">+</div></div>
+      <div class="faq-a"><div class="faq-a-inner">O-1持有人在申请路径上处于最有利的起点——你已经通过了一次"杰出能力"的审查。但O-1证据和EB-1A证据的要求在细节上有关键差异，"重叠"不等于"可以直接复用"。<span style="display:block;margin-top:8px;font-size:12px;color:var(--ink-muted);">O-1持有人的最优绿卡路径与操作顺序 · <a href="../membership.html" style="color:var(--gold);font-weight:500;">会员内容</a></span></div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-q-text">美国移民这么复杂，真的值得花这么多精力和钱吗？</div><div class="faq-icon">+</div></div>
+      <div class="faq-a"><div class="faq-a-inner">美国绿卡的价值是真实的，但它对不同人的意义差别很大。主要在美工作的人，它是有意义的战略选项；主要在中国生活的人，实际使用价值和维持成本需要重新权衡。这个问题值得在做决定之前想清楚。</div></div>
+    </div>
+  </div>
+</section>
+</div>
+<div class="page-footer">
+  <div class="pf-inner">
+    <div class="pf-disclaimer">
+      本页信息基于2025–2026年美国移民政策，数据来源USCIS（uscis.gov）、美国国务院（travel.state.gov）及白宫官方公告。美国移民政策在特朗普执政期间变化频繁，本页所载信息仅供参考，不构成法律建议。如需申请，请委托持牌美国移民律师（AILA会员）进行专业评估。本站不对任何依据本页信息作出的决策承担任何法律责任。
+    </div>
+    <div class="pf-links">
+      <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank">travel.state.gov — 签证公告（每月更新）</a>
+      <a href="https://www.uscis.gov" target="_blank">uscis.gov — 美国移民局</a>
+      <a href="https://www.trumpcard.gov" target="_blank">trumpcard.gov — 黄金卡官方申请</a>
+      <a href="../index.html">← 返回首页</a>
+    </div>
+  </div>
+</div>
+<script src="../js/country.js"></script>
+
+</body>
+</html>
