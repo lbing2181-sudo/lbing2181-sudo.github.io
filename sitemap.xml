@@ -51,4 +51,30 @@
   <url><loc>https://lbing2181-sudo.github.io/argentina.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-10</lastmod></url>
   <url><loc>https://lbing2181-sudo.github.io/uruguay.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-10</lastmod></url>
   <url><loc>https://lbing2181-sudo.github.io/costa-rica.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-10</lastmod></url>
+  <!-- 北美洲 补充 -->
+  <url><loc>https://lbing2181-sudo.github.io/usa.html</loc><changefreq>monthly</changefreq><priority>0.9</priority><lastmod>2026-04-12</lastmod></url>
+  <!-- 欧洲 补充 -->
+  <url><loc>https://lbing2181-sudo.github.io/france.html</loc><changefreq>monthly</changefreq><priority>0.9</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/switzerland.html</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/norway.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/iceland.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/albania.html</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/bosnia.html</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/montenegro.html</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/north-macedonia.html</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/serbia.html</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/georgia.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/turkey.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
+  <!-- 亚洲 补充 -->
+  <url><loc>https://lbing2181-sudo.github.io/malaysia.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/macao.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/philippines.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
+  <!-- 中美/南美洲 补充 -->
+  <url><loc>https://lbing2181-sudo.github.io/ecuador.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/paraguay.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
+  <url><loc>https://lbing2181-sudo.github.io/grenada.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
+  <!-- 专题指南 -->
+  <url><loc>https://lbing2181-sudo.github.io/caribbean-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
+  <!-- 会员 -->
+  <url><loc>https://lbing2181-sudo.github.io/membership.html</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>2026-04-12</lastmod></url>
 </urlset>
