@@ -75,6 +75,8 @@
   <url><loc>https://lbing2181-sudo.github.io/grenada.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
   <!-- 专题指南 -->
   <url><loc>https://lbing2181-sudo.github.io/caribbean-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-04-12</lastmod></url>
+  <!-- AI诊断 -->
+  <url><loc>https://lbing2181-sudo.github.io/diagnosis.html</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-04-12</lastmod></url>
   <!-- 会员 -->
   <url><loc>https://lbing2181-sudo.github.io/membership.html</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>2026-04-12</lastmod></url>
 </urlset>

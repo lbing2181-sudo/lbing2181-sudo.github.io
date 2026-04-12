@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI 移民诊断 | 全球移民目的地智能匹配</title>
+<meta name="description" content="基于AI大模型的移民目的地诊断工具，输入您的背景信息，智能匹配最适合的移民国家和路径。">
+<link rel="canonical" href="https://lbing2181-sudo.github.io/diagnosis.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f5f7;--bg-w:#fff;--ink:#1d1d1f;--ink2:#6e6e73;--ink3:#a1a1a6;--gold:#b07d2a;--green:#1d8348;--red:#c0392b;--blue:#0066cc;--border:rgba(0,0,0,.08);--r:18px;--r-sm:10px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:.5px solid var(--border);height:52px;display:flex;align-items:center;padding:0 40px;justify-content:space-between}
+.nav-logo{font-family:'Noto Serif SC',serif;font-size:15px;font-weight:600;color:var(--ink);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-r{display:flex;gap:16px;align-items:center}
+.nav-r a{font-size:13px;color:var(--ink2);text-decoration:none}
+.nav-r a:hover{color:var(--ink)}
+.nav-btn{font-size:13px;padding:6px 16px;border-radius:20px;background:var(--ink);color:#fff;text-decoration:none}
+
+/* hero */
+.dh{background:linear-gradient(160deg,#0a1628,#122240 40%,#1a2d4a 70%,#0f1d32);padding:80px 40px 60px;text-align:center;position:relative;overflow:hidden}
+.dh::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 30% 40%,rgba(176,125,42,.08),transparent 70%),radial-gradient(ellipse 60% 80% at 70% 30%,rgba(42,95,168,.1),transparent 60%);pointer-events:none}
+.dh>*{position:relative;z-index:1}
+.dh h1{font-family:'Noto Serif SC',serif;font-size:42px;font-weight:600;color:#fff;margin-bottom:12px}
+.dh h1 em{font-style:normal;color:var(--gold)}
+.dh-sub{font-size:16px;color:rgba(255,255,255,.45);max-width:500px;margin:0 auto 24px;line-height:1.8}
+.dh-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.dh-tag{font-size:12px;padding:5px 14px;border-radius:20px;background:rgba(255,255,255,.06);border:.5px solid rgba(255,255,255,.12);color:rgba(255,255,255,.55)}
+
+/* wizard */
+.wizard{max-width:680px;margin:-40px auto 48px;padding:0 20px;position:relative;z-index:2}
+.wiz-card{background:var(--bg-w);border-radius:var(--r);box-shadow:0 8px 32px rgba(0,0,0,.1);overflow:hidden}
+.wiz-progress{height:4px;background:var(--bg);position:relative}
+.wiz-bar{height:100%;background:var(--gold);transition:width .4s;width:0%}
+.wiz-head{padding:24px 32px 0;display:flex;justify-content:space-between;align-items:center}
+.wiz-step{font-size:12px;color:var(--ink3);letter-spacing:.04em}
+.wiz-title{font-family:'Noto Serif SC',serif;font-size:18px;font-weight:600;padding:8px 32px 4px}
+.wiz-desc{font-size:13px;color:var(--ink2);padding:0 32px 20px;line-height:1.7}
+.wiz-body{padding:0 32px 24px}
+
+/* form elements */
+.fg{margin-bottom:18px}
+.fg label{display:block;font-size:13px;font-weight:500;margin-bottom:6px;color:var(--ink)}
+.fg select,.fg input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--r-sm);font-size:14px;font-family:inherit;background:var(--bg-w);color:var(--ink);outline:none;transition:border-color .2s}
+.fg select:focus,.fg input:focus{border-color:var(--gold)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.chip-group{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;padding:7px 16px;border:1px solid var(--border);border-radius:20px;cursor:pointer;background:var(--bg-w);color:var(--ink2);transition:all .15s}
+.chip:hover{border-color:var(--gold);color:var(--gold)}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* buttons */
+.wiz-nav{padding:0 32px 28px;display:flex;justify-content:space-between;gap:12px}
+.btn{font-size:14px;padding:10px 24px;border-radius:24px;border:none;font-family:inherit;cursor:pointer;font-weight:500;transition:all .2s}
+.btn-back{background:transparent;color:var(--ink2);border:1px solid var(--border)}
+.btn-back:hover{border-color:var(--ink)}
+.btn-next{background:var(--gold);color:#fff}
+.btn-next:hover{background:#c8951a}
+.btn-next:disabled{opacity:.4;cursor:not-allowed}
+
+/* step hide */
+.step{display:none}
+.step.active{display:block}
+
+/* report */
+.report{max-width:720px;margin:0 auto 48px;padding:0 20px}
+.rpt-card{background:var(--bg-w);border-radius:var(--r);box-shadow:0 4px 20px rgba(0,0,0,.06);overflow:hidden}
+.rpt-head{background:linear-gradient(135deg,#0a1628,#1a2d4a);padding:32px;color:#fff}
+.rpt-head h2{font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:6px}
+.rpt-head p{font-size:13px;color:rgba(255,255,255,.5)}
+.rpt-summary{padding:24px 32px;border-bottom:.5px solid var(--border)}
+.rpt-summary h3{font-family:'Noto Serif SC',serif;font-size:16px;margin-bottom:12px}
+.rpt-match{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:.5px solid var(--border)}
+.rpt-match:last-child{border:none}
+.rpt-flag{font-size:32px}
+.rpt-info{flex:1}
+.rpt-country{font-weight:600;font-size:15px}
+.rpt-why{font-size:12px;color:var(--ink2);margin-top:2px}
+.rpt-score{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:var(--gold)}
+
+/* paywall blur */
+.paywall-wrap{position:relative}
+.paywall-blur{filter:blur(6px);pointer-events:none;user-select:none;padding:24px 32px}
+.paywall-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,.7);z-index:2;padding:20px;text-align:center}
+.paywall-overlay h3{font-family:'Noto Serif SC',serif;font-size:20px;margin-bottom:8px}
+.paywall-overlay p{font-size:13px;color:var(--ink2);margin-bottom:16px;max-width:360px;line-height:1.7}
+.pw-price{font-family:'Playfair Display',serif;font-size:36px;font-weight:600;color:var(--gold);margin-bottom:4px}
+.pw-orig{font-size:14px;color:var(--ink3);text-decoration:line-through;margin-bottom:16px}
+.btn-pay{background:var(--gold);color:#fff;font-size:15px;padding:12px 36px;border-radius:24px;border:none;font-family:inherit;cursor:pointer;font-weight:500}
+.btn-pay:hover{background:#c8951a}
+
+/* footer */
+.pf{background:#1d1d1f;padding:32px 40px;text-align:center}
+.pf-text{font-size:12px;color:rgba(255,255,255,.35);line-height:1.8}
+.pf-text a{color:rgba(255,255,255,.5);text-decoration:none}
+
+@media(max-width:768px){
+nav{padding:0 16px}
+.nav-r a:not(.nav-btn){display:none}
+.dh{padding:60px 20px 48px}
+.dh h1{font-size:28px}
+.wiz-head,.wiz-title,.wiz-desc,.wiz-body,.wiz-nav{padding-left:20px;padding-right:20px}
+.fg-row{grid-template-columns:1fr}
+.rpt-head,.rpt-summary,.paywall-blur{padding-left:20px;padding-right:20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">全球移民<span>·</span>政策大全</a>
+  <div class="nav-r">
+    <a href="index.html">首页</a>
+    <a href="#countries">国家</a>
+    <a class="nav-btn" href="membership.html">会员 →</a>
+  </div>
+</nav>
+
+<section class="dh">
+  <h1>AI <em>移民诊断</em></h1>
+  <p class="dh-sub">回答几个简单问题，AI 大模型为你匹配最适合的移民目的地，并生成个性化诊断报告</p>
+  <div class="dh-tags">
+    <span class="dh-tag">🤖 AI 大模型驱动</span>
+    <span class="dh-tag">🌍 覆盖 60+ 国家</span>
+    <span class="dh-tag">📊 个性化报告</span>
+    <span class="dh-tag">⏱ 3分钟完成</span>
+  </div>
+</section>
+
+<!-- ══ 问卷向导 ══ -->
+<div class="wizard" id="wizard">
+  <div class="wiz-card">
+    <div class="wiz-progress"><div class="wiz-bar" id="wiz-bar"></div></div>
+
+    <!-- Step 1: 基本信息 -->
+    <div class="step active" data-step="1">
+      <div class="wiz-head"><span class="wiz-step">第 1 步 / 共 5 步</span></div>
+      <div class="wiz-title">基本信息</div>
+      <div class="wiz-desc">请填写您的基本背景，以便 AI 进行精准匹配</div>
+      <div class="wiz-body">
+        <div class="fg-row">
+          <div class="fg">
+            <label>年龄</label>
+            <select id="q-age"><option value="">请选择</option><option>18-25岁</option><option>26-30岁</option><option>31-35岁</option><option>36-40岁</option><option>41-45岁</option><option>46-50岁</option><option>50岁以上</option></select>
+          </div>
+          <div class="fg">
+            <label>最高学历</label>
+            <select id="q-edu"><option value="">请选择</option><option>高中/中专</option><option>大专</option><option>本科</option><option>硕士</option><option>博士</option></select>
+          </div>
+        </div>
+        <div class="fg">
+          <label>职业领域</label>
+          <select id="q-job"><option value="">请选择</option><option>IT/互联网/软件</option><option>金融/银行/保险</option><option>医疗/生物/制药</option><option>工程/制造/建筑</option><option>教育/学术/科研</option><option>设计/创意/媒体</option><option>商务/管理/咨询</option><option>法律/会计/审计</option><option>自由职业/创业</option><option>其他</option></select>
+        </div>
+        <div class="fg">
+          <label>工作经验</label>
+          <select id="q-exp"><option value="">请选择</option><option>应届/无经验</option><option>1-3年</option><option>3-5年</option><option>5-10年</option><option>10年以上</option></select>
+        </div>
+      </div>
+      <div class="wiz-nav"><span></span><button class="btn btn-next" onclick="goStep(2)">下一步 →</button></div>
+    </div>
+
+    <!-- Step 2: 语言能力 -->
+    <div class="step" data-step="2">
+      <div class="wiz-head"><span class="wiz-step">第 2 步 / 共 5 步</span></div>
+      <div class="wiz-title">语言能力</div>
+      <div class="wiz-desc">语言是移民的重要考量因素</div>
+      <div class="wiz-body">
+        <div class="fg">
+          <label>英语水平</label>
+          <select id="q-eng"><option value="">请选择</option><option>基础（能日常交流）</option><option>中等（雅思5-6 / 四六级）</option><option>良好（雅思6.5-7）</option><option>优秀（雅思7.5+ / 母语水平）</option><option>无英语基础</option></select>
+        </div>
+        <div class="fg">
+          <label>其他语言（可多选）</label>
+          <div class="chip-group" id="lang-chips">
+            <span class="chip" onclick="toggleChip(this)">日语</span>
+            <span class="chip" onclick="toggleChip(this)">法语</span>
+            <span class="chip" onclick="toggleChip(this)">德语</span>
+            <span class="chip" onclick="toggleChip(this)">西班牙语</span>
+            <span class="chip" onclick="toggleChip(this)">葡萄牙语</span>
+            <span class="chip" onclick="toggleChip(this)">韩语</span>
+            <span class="chip" onclick="toggleChip(this)">无其他语言</span>
+          </div>
+        </div>
+      </div>
+      <div class="wiz-nav"><button class="btn btn-back" onclick="goStep(1)">← 上一步</button><button class="btn btn-next" onclick="goStep(3)">下一步 →</button></div>
+    </div>
+
+    <!-- Step 3: 移民偏好 -->
+    <div class="step" data-step="3">
+      <div class="wiz-head"><span class="wiz-step">第 3 步 / 共 5 步</span></div>
+      <div class="wiz-title">移民偏好</div>
+      <div class="wiz-desc">告诉我们你最看重什么</div>
+      <div class="wiz-body">
+        <div class="fg">
+          <label>移民主要目的（可多选）</label>
+          <div class="chip-group">
+            <span class="chip" onclick="toggleChip(this)">子女教育</span>
+            <span class="chip" onclick="toggleChip(this)">职业发展</span>
+            <span class="chip" onclick="toggleChip(this)">生活品质</span>
+            <span class="chip" onclick="toggleChip(this)">资产配置</span>
+            <span class="chip" onclick="toggleChip(this)">身份规划</span>
+            <span class="chip" onclick="toggleChip(this)">退休养老</span>
+          </div>
+        </div>
+        <div class="fg">
+          <label>偏好地区</label>
+          <div class="chip-group">
+            <span class="chip" onclick="toggleChip(this)">北美</span>
+            <span class="chip" onclick="toggleChip(this)">欧洲</span>
+            <span class="chip" onclick="toggleChip(this)">大洋洲</span>
+            <span class="chip" onclick="toggleChip(this)">亚洲</span>
+            <span class="chip" onclick="toggleChip(this)">不限</span>
+          </div>
+        </div>
+      </div>
+      <div class="wiz-nav"><button class="btn btn-back" onclick="goStep(2)">← 上一步</button><button class="btn btn-next" onclick="goStep(4)">下一步 →</button></div>
+    </div>
+
+    <!-- Step 4: 财务 -->
+    <div class="step" data-step="4">
+      <div class="wiz-head"><span class="wiz-step">第 4 步 / 共 5 步</span></div>
+      <div class="wiz-title">财务状况</div>
+      <div class="wiz-desc">帮助匹配适合的移民路径类型</div>
+      <div class="wiz-body">
+        <div class="fg">
+          <label>可用于移民的预算</label>
+          <select id="q-budget"><option value="">请选择</option><option>10万人民币以内</option><option>10-30万人民币</option><option>30-100万人民币</option><option>100-500万人民币</option><option>500万人民币以上</option></select>
+        </div>
+        <div class="fg">
+          <label>年收入范围</label>
+          <select id="q-income"><option value="">请选择</option><option>20万以下</option><option>20-50万</option><option>50-100万</option><option>100万以上</option></select>
+        </div>
+      </div>
+      <div class="wiz-nav"><button class="btn btn-back" onclick="goStep(3)">← 上一步</button><button class="btn btn-next" onclick="goStep(5)">下一步 →</button></div>
+    </div>
+
+    <!-- Step 5: 时间线 -->
+    <div class="step" data-step="5">
+      <div class="wiz-head"><span class="wiz-step">第 5 步 / 共 5 步</span></div>
+      <div class="wiz-title">时间规划</div>
+      <div class="wiz-desc">最后一步，完成后即可生成诊断报告</div>
+      <div class="wiz-body">
+        <div class="fg">
+          <label>期望移民时间</label>
+          <select id="q-time"><option value="">请选择</option><option>尽快（1年内）</option><option>1-2年</option><option>2-3年</option><option>3-5年</option><option>长期规划（5年+）</option></select>
+        </div>
+        <div class="fg">
+          <label>家庭情况</label>
+          <select id="q-family"><option value="">请选择</option><option>单身</option><option>已婚无子女</option><option>已婚有子女（学龄前）</option><option>已婚有子女（在读）</option></select>
+        </div>
+      </div>
+      <div class="wiz-nav"><button class="btn btn-back" onclick="goStep(4)">← 上一步</button><button class="btn btn-next" onclick="showReport()">生成诊断报告 🚀</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 诊断报告（模拟数据） ══ -->
+<div class="report" id="report" style="display:none">
+  <div class="rpt-card">
+    <div class="rpt-head">
+      <h2>🧭 您的 AI 移民诊断报告</h2>
+      <p>基于您的背景信息，AI 为您匹配了以下最适合的移民目的地</p>
+    </div>
+
+    <!-- 免费摘要部分 -->
+    <div class="rpt-summary">
+      <h3>🏆 最佳匹配 TOP 3</h3>
+      <div class="rpt-match">
+        <span class="rpt-flag">🇨🇦</span>
+        <div class="rpt-info"><div class="rpt-country">加拿大</div><div class="rpt-why">Express Entry 快速通道，您的背景积分预估 460+，竞争力较强</div></div>
+        <div class="rpt-score">92</div>
+      </div>
+      <div class="rpt-match">
+        <span class="rpt-flag">🇦🇺</span>
+        <div class="rpt-info"><div class="rpt-country">澳大利亚</div><div class="rpt-why">189独立技术移民，职业在SOL清单中，积分制透明</div></div>
+        <div class="rpt-score">87</div>
+      </div>
+      <div class="rpt-match">
+        <span class="rpt-flag">🇩🇪</span>
+        <div class="rpt-info"><div class="rpt-country">德国</div><div class="rpt-why">机会卡新政适合您的学历背景，无需提前找到雇主</div></div>
+        <div class="rpt-score">81</div>
+      </div>
+    </div>
+
+    <!-- 付费墙 -->
+    <div class="paywall-wrap">
+      <div class="paywall-blur">
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:16px;margin-bottom:16px">📋 详细诊断分析</h3>
+        <p>根据您的年龄、学历、职业背景和语言能力综合评估，加拿大 Express Entry 快速通道是您目前最优选择。您的 CRS 预估分数为 462 分，高于近期抽签分数线 445 分，具备较强竞争力。建议在 6 个月内完成语言考试并提交 EOI...</p>
+        <p style="margin-top:12px">澳大利亚 189 签证方面，您的职业属于中长期战略技能清单（MLTSSL），当前积分预估 75 分，达到邀请门槛。但需注意近期 ICT 职业竞争加剧...</p>
+        <p style="margin-top:12px">德国机会卡（Chancenkarte）新政于 2024 年 6 月生效，采用积分制，您的学历和工作经验可获得至少 8 分（6分即可申请）。优势在于无需提前获得雇主 offer，可先入境...</p>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:16px;margin:20px 0 12px">⏱ 个性化时间线规划</h3>
+        <p>第1-3个月：语言备考 + 学历认证（WES/VETASSESS）</p>
+        <p>第4-6个月：提交 EOI + 州担保申请</p>
+        <p>第7-12个月：获邀 + 体检 + 下签</p>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:16px;margin:20px 0 12px">💰 费用估算明细</h3>
+        <p>加拿大 EE 全流程：约 ¥8-12万（含语言考试、WES认证、签证费、体检等）</p>
+        <p>澳大利亚 189：约 ¥10-15万（含职业评估、签证费、英语考试等）</p>
+      </div>
+      <div class="paywall-overlay">
+        <h3>解锁完整诊断报告</h3>
+        <p>包含详细分析、个性化时间线、费用明细、材料清单、避坑指南等完整内容</p>
+        <div class="pw-price">¥49.9</div>
+        <div class="pw-orig">原价 ¥199</div>
+        <button class="btn-pay" onclick="alert('支付功能即将上线，敬请期待！')">立即解锁完整报告</button>
+        <p style="font-size:11px;color:var(--ink3);margin-top:10px">支持微信支付 / 支付宝</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="pf">
+  <div class="pf-text">
+    <a href="index.html">首页</a> · <a href="membership.html">会员</a> · <a href="index.html#countries">国家</a><br>
+    免责声明：本诊断结果仅供参考，不构成移民建议。具体政策请以各国官方移民局最新公布为准。<br>
+    © 2026 全球移民政策大全
+  </div>
+</footer>
+
+<script>
+function goStep(n){
+  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+  document.querySelector('[data-step="'+n+'"]').classList.add('active');
+  document.getElementById('wiz-bar').style.width=(n/5*100)+'%';
+  document.getElementById('wizard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function toggleChip(el){el.classList.toggle('on')}
+function showReport(){
+  document.getElementById('wizard').style.display='none';
+  document.getElementById('report').style.display='block';
+  document.getElementById('report').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

@@ -106,59 +106,99 @@ nav {
 
 /* ── HERO ── */
 .hero {
-  background: var(--bg-white); padding: 80px 40px 72px;
-  text-align: center; border-bottom: 0.5px solid var(--border);
+  background: linear-gradient(160deg, #0a1628 0%, #122240 40%, #1a2d4a 70%, #0f1d32 100%);
+  padding: 100px 40px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 25% 40%, rgba(176,125,42,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 75% 30%, rgba(42,95,168,0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 80%, rgba(176,125,42,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
 .hero-label {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: 12px; color: var(--text-2);
-  background: var(--bg); border: 0.5px solid var(--border-strong);
-  padding: 5px 14px; border-radius: 20px; margin-bottom: 28px;
+  font-size: 12px; color: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.12);
+  padding: 5px 14px; border-radius: 20px; margin-bottom: 32px;
   letter-spacing: .02em;
 }
 .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: #34c759; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 h1 {
   font-family: 'Noto Serif SC', serif;
-  font-size: 52px; font-weight: 600; line-height: 1.18;
-  color: var(--text); margin-bottom: 16px; letter-spacing: -.02em;
+  font-size: 56px; font-weight: 600; line-height: 1.18;
+  color: #ffffff; margin-bottom: 16px; letter-spacing: -.02em;
 }
 h1 em { font-style: normal; color: var(--gold); }
 .hero-sub {
   font-family: 'Instrument Serif', serif;
-  font-size: 20px; color: var(--text-2); font-style: italic;
+  font-size: 20px; color: rgba(255,255,255,0.4); font-style: italic;
   margin-bottom: 18px; letter-spacing: .01em;
 }
 .hero-desc {
-  font-size: 17px; color: var(--text-2); max-width: 520px;
-  margin: 0 auto 36px; line-height: 1.75;
+  font-size: 16px; color: rgba(255,255,255,0.5); max-width: 520px;
+  margin: 0 auto 36px; line-height: 1.8;
 }
 .hero-search {
-  display: flex; max-width: 480px; margin: 0 auto 40px;
-  background: var(--bg); border: 0.5px solid var(--border-strong);
+  display: flex; max-width: 480px; margin: 0 auto 20px;
+  background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.14);
   border-radius: 14px; overflow: hidden;
+  transition: border-color .2s;
 }
+.hero-search:focus-within { border-color: rgba(176,125,42,0.5); }
 .hero-search input {
-  flex: 1; background: none; border: none; padding: 13px 18px;
-  font-size: 15px; color: var(--text); font-family: inherit; outline: none;
+  flex: 1; background: none; border: none; padding: 14px 18px;
+  font-size: 15px; color: #ffffff; font-family: inherit; outline: none;
 }
-.hero-search input::placeholder { color: var(--text-3); }
+.hero-search input::placeholder { color: rgba(255,255,255,0.3); }
 .hero-search button {
-  padding: 13px 22px; background: var(--text); color: white;
+  padding: 14px 24px; background: var(--gold); color: white;
   border: none; font-size: 13px; font-weight: 500;
-  font-family: inherit; cursor: pointer; transition: opacity .15s;
+  font-family: inherit; cursor: pointer; transition: all .15s;
 }
-.hero-search button:hover { opacity: .85; }
-#search-msg { font-size: 13px; color: var(--text-3); margin-top: -28px; margin-bottom: 20px; min-height: 20px; }
+.hero-search button:hover { background: #c8951a; }
+#search-msg { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: -8px; margin-bottom: 12px; min-height: 20px; }
+.hero-cta {
+  display: flex; justify-content: center; gap: 12px; margin-bottom: 44px;
+}
+.hero-cta-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-family: inherit; padding: 10px 22px;
+  border-radius: 24px; text-decoration: none; cursor: pointer;
+  transition: all .2s; font-weight: 500;
+}
+.hero-cta-primary {
+  background: var(--gold); color: #fff; border: none;
+}
+.hero-cta-primary:hover { background: #c8951a; transform: translateY(-1px); }
+.hero-cta-secondary {
+  background: transparent; color: rgba(255,255,255,0.6);
+  border: 0.5px solid rgba(255,255,255,0.18);
+}
+.hero-cta-secondary:hover { color: #fff; border-color: rgba(255,255,255,0.35); }
 .hero-stats {
   display: inline-flex;
-  border: 0.5px solid var(--border-strong); border-radius: 14px;
-  overflow: hidden; background: var(--bg);
+  border: 0.5px solid rgba(255,255,255,0.1); border-radius: 14px;
+  overflow: hidden; background: rgba(255,255,255,0.03);
 }
-.hs { padding: 14px 22px; text-align: center; border-right: 0.5px solid var(--border); }
+.hs { padding: 16px 24px; text-align: center; border-right: 0.5px solid rgba(255,255,255,0.08); }
 .hs:last-child { border-right: none; }
-.hs-n { font-family: 'Instrument Serif', serif; font-size: 20px; font-weight: 400; color: var(--text); }
-.hs-l { font-size: 11px; color: var(--text-3); letter-spacing: .04em; margin-top: 2px; }
+.hs-n { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 500; color: #ffffff; }
+.hs-l { font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: .06em; margin-top: 3px; text-transform: uppercase; }
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
 
 /* ── TICKER ── */
 .ticker { background: var(--bg-dark); overflow: hidden; display: flex; align-items: stretch; }
@@ -276,6 +316,8 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
   .nav-links { display: none; }
   .hero { padding: 60px 20px 48px; }
   h1 { font-size: 34px; }
+  .hero-cta { flex-direction: column; align-items: center; gap: 8px; }
+  .hero-cta-btn { width: 100%; max-width: 260px; justify-content: center; }
   .hero-stats { display: grid; grid-template-columns: repeat(2,1fr); }
   .updates,.section,.compare-section { padding: 32px 16px; }
   .country-grid { grid-template-columns: 1fr; }
@@ -302,6 +344,7 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
   <div class="nav-links">
     <a class="nav-link" href="#updates">政策动态</a>
     <a class="nav-link" href="#countries">目标国家</a>
+    <a class="nav-link" href="diagnosis.html">AI 诊断</a>
     <a class="nav-btn" href="membership.html">会员订阅 →</a>
   </div>
 </nav>
@@ -317,6 +360,10 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
     <button onclick="doSearch()">查询 →</button>
   </div>
   <div id="search-msg"></div>
+  <div class="hero-cta">
+    <a class="hero-cta-btn hero-cta-primary" href="diagnosis.html">🧭 AI 移民诊断 →</a>
+    <a class="hero-cta-btn hero-cta-secondary" href="#countries">浏览全部国家</a>
+  </div>
   <div class="hero-stats">
     <div class="hs"><div class="hs-n">60+</div><div class="hs-l">目标国家</div></div>
     <div class="hs"><div class="hs-n">5</div><div class="hs-l">大洲覆盖</div></div>
@@ -360,7 +407,7 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
 </div>
 
 <!-- ── 政策动态 ── -->
-<div class="updates" id="updates">
+<div class="updates reveal" id="updates">
   <div class="updates-inner">
     <div class="updates-title">近期政策动态 · 来源各国官方移民局</div>
     <div class="updates-list">
@@ -400,7 +447,7 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
 </div>
 
 <!-- ── 国家卡片 ── -->
-<section class="section" id="countries">
+<section class="section reveal" id="countries">
   <div class="section-head">
     <div>
       <div class="section-title">全球移民目的地</div>
@@ -1239,9 +1286,9 @@ footer { background: var(--bg-dark); padding: 40px 40px 24px; }
     <div>
       <div class="footer-col-title">关于本站</div>
       <ul class="footer-links">
-        <li><a href="#">数据来源说明</a></li>
-        <li><a href="#">更新频率</a></li>
+        <li><a href="diagnosis.html">AI 移民诊断</a></li>
         <li><a href="membership.html">会员订阅</a></li>
+        <li><a href="#">数据来源说明</a></li>
         <li><a href="#">联系我们</a></li>
         <li><a href="#">免责声明</a></li>
         <li><a href="news.html">政策速递</a></li>
@@ -1341,6 +1388,17 @@ document.querySelectorAll('.cc[data-wip="1"]').forEach(card => {
     setTimeout(() => toast.classList.remove('show'), 2200);
   });
 });
+
+/* ── Scroll Reveal ── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
