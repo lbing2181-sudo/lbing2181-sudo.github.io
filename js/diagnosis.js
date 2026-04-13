@@ -545,36 +545,39 @@ function showReport(){
            total:sc.total,dims:sc.dims};
   });
   results.sort(function(a,b){return b.total-a.total});
-  var top3=results.slice(0,3);
   var top10=results.slice(0,10);
   var edu=LB_EDU[p.edu]||'';
   var job=LB_JOB[p.job]||'';
+  var S='font-family:\'Noto Serif SC\',serif;font-size:16px;';
 
-  // TOP 3 free summary (with why text)
-  var mh='';
-  top3.forEach(function(m){
-    mh+='<div class="rpt-match"><span class="rpt-flag">'+m.f+'</span>'+
-      '<div class="rpt-info"><div class="rpt-country">'+m.z+'</div>'+
+  // ── FREE: show #10→#7 (reverse countdown, building suspense) ──
+  var freeHtml='';
+  for(var i=9;i>=6;i--){
+    var m=top10[i],rank=i+1;
+    freeHtml+='<div class="rpt-match"><span class="rpt-flag">'+m.f+'</span>'+
+      '<div class="rpt-info"><div class="rpt-country"><span style="color:var(--ink3);font-size:12px;margin-right:6px">#'+rank+'</span>'+m.z+'</div>'+
       '<div class="rpt-why">'+genWhy(m,m.dims)+'</div></div>'+
-      '<div class="rpt-score">'+m.total+'</div></div>';
-  });
-
-  // #4-#10 preview (flag + name + score, no detail)
-  var restHtml='';
-  for(var i=3;i<top10.length;i++){
-    var m=top10[i];
-    restHtml+='<div class="rpt-match" style="opacity:.6"><span class="rpt-flag">'+m.f+'</span>'+
-      '<div class="rpt-info"><div class="rpt-country">'+m.z+'</div>'+
-      '<div class="rpt-why" style="color:var(--ink3)">详细分析见完整报告</div></div>'+
       '<div class="rpt-score">'+m.total+'</div></div>';
   }
 
-  // Blurred detail section (all 10 countries)
-  var S='font-family:\'Noto Serif SC\',serif;font-size:16px;';
-  var dh='<h3 style="'+S+'margin-bottom:16px">📋 TOP 10 详细诊断分析</h3>';
+  // ── LOCKED: #6→#1 (blurred countdown to #1 best match) ──
+  var lockHtml='';
+  for(var i=5;i>=0;i--){
+    var m=top10[i],rank=i+1;
+    var label=rank===1?'<span style="color:var(--gold);font-weight:600">🏆 #1 您的最佳匹配</span>':
+              rank<=3?'<span style="color:var(--gold)">#'+rank+' ★</span>':
+              '<span>#'+rank+'</span>';
+    lockHtml+='<div class="rpt-match"><span class="rpt-flag">'+m.f+'</span>'+
+      '<div class="rpt-info"><div class="rpt-country">'+label+' ████████</div>'+
+      '<div class="rpt-why" style="color:var(--ink3)">██████████████████████</div></div>'+
+      '<div class="rpt-score">??</div></div>';
+  }
+
+  // ── BLURRED DETAIL: full analysis for all 10 ──
+  var dh='<h3 style="'+S+'margin-bottom:16px">📋 TOP 10 完整诊断分析</h3>';
   top10.forEach(function(m,i){
     var lvl=m.total>=80?'显著':(m.total>=65?'一定':'潜在');
-    dh+='<p style="margin-bottom:14px"><b>'+(i+1)+'. '+m.f+' '+m.z+
+    dh+='<p style="margin-bottom:14px"><b>#'+(i+1)+' '+m.f+' '+m.z+
       ' (匹配度'+m.total+'分)</b><br>'+
       '推荐路径：'+m.pw.join(' / ')+'<br>'+
       '作为'+edu+'学历的'+job+'从业者，您在'+m.z+
@@ -592,15 +595,20 @@ function showReport(){
       '（含签证费、语言考试、学历认证、中介费等）</p>';
   });
 
-  // Assemble report card
+  // ── Assemble ──
   document.getElementById('rpt-card').innerHTML=
     '<div class="rpt-head"><h2>🧭 您的 AI 移民诊断报告</h2>'+
-    '<p>基于您的背景与偏好，AI 从 61 个国家中为您匹配了 TOP 10 目的地</p></div>'+
-    '<div class="rpt-summary"><h3>🏆 最佳匹配 TOP 3</h3>'+mh+
-    '<h3 style="'+S+'margin:20px 0 12px;font-size:15px">📊 第 4-10 名</h3>'+restHtml+'</div>'+
+    '<p>基于您的背景与偏好，AI 从 61 个国家中为您筛选了 TOP 10 目的地</p></div>'+
+    '<div class="rpt-summary">'+
+    '<h3>📊 匹配倒计时</h3>'+
+    '<p style="font-size:13px;color:var(--ink2);margin-bottom:16px">从第10名开始揭晓，您的最佳匹配在最后...</p>'+
+    freeHtml+
+    '<div style="border-top:2px dashed var(--gold);margin:20px 0;padding-top:16px;text-align:center">'+
+    '<span style="font-size:13px;color:var(--gold);font-weight:600">🔒 TOP 6 — 付费解锁</span></div>'+
+    lockHtml+'</div>'+
     '<div class="paywall-wrap"><div class="paywall-blur">'+dh+'</div>'+
-    '<div class="paywall-overlay"><h3>解锁完整诊断报告</h3>'+
-    '<p>包含 10 个国家的详细分析、个性化时间线、费用明细、材料清单、避坑指南</p>'+
+    '<div class="paywall-overlay"><h3>解锁 TOP 6 + 完整报告</h3>'+
+    '<p>揭晓您的最佳匹配 #1，以及 10 个国家的详细分析、时间线、费用明细、材料清单</p>'+
     '<div class="pw-price">¥199</div>'+
     '<div class="pw-orig">限时优惠中</div>'+
     '<button class="btn-pay" onclick="alert(\'支付功能即将上线，敬请期待！\')">立即解锁完整报告</button>'+
