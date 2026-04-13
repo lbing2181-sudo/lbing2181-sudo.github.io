@@ -7,4 +7,4 @@ Allow: /
 User-agent: Baiduspider
 Allow: /
 
-Sitemap: https://lbing2181-sudo.github.io/sitemap.xml
+Sitemap: https://immiforyou.com/sitemap.xml
