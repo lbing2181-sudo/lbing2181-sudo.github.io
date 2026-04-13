@@ -1,94 +1,164 @@
-# GV · Project Context
+# GlobalVisa - 全球移民信息网 项目上下文
 
-> Auto-read by Claude Code. Encoded for continuity. All refs use internal codenames.
+> 本文件供 Claude Code 自动读取，确保跨会话的项目连续性。
 
-## SYS
+## 项目概述
 
-- STACK: static HTML/CSS/JS, GH-Pages, zero-framework
-- GA: G-7T4EQEHBCG (all pages)
-- GSC: submitted 2026-04-09
-- CUTOFF: 2025-05, realtime data needs user verify or WebSearch
+- **项目名称**：GlobalVisa（全球签证通）/ 全球移民·政策大全
+- **网站地址**：https://lbing2181-sudo.github.io（待绑定自定义域名）
+- **目标受众**：中国大陆境内有移民意向的用户
+- **核心定位**：覆盖 65+ 国家的移民政策信息库 + AI 移民诊断大模型
+- **商业模式**：信息过载 → 决策焦虑 → 付费解决（AI 诊断单次付费 + 会员订阅）
+- **技术栈**：纯静态 HTML/CSS/JS，托管于 GitHub Pages，零框架依赖
 
-## TREE
+## 已确认的决策
+
+| 编号 | 决策项 | 结论 | 确认日期 |
+|------|--------|------|---------|
+| D-01 | 是否迁移 WordPress | **否**，保持 GitHub Pages 静态站 | 2026-04-12 |
+| D-02 | 目标受众 | 中国大陆境内用户为主 | 2026-04-12 |
+| D-03 | 收款方式 | 微信支付 + 支付宝（非 Stripe），服务商：面包多/虎皮椒/爱发电 | 2026-04-12 |
+| D-04 | 服务器节点 | 近期 GitHub Pages + Cloudflare CDN；中期迁移至阿里云香港 OSS+CDN | 2026-04-12 |
+| D-05 | 核心变现产品 | "移民目的地 AI 诊断大模型"单次付费 | 2026-04-12 |
+| D-06 | 数据库方案 | Supabase 免费层（500MB + 5万月活） | 2026-04-12 |
+| D-07 | 内容生产模式 | AI 撰写 + 人工审核关键数据 | 2026-04-12 |
+| D-08 | SEO 内容策略 | AI 辅助 + 人类增值（来源标注/原创分析/时效性信号） | 2026-04-12 |
+| D-09 | 团队分工 | 用户 = CEO + 产品经理；Claude = 全栈开发团队 | 2026-04-12 |
+
+## 文件结构
 
 ```
-/
-├── index.html          # HP (独立CSS/JS, vars: --bg/--text)
-├── diagnosis.html      # DX page
-├── membership.html     # MBR page (独立CSS/JS)
-├── about.html          # EEAT page
-├── countries/          # 62 CP files (shared css/js)
-│   └── *.html          # refs: ../css/country.css, ../js/country.js
-├── css/country.css     # 14.7KB shared
-├── js/country.js       # nav/footer/faq/scroll
-├── sitemap.xml         # 67 URLs
-├── robots.txt
-└── docs/tracker.md     # progress (encoded)
+lbing2181-sudo.github.io/
+├── index.html                 # 首页（独立CSS/JS，与国家页不共享）
+├── membership.html            # 会员页（独立CSS/JS）
+├── caribbean-guide.html       # 加勒比护照对比指南
+├── 62个国家页面.html           # 共享 css/country.css + js/country.js
+├── css/
+│   └── country.css            # 国家页公共样式（14.7KB）
+├── js/
+│   └── country.js             # 国家页公共脚本（导航栏、路径切换、FAQ、滚动监听）
+├── sitemap.xml                # 64个URL，含所有页面
+├── robots.txt                 # 允许所有爬虫
+├── google58ee8f44b2f15d56.html # Google 验证文件
+├── CLAUDE.md                  # 本文件 - 项目上下文
+└── docs/
+    └── project-tracker.md     # 项目开发总控表
 ```
 
-## DEV
+## 开发规范
 
-- CP style → `css/country.css` (62 auto)
-- CP nav/footer → `js/country.js` IIFE
-- CP specific → edit `countries/X.html`
-- A-tier CP (usa/uk/ca/au/nz) have inline `<style>`
-- HP/MBR independent CSS, don't mix with CP vars (--ink/--paper)
-- Link CP from root: `countries/X.html`
-- New CP: copy `countries/albania.html` template → update meta → add to sitemap + HP grid
-- Git: main direct, push = deploy
-- Post-work: update tracker.md + show summary to user
+### 国家页面修改
+- **改样式**：编辑 `css/country.css`，62个国家页自动生效
+- **改导航栏/页脚**：编辑 `js/country.js` 中的 nav/footer 生成函数
+- **改特定国家内容**：直接编辑对应的 `.html` 文件
+- **页面特有样式**：A类国家（usa/uk/canada/australia/new-zealand）有页面内 `<style>` 块，其他国家无内联样式
 
-## DESIGN
+### index.html 与 membership.html
+- 这两个页面的 CSS/JS 完全独立，与国家页不共享
+- index.html 使用旧版 CSS 变量命名（--bg/--text），国家页使用新版（--ink/--paper）
+- 修改时分别处理，不要混淆
 
-- Colors: gold=#b07d2a, ink=#1d1d1f, green=#1a5c35, red=#8b1a1a, blue=#1a3f6f, amber=#7c4d00
-- Fonts: NotoSerifSC(zh-title), DMSans(body), PlayfairDisplay(numbers)
-- Breakpoint: 768px
-- Hero: calc(100vh) adaptive, CTA above fold
+### 新增国家页面
+1. 复制一个现有国家页（如 `albania.html`）作为模板
+2. 修改 `<title>`、`<meta>` 和页面内容
+3. 确保 `<head>` 中有 `<link rel="stylesheet" href="css/country.css">`
+4. 确保 `</body>` 前有 `<script src="js/country.js"></script>`
+5. 导航栏使用 `<nav class="nav" id="main-nav"></nav>`
+6. 在 `sitemap.xml` 中添加对应 URL
+7. 在 `index.html` 的国家卡片列表中添加入口
 
-## ROLE
+### Git 工作流
+- 开发分支命名：`claude/功能描述-随机ID`
+- 完成后合并到 `main`，GitHub Pages 自动部署
+- 每个 Phase 完成后更新 `docs/project-tracker.md`
 
-- BIZ: prioritize by rev-impact, funnel=traffic→reg→pay, no vanity features
-- SEO: every page needs meta/canonical/JSON-LD, search-intent focus, internal linking
-- UX: design-system consistency, mobile-first, major visual changes need user approval
-- SEC: no API keys in frontend, CF-WK as middleware
-- COMM: neutral, no hype, mark uncertain data, update tracker after work
+## 设计系统
 
-## DEC (confirmed 04-12)
+### 品牌色彩
+- **金色**（主品牌）：`#b07d2a` / `--gold`
+- **墨色**（正文）：`#1d1d1f` / `--ink`
+- **绿色**（正面/推荐）：`#1a5c35` / `--green`
+- **红色**（警告/困难）：`#8b1a1a` / `--red`
+- **蓝色**（信息/链接）：`#1a3f6f` / `--blue`
+- **琥珀**（提醒/注意）：`#7c4d00` / `--amber`
 
-- D01: no-WP, keep GH-Pages static
-- D02: TA=CN-mainland
-- D03: PAY=WX+ZFB (MBD/HPJ/AFD), no-Stripe
-- D04: INFRA=GHP+CF-CDN → mid:ALI-HK-OSS
-- D05: CORE-PROD=DX-AI single-pay
-- D06: DB=Supabase-free(500MB/50kMAU)
-- D07: CONTENT=AI-write+human-verify
-- D08: SEO=AI-assist+human-value(src-cite/orig-analysis/time-signal)
-- D09: ROLES=user(CEO+PM), claude(fullstack)
+### 字体
+- **Noto Serif SC**：中文标题
+- **DM Sans**：正文
+- **Playfair Display**：数字、价格
 
-## CONTENT
+### 响应式
+- 统一断点：`768px`
+- 移动端隐藏 Hero 侧边卡片
 
-- TIER-A(monthly): us/ca/uk/au/nz/jp/sg/de/pt
-- TIER-B(quarterly): kr/hk/ae/ie/nl/fr/ch
-- TIER-C(semi-annual): rest
-- LAYERS: L0=free(basic info, funnel-top), L1=MBR(deep analysis), L2=DX(personalized report, core-rev)
+## 内容分级与更新策略
 
-## TEAM
+### 国家分级
+- **A类**（月更）：美国、加拿大、英国、澳大利亚、新西兰、日本、新加坡、德国、葡萄牙
+- **B类**（季更）：韩国、香港、阿联酋、爱尔兰、荷兰、法国、瑞士、新西兰
+- **C类**（半年更）：其余国家
 
-- EC: LYZ/10x/P+D
-- R1: CSY/PR-CA/NA
-- R2: ZKM/BC-DE/EU
-- R3: ZHZ/EP-SG/AP
+### 内容层级
+- **免费层**：国家基本信息、签证类型列表、大致费用（引流用）
+- **会员层**：政策变动深度解读、审批趋势分析、排期预测（订阅价值）
+- **诊断层**：个性化 AI 匹配报告、可行性分析、时间线规划（核心收入）
 
-## SEO
+## 虚拟编辑团队（待用户确认最终人设）
 
-- EEAT: about.html live
-- Structured: JSON-LD WebSite+ItemList on HP
-- Compliance: src-cite + orig-analysis + timestamp
-- TODO: blog section, baidu-stats, longtail-KW content
+| 角色 | 名称（暂定） | 背景设定 | 负责区域 |
+|------|-------------|---------|---------|
+| 主编 | 林远舟 | 10年跨境咨询经验 | 深度政策解读、AI诊断设计 |
+| 北美研究员 | 陈思源 | 加拿大PR持有者 | 美国、加拿大、墨西哥 |
+| 欧洲研究员 | 赵可蔓 | 德国蓝卡获得者 | 欧盟各国 |
+| 亚太研究员 | 周晗之 | 新加坡EP持有者 | 日本、新加坡、澳新 |
 
-## NOTES
+> 注意：不伪造真实资质（如持牌律师），只设定合理的研究/实践经验背景。
 
-- U:NT, all-tech=CL
-- NO-CN-TLD(reg-constraint)
-- PAY:WX/ZFB only
-- NODE:avoid-ML
+## SEO 策略要点
+
+- Google Search Console 已于 2026-04-09 提交，等待收录
+- robots.txt 和 sitemap.xml 配置正确，无技术障碍
+- JSON-LD 结构化数据：WebSite + ItemList（首页）
+- 内容合规策略：来源标注 + 原创分析 + 时效性信号（非纯 AI 搬运）
+- E-E-A-T 建设：需创建 About Us 页面展示编辑团队背景
+- 待建：博客/文章区（长尾关键词）、Google Analytics、百度统计
+
+## 注意事项
+
+- 用户非技术背景（会展项目管理），所有技术操作由 Claude 完成
+- 面向中国用户，注意：不使用 .cn 域名（移民内容无法 ICP 备案）
+- 支付必须支持微信/支付宝，不用 Stripe
+- 中国境内移民行业内容有监管风险，服务器节点避开大陆
+- Claude 知识截止 2025年5月，涉及实时性数据（签证费用、配额、CRS分数）需用户核实或用 WebSearch 验证
+
+## Claude 能力期望
+
+### 商业思维
+- 所有功能开发都要先问"这对变现有什么帮助"
+- 给出建议时附带竞品参考和市场数据
+- 关注用户转化漏斗：流量→注册→付费，每个环节都要有策略
+- 功能优先级按商业价值排序，不做"技术上有趣但不赚钱"的东西
+
+### SEO 与运营
+- 每个新页面都要有完整的 meta title/description/canonical/JSON-LD
+- 内容要考虑搜索意图，不只是堆信息
+- 建议长尾关键词策略时给出具体的关键词和预估搜索量
+- 内链结构要有规划：国家页 ↔ 对比指南 ↔ 诊断工具 ↔ 博客文章
+- 每次新增/修改页面后检查 sitemap.xml 是否需要更新
+
+### 设计与体验
+- 保持设计系统一致性（配色/字体/间距/圆角）
+- 每次 UI 改动必须考虑移动端适配（768px 断点）
+- 重大视觉改动先描述方案让用户确认，不要直接上线
+- 关注首屏体验：关键信息和 CTA 必须在首屏可见
+
+### 数据与安全
+- 涉及支付/用户数据的功能要考虑安全性
+- API Key 等敏感信息绝不能出现在前端代码中
+- Claude 知识截止 2025年5月，实时性数据（费用、配额、分数线）必须标注需要用户核实
+
+### 工作习惯
+- 每次完成工作后更新总控表（docs/project-tracker.md）并展示摘要
+- 代码直接在 main 分支开发推送，改完即部署
+- 保持中立客观，不吹捧不夸大
+- 有不确定的信息要明确标注

@@ -531,84 +531,179 @@ function genWhy(c,dims){
   return r+'。推荐：'+c.pw[0];
 }
 
-/* ── Labels for detail text ── */
+/* ── Labels ── */
+var LB_AGE=['18-25岁','26-30岁','31-35岁','36-40岁','41-45岁','46-50岁','50岁以上'];
 var LB_EDU=['高中/中专','大专','本科','硕士','博士'];
 var LB_JOB=['IT/互联网','金融/保险','医疗/制药','工程/制造','教育/科研',
             '设计/创意','商务/管理','法律/会计','自由职业','其他'];
+var LB_EXP=['应届','1-3年','3-5年','5-10年','10年以上'];
+
+/* ── Dimension insight snippets (high/med) ── */
+var DIM_HI={
+  a:'您的年龄段在该国移民积分体系中处于最优区间，可获得接近满分的年龄加分。',
+  d:'学历背景符合该国高技能人才引进标准，在积分评估中具有显著学历优势。',
+  n:'您的英语水平满足该国移民语言要求，语言维度无需额外准备。',
+  j:'您所在行业属于该国紧缺职业清单中的优先领域，雇主担保或独立申请均有优势。',
+  x:'丰富的工作经验在该国技术移民评分中属于高分段，是核心竞争力之一。',
+  b:'预算范围充裕，可覆盖该国主要移民路径的全部费用，路径选择灵活度高。',
+  p:'您的移民目的与该国核心优势高度吻合。',
+  lb:'您的小语种能力在该国移民体系中可获得显著额外加分，这是多数申请人不具备的优势。'
+};
+var DIM_MD={
+  a:'您的年龄段在该国签证体系中处于中等竞争力区间，建议尽早启动以最大化年龄分值。',
+  d:'学历满足该国基本申请门槛。',
+  n:'英语水平基本达标，进一步提升语言成绩可显著提高竞争力。',
+  j:'您的职业背景在该国有一定需求，建议关注具体职业评估要求。',
+  x:'工作经验满足该国移民申请的基本要求。',
+  b:'预算可覆盖该国部分移民路径，建议重点关注性价比最优方案。',
+  p:'该国在您关注的方向上具有一定优势。',
+  lb:''
+};
+
+/* ── Generate rich paragraph for free section ── */
+function genRichDesc(c,p,dims){
+  var age=LB_AGE[p.age]||'';
+  var edu=LB_EDU[p.edu]||'';
+  var job=LB_JOB[p.job]||'';
+  var exp=LB_EXP[p.exp]||'';
+  // Sort dimensions by score
+  var ranked=Object.keys(DIM_HI).filter(function(k){return dims[k]!==undefined})
+    .sort(function(a,b){return(dims[b]||0)-(dims[a]||0)});
+  // Build paragraph with top 3 insights
+  var intro='作为'+age+edu+'学历、拥有'+exp+'经验的'+job+'从业者，';
+  var sentences=[];
+  for(var i=0;i<Math.min(3,ranked.length);i++){
+    var k=ranked[i],s=dims[k]||0;
+    if(s>=7&&DIM_HI[k]) sentences.push(DIM_HI[k]);
+    else if(s>=5&&DIM_MD[k]) sentences.push(DIM_MD[k]);
+  }
+  if(!sentences.length) sentences.push('该国移民体系与您的综合背景有一定匹配度。');
+  return intro+sentences.join('')+
+    '推荐路径：'+c.pw.join('、')+'。预估全流程费用'+c.cost+'，审批周期约'+c.proc+'。';
+}
 
 /* ── Show Report (main entry) ── */
 function showReport(){
   var p=getProfile();
   var results=DB.map(function(c){
     var sc=scoreOne(c,p);
-    return{f:c.f,z:c.z,e:c.e,l:c.l,pw:c.pw,cost:c.cost,proc:c.proc,
+    return{f:c.f,z:c.z,e:c.e,l:c.l,r:c.r,pw:c.pw,cost:c.cost,proc:c.proc,
            total:sc.total,dims:sc.dims};
   });
   results.sort(function(a,b){return b.total-a.total});
   var top10=results.slice(0,10);
+
+  /* ── Profile summary bar ── */
+  var age=LB_AGE[p.age]||'';
   var edu=LB_EDU[p.edu]||'';
   var job=LB_JOB[p.job]||'';
-  var S='font-family:\'Noto Serif SC\',serif;font-size:16px;';
+  var exp=LB_EXP[p.exp]||'';
+  var PUR=['子女教育','职业发展','生活品质','资产配置','身份规划','退休养老'];
+  var purTags='';
+  if(p.purposes&&p.purposes.length){
+    p.purposes.forEach(function(i){if(PUR[i]) purTags+='<span class="rpt-ptag">'+PUR[i]+'</span>';});
+  }
+  var profileHtml='<div class="rpt-profile">'+
+    '<span class="rpt-ptag">'+age+'</span>'+
+    '<span class="rpt-ptag">'+edu+'</span>'+
+    '<span class="rpt-ptag">'+job+'</span>'+
+    '<span class="rpt-ptag">'+exp+'经验</span>'+
+    purTags+'</div>';
 
-  // ── FREE: show #10→#7 (reverse countdown, building suspense) ──
+  /* ── FREE zone: #10→#7 (rich cards, reverse countdown) ── */
+  var DIM_LABEL={a:'年龄',d:'学历',n:'英语',j:'职业',x:'经验',b:'预算',p:'目的',lb:'语言'};
   var freeHtml='';
   for(var i=9;i>=6;i--){
     var m=top10[i],rank=i+1;
-    freeHtml+='<div class="rpt-match"><span class="rpt-flag">'+m.f+'</span>'+
-      '<div class="rpt-info"><div class="rpt-country"><span style="color:var(--ink3);font-size:12px;margin-right:6px">#'+rank+'</span>'+m.z+'</div>'+
-      '<div class="rpt-why">'+genWhy(m,m.dims)+'</div></div>'+
-      '<div class="rpt-score">'+m.total+'</div></div>';
+    var desc=genRichDesc(m,p,m.dims);
+    /* build dimension bars — show top 5 dimensions */
+    var dimKeys=Object.keys(DIM_LABEL).filter(function(k){return m.dims[k]!==undefined})
+      .sort(function(a,b){return(m.dims[b]||0)-(m.dims[a]||0)}).slice(0,5);
+    var barsHtml='<div class="rpt-dims">';
+    dimKeys.forEach(function(k){
+      var v=Math.round((m.dims[k]||0)*10);
+      var color=v>=70?'var(--green)':v>=50?'var(--gold)':'var(--ink3)';
+      barsHtml+='<div class="rpt-dim-row">'+
+        '<span class="rpt-dim-lbl">'+DIM_LABEL[k]+'</span>'+
+        '<div class="rpt-dim-track"><div class="rpt-dim-fill" style="width:'+v+'%;background:'+color+'"></div></div>'+
+        '<span class="rpt-dim-val">'+v+'</span></div>';
+    });
+    barsHtml+='</div>';
+    freeHtml+='<div class="rpt-item">'+
+      '<div class="rpt-item-head">'+
+        '<span class="rpt-rank">#'+rank+'</span>'+
+        '<span style="font-size:28px">'+m.f+'</span>'+
+        '<div><div style="font-family:\'Noto Serif SC\',serif;font-size:16px;font-weight:600">'+m.z+
+          '<span style="font-size:12px;color:var(--ink3);font-weight:400;margin-left:6px">'+m.e+'</span></div>'+
+          '<div style="font-size:12px;color:var(--ink3)">'+m.r+'</div></div>'+
+        '<div class="rpt-score" style="margin-left:auto">'+m.total+'</div>'+
+      '</div>'+
+      '<div class="rpt-desc">'+desc+'</div>'+
+      barsHtml+
+      '<div class="rpt-tags">'+
+        m.pw.map(function(w){return'<span class="rpt-tag">'+w+'</span>'}).join('')+
+        '<span class="rpt-tag">'+m.cost+'</span>'+
+        '<span class="rpt-tag">'+m.proc+'</span>'+
+      '</div>'+
+      '<a class="rpt-more" href="'+m.l+'" target="_blank">查看完整分析：申请条件详解、材料清单、费用明细… →</a>'+
+    '</div>';
   }
 
-  // ── LOCKED: #6→#1 (blurred countdown to #1 best match) ──
+  /* ── LOCKED zone: #6→#1 (teaser cards) ── */
   var lockHtml='';
   for(var i=5;i>=0;i--){
     var m=top10[i],rank=i+1;
-    var label=rank===1?'<span style="color:var(--gold);font-weight:600">🏆 #1 您的最佳匹配</span>':
-              rank<=3?'<span style="color:var(--gold)">#'+rank+' ★</span>':
-              '<span>#'+rank+'</span>';
-    lockHtml+='<div class="rpt-match"><span class="rpt-flag">'+m.f+'</span>'+
-      '<div class="rpt-info"><div class="rpt-country">'+label+' ████████</div>'+
-      '<div class="rpt-why" style="color:var(--ink3)">██████████████████████</div></div>'+
-      '<div class="rpt-score">??</div></div>';
+    var badge=rank===1?'🏆 #1 您的最佳匹配':
+              rank<=3?'#'+rank+' ★ 高度匹配':'#'+rank;
+    var badgeStyle=rank<=3?'color:var(--gold);font-weight:600':'color:var(--ink3);font-weight:600';
+    var hint=rank===1?'该国在您的核心维度上获得了最高综合评分，匹配度远超其他候选':
+             rank<=3?'多个核心维度高度匹配，推荐路径竞争力强':
+             '综合评分优于 '+(60-rank*5)+'% 的候选国家';
+    lockHtml+='<div class="rpt-locked">'+
+      '<div class="rpt-locked-head">'+
+        '<span style="font-size:22px;filter:blur(2px)">'+m.f+'</span>'+
+        '<span style="'+badgeStyle+'">'+badge+'</span>'+
+        '<span style="font-family:\'Noto Serif SC\',serif;font-size:15px;filter:blur(5px);user-select:none">'+m.z+'</span>'+
+        '<span class="rpt-score" style="margin-left:auto;filter:blur(4px);user-select:none">'+m.total+'</span>'+
+      '</div>'+
+      '<div class="rpt-locked-hint">'+hint+'</div>'+
+    '</div>';
   }
 
-  // ── BLURRED DETAIL: full analysis for all 10 ──
-  var dh='<h3 style="'+S+'margin-bottom:16px">📋 TOP 10 完整诊断分析</h3>';
+  /* ── Blurred detailed report (behind paywall) ── */
+  var S='font-family:\'Noto Serif SC\',serif;font-size:16px;';
+  var dh='<h3 style="'+S+'margin-bottom:16px">TOP 10 完整诊断分析</h3>';
   top10.forEach(function(m,i){
-    var lvl=m.total>=80?'显著':(m.total>=65?'一定':'潜在');
     dh+='<p style="margin-bottom:14px"><b>#'+(i+1)+' '+m.f+' '+m.z+
-      ' (匹配度'+m.total+'分)</b><br>'+
-      '推荐路径：'+m.pw.join(' / ')+'<br>'+
-      '作为'+edu+'学历的'+job+'从业者，您在'+m.z+
-      '的移民体系中具有'+lvl+'优势。'+
-      '预估费用：'+m.cost+'，审批周期约'+m.proc+'。'+
-      '详细申请条件、材料清单和避坑指南请查看完整报告。</p>';
+      ' (匹配度'+m.total+'分)</b><br>'+genRichDesc(m,p,m.dims)+'</p>';
   });
-  dh+='<h3 style="'+S+'margin:20px 0 12px">⏱ 个性化时间线规划</h3>';
-  dh+='<p>第1-3个月：语言备考 + 学历认证（WES/VETASSESS/ENIC等）<br>'+
-    '第4-6个月：提交意向书 / 申请工作许可 / 投资方案确认<br>'+
+  dh+='<h3 style="'+S+'margin:20px 0 12px">个性化时间线规划</h3>';
+  dh+='<p>第1-3个月：语言备考 + 学历认证<br>'+
+    '第4-6个月：提交意向书 / 申请工作许可<br>'+
     '第7-12个月：获邀 + 体检 + 背景调查 + 最终审批</p>';
-  dh+='<h3 style="'+S+'margin:20px 0 12px">💰 费用估算明细</h3>';
-  top10.forEach(function(m){
-    dh+='<p>'+m.f+' '+m.z+'全流程：'+m.cost+
-      '（含签证费、语言考试、学历认证、中介费等）</p>';
-  });
 
-  // ── Assemble ──
+  /* ── Assemble ── */
   document.getElementById('rpt-card').innerHTML=
-    '<div class="rpt-head"><h2>🧭 您的 AI 移民诊断报告</h2>'+
-    '<p>基于您的背景与偏好，AI 从 61 个国家中为您筛选了 TOP 10 目的地</p></div>'+
+    '<div class="rpt-head"><h2 style="font-family:\'Noto Serif SC\',serif">您的 AI 移民诊断报告</h2>'+
+    '<p>基于您的背景与偏好，AI 从 <b>61</b> 个国家中为您筛选了 <b>TOP 10</b> 目的地</p></div>'+
+    profileHtml+
     '<div class="rpt-summary">'+
-    '<h3>📊 匹配倒计时</h3>'+
-    '<p style="font-size:13px;color:var(--ink2);margin-bottom:16px">从第10名开始揭晓，您的最佳匹配在最后...</p>'+
+    '<h3 style="font-family:\'Noto Serif SC\',serif;margin-bottom:4px">匹配倒计时</h3>'+
+    '<p style="font-size:13px;color:var(--ink2);margin-bottom:16px">从第10名开始揭晓，您的最佳匹配在最后…</p>'+
     freeHtml+
-    '<div style="border-top:2px dashed var(--gold);margin:20px 0;padding-top:16px;text-align:center">'+
-    '<span style="font-size:13px;color:var(--gold);font-weight:600">🔒 TOP 6 — 付费解锁</span></div>'+
+    '<div class="rpt-divider"><span>🔒 TOP 6 — 付费解锁区</span></div>'+
     lockHtml+'</div>'+
     '<div class="paywall-wrap"><div class="paywall-blur">'+dh+'</div>'+
-    '<div class="paywall-overlay"><h3>解锁 TOP 6 + 完整报告</h3>'+
-    '<p>揭晓您的最佳匹配 #1，以及 10 个国家的详细分析、时间线、费用明细、材料清单</p>'+
+    '<div class="paywall-overlay">'+
+    '<h3 style="font-family:\'Noto Serif SC\',serif">解锁 TOP 6 + 完整诊断报告</h3>'+
+    '<p style="margin-bottom:12px">揭晓您的最佳匹配 #1 及详细分析</p>'+
+    '<div class="pw-features">'+
+      '<div class="pw-feat">TOP 6 国家完整匹配分析</div>'+
+      '<div class="pw-feat">每个国家的推荐移民路径详解</div>'+
+      '<div class="pw-feat">申请条件 + 材料清单</div>'+
+      '<div class="pw-feat">费用明细 + 时间线规划</div>'+
+      '<div class="pw-feat">个性化避坑指南与建议</div>'+
+    '</div>'+
     '<div class="pw-price">¥199</div>'+
     '<div class="pw-orig">限时优惠中</div>'+
     '<button class="btn-pay" onclick="alert(\'支付功能即将上线，敬请期待！\')">立即解锁完整报告</button>'+
