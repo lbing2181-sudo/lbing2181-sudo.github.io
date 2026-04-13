@@ -476,8 +476,7 @@ function getProfile(){
     time:Math.max(0,v('q-time')),
     family:Math.max(0,v('q-family')),
     langs:chips(document.getElementById('lang-chips')),
-    purposes:s3[0]?chips(s3[0]):[],
-    regions:s3[1]?chips(s3[1]):[]
+    purposes:s3[0]?chips(s3[0]):[]
   };
 }
 
@@ -577,30 +576,15 @@ function genRichDesc(c,p,dims){
 /* ── Show Report (main entry) ── */
 function showReport(){
   var p=getProfile();
-  var RMAP=['北美','欧洲','大洋洲','亚洲','中南美洲'];
-  var hasRegionFilter=p.regions.length>0&&p.regions.indexOf(5)<0;
-  var selectedRegions=hasRegionFilter?p.regions.map(function(i){return RMAP[i]}):[];
 
-  /* Score all countries */
+  /* Score all countries (always full pool, no region filter) */
   var all=DB.map(function(c){
     var sc=scoreOne(c,p);
     return{f:c.f,z:c.z,e:c.e,l:c.l,r:c.r,pw:c.pw,cost:c.cost,proc:c.proc,
            total:sc.total,dims:sc.dims};
   });
   all.sort(function(a,b){return b.total-a.total});
-
-  /* Region-based filtering */
-  var pool,poolLabel;
-  if(hasRegionFilter){
-    var regionResults=all.filter(function(c){return selectedRegions.indexOf(c.r)>=0});
-    pool=regionResults.length>0?regionResults:all;
-    poolLabel=regionResults.length>0?selectedRegions.join('·'):null;
-  }else{
-    pool=all;
-    poolLabel=null;
-  }
-  var topN=pool.slice(0,10);
-  var totalPool=pool.length;
+  var topN=all.slice(0,10);
 
   /* ── Profile summary bar ── */
   var age=LB_AGE[p.age]||'';
@@ -619,10 +603,10 @@ function showReport(){
     '<span class="rpt-ptag">'+exp+'经验</span>'+
     purTags+'</div>';
 
-  /* ── Determine free/locked split ── */
-  var total=topN.length;
-  var freeCount=total<=4?total:Math.max(4,Math.ceil(total*0.4));
-  var lockCount=total-freeCount;
+  /* ── Fixed split: 4 free + 6 locked ── */
+  var total=10;
+  var freeCount=4;
+  var lockCount=6;
 
   /* ── FREE zone: reverse countdown, rich cards ── */
   var DIM_LABEL={a:'年龄',d:'学历',n:'英语',j:'职业',x:'经验',b:'预算',p:'目的',lb:'语言'};
@@ -699,33 +683,31 @@ function showReport(){
   /* ── Assemble ── */
   document.getElementById('rpt-card').innerHTML=
     '<div class="rpt-head"><h2 style="font-family:\'Noto Serif SC\',serif">您的 AI 移民诊断报告</h2>'+
-    '<p>基于您的背景与偏好，AI 从 <b>'+DB.length+'</b> 个国家中'+
-    (poolLabel?'筛选 <b>'+poolLabel+'</b> 地区，':'')+'为您匹配了 <b>TOP '+total+'</b> 目的地</p></div>'+
+    '<p>基于您的背景与偏好，AI 从 <b>'+DB.length+'</b> 个国家中为您筛选了 <b>TOP 10</b> 目的地</p></div>'+
     profileHtml+
     '<div class="rpt-summary">'+
     '<h3 style="font-family:\'Noto Serif SC\',serif;margin-bottom:4px">匹配倒计时</h3>'+
-    '<p style="font-size:13px;color:var(--ink2);margin-bottom:16px">从第'+total+'名开始揭晓，您的最佳匹配在最后…</p>'+
+    '<p style="font-size:13px;color:var(--ink2);margin-bottom:16px">从第10名开始揭晓，您的最佳匹配在最后…</p>'+
     freeHtml+
-    (lockCount>0?
-    '<div class="rpt-divider"><span>🔒 TOP '+lockCount+' — 付费解锁区</span></div>'+
-    lockHtml:'')+'</div>'+
-    (lockCount>0?
+    '<div class="rpt-divider"><span>🔒 TOP 6 — 付费解锁区</span></div>'+
+    lockHtml+'</div>'+
     '<div class="paywall-wrap"><div class="paywall-blur">'+dh+'</div>'+
     '<div class="paywall-overlay">'+
-    '<h3 style="font-family:\'Noto Serif SC\',serif">解锁 TOP '+lockCount+' + 完整诊断报告</h3>'+
-    '<p style="margin-bottom:12px">揭晓您的最佳匹配 #1 及详细分析</p>'+
+    '<h3 style="font-family:\'Noto Serif SC\',serif">解锁完整 AI 诊断报告</h3>'+
+    '<p style="margin-bottom:12px">揭晓您的最佳匹配 #1 及 TOP 6 详细分析</p>'+
     '<div class="pw-features">'+
-      '<div class="pw-feat">TOP '+lockCount+' 国家完整匹配分析</div>'+
-      '<div class="pw-feat">每个国家的推荐移民路径详解</div>'+
-      '<div class="pw-feat">申请条件 + 材料清单</div>'+
-      '<div class="pw-feat">费用明细 + 时间线规划</div>'+
-      '<div class="pw-feat">个性化避坑指南与建议</div>'+
+      '<div class="pw-feat">揭晓 TOP 6 匹配国家及评分</div>'+
+      '<div class="pw-feat">每个国家的深度可行性分析（800-1200字）</div>'+
+      '<div class="pw-feat">基于您背景的具体申请步骤与材料清单</div>'+
+      '<div class="pw-feat">10国横向对比：费用·周期·成功率·生活成本</div>'+
+      '<div class="pw-feat">个性化风险评估与避坑指南</div>'+
+      '<div class="pw-feat">3套备选方案（激进/稳健/保守）时间线规划</div>'+
     '</div>'+
     '<div class="pw-price">¥199</div>'+
     '<div class="pw-orig">限时优惠中</div>'+
     '<button class="btn-pay" onclick="alert(\'支付功能即将上线，敬请期待！\')">立即解锁完整报告</button>'+
     '<p style="font-size:11px;color:var(--ink3);margin-top:10px">支持微信支付 / 支付宝</p>'+
-    '</div></div>':'');
+    '</div></div>';
 
   document.getElementById('wizard').style.display='none';
   document.getElementById('report').style.display='block';
