@@ -266,59 +266,9 @@ gtag('config', 'G-7T4EQEHBCG');
   </div>
 </div>
 
-<!-- ══ 诊断报告（模拟数据） ══ -->
+<!-- ══ 诊断报告（动态生成） ══ -->
 <div class="report" id="report" style="display:none">
-  <div class="rpt-card">
-    <div class="rpt-head">
-      <h2>🧭 您的 AI 移民诊断报告</h2>
-      <p>基于您的背景信息，AI 为您匹配了以下最适合的移民目的地</p>
-    </div>
-
-    <!-- 免费摘要部分 -->
-    <div class="rpt-summary">
-      <h3>🏆 最佳匹配 TOP 3</h3>
-      <div class="rpt-match">
-        <span class="rpt-flag">🇨🇦</span>
-        <div class="rpt-info"><div class="rpt-country">加拿大</div><div class="rpt-why">Express Entry 快速通道，您的背景积分预估 460+，竞争力较强</div></div>
-        <div class="rpt-score">92</div>
-      </div>
-      <div class="rpt-match">
-        <span class="rpt-flag">🇦🇺</span>
-        <div class="rpt-info"><div class="rpt-country">澳大利亚</div><div class="rpt-why">189独立技术移民，职业在SOL清单中，积分制透明</div></div>
-        <div class="rpt-score">87</div>
-      </div>
-      <div class="rpt-match">
-        <span class="rpt-flag">🇩🇪</span>
-        <div class="rpt-info"><div class="rpt-country">德国</div><div class="rpt-why">机会卡新政适合您的学历背景，无需提前找到雇主</div></div>
-        <div class="rpt-score">81</div>
-      </div>
-    </div>
-
-    <!-- 付费墙 -->
-    <div class="paywall-wrap">
-      <div class="paywall-blur">
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:16px;margin-bottom:16px">📋 详细诊断分析</h3>
-        <p>根据您的年龄、学历、职业背景和语言能力综合评估，加拿大 Express Entry 快速通道是您目前最优选择。您的 CRS 预估分数为 462 分，高于近期抽签分数线 445 分，具备较强竞争力。建议在 6 个月内完成语言考试并提交 EOI...</p>
-        <p style="margin-top:12px">澳大利亚 189 签证方面，您的职业属于中长期战略技能清单（MLTSSL），当前积分预估 75 分，达到邀请门槛。但需注意近期 ICT 职业竞争加剧...</p>
-        <p style="margin-top:12px">德国机会卡（Chancenkarte）新政于 2024 年 6 月生效，采用积分制，您的学历和工作经验可获得至少 8 分（6分即可申请）。优势在于无需提前获得雇主 offer，可先入境...</p>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:16px;margin:20px 0 12px">⏱ 个性化时间线规划</h3>
-        <p>第1-3个月：语言备考 + 学历认证（WES/VETASSESS）</p>
-        <p>第4-6个月：提交 EOI + 州担保申请</p>
-        <p>第7-12个月：获邀 + 体检 + 下签</p>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:16px;margin:20px 0 12px">💰 费用估算明细</h3>
-        <p>加拿大 EE 全流程：约 ¥8-12万（含语言考试、WES认证、签证费、体检等）</p>
-        <p>澳大利亚 189：约 ¥10-15万（含职业评估、签证费、英语考试等）</p>
-      </div>
-      <div class="paywall-overlay">
-        <h3>解锁完整诊断报告</h3>
-        <p>包含详细分析、个性化时间线、费用明细、材料清单、避坑指南等完整内容</p>
-        <div class="pw-price">¥199</div>
-        <div class="pw-orig">限时优惠中</div>
-        <button class="btn-pay" onclick="alert('支付功能即将上线，敬请期待！')">立即解锁完整报告</button>
-        <p style="font-size:11px;color:var(--ink3);margin-top:10px">支持微信支付 / 支付宝</p>
-      </div>
-    </div>
-  </div>
+  <div class="rpt-card" id="rpt-card"></div>
 </div>
 
 <footer class="pf">
@@ -329,19 +279,6 @@ gtag('config', 'G-7T4EQEHBCG');
   </div>
 </footer>
 
-<script>
-function goStep(n){
-  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
-  document.querySelector('[data-step="'+n+'"]').classList.add('active');
-  document.getElementById('wiz-bar').style.width=(n/5*100)+'%';
-  document.getElementById('wizard').scrollIntoView({behavior:'smooth',block:'start'});
-}
-function toggleChip(el){el.classList.toggle('on')}
-function showReport(){
-  document.getElementById('wizard').style.display='none';
-  document.getElementById('report').style.display='block';
-  document.getElementById('report').scrollIntoView({behavior:'smooth'});
-}
-</script>
+<script src="js/diagnosis.js"></script>
 </body>
 </html>
