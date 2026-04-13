@@ -611,10 +611,24 @@ function showReport(){
     purTags+'</div>';
 
   /* ── FREE zone: #10→#7 (rich cards, reverse countdown) ── */
+  var DIM_LABEL={a:'年龄',d:'学历',n:'英语',j:'职业',x:'经验',b:'预算',p:'目的',lb:'语言'};
   var freeHtml='';
   for(var i=9;i>=6;i--){
     var m=top10[i],rank=i+1;
     var desc=genRichDesc(m,p,m.dims);
+    /* build dimension bars — show top 5 dimensions */
+    var dimKeys=Object.keys(DIM_LABEL).filter(function(k){return m.dims[k]!==undefined})
+      .sort(function(a,b){return(m.dims[b]||0)-(m.dims[a]||0)}).slice(0,5);
+    var barsHtml='<div class="rpt-dims">';
+    dimKeys.forEach(function(k){
+      var v=Math.round((m.dims[k]||0)*10);
+      var color=v>=70?'var(--green)':v>=50?'var(--gold)':'var(--ink3)';
+      barsHtml+='<div class="rpt-dim-row">'+
+        '<span class="rpt-dim-lbl">'+DIM_LABEL[k]+'</span>'+
+        '<div class="rpt-dim-track"><div class="rpt-dim-fill" style="width:'+v+'%;background:'+color+'"></div></div>'+
+        '<span class="rpt-dim-val">'+v+'</span></div>';
+    });
+    barsHtml+='</div>';
     freeHtml+='<div class="rpt-item">'+
       '<div class="rpt-item-head">'+
         '<span class="rpt-rank">#'+rank+'</span>'+
@@ -625,6 +639,7 @@ function showReport(){
         '<div class="rpt-score" style="margin-left:auto">'+m.total+'</div>'+
       '</div>'+
       '<div class="rpt-desc">'+desc+'</div>'+
+      barsHtml+
       '<div class="rpt-tags">'+
         m.pw.map(function(w){return'<span class="rpt-tag">'+w+'</span>'}).join('')+
         '<span class="rpt-tag">'+m.cost+'</span>'+
