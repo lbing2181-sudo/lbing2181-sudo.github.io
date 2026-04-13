@@ -389,63 +389,63 @@ var DB=[
  t:[6, 8, 8, 7, 6],lb:[0, 0, 0, 0, 0, 0],
  pw:['SRRV退休签证', 'SIRV投资签证', '工作签证'],cost:'¥3-15万',proc:'1-3个月'},
 
-{f:'🇵🇦',z:'巴拿马',e:'Panama',r:'北美',l:'countries/panama.html',
+{f:'🇵🇦',z:'巴拿马',e:'Panama',r:'中南美洲',l:'countries/panama.html',
  a:[4, 5, 6, 7, 8, 9, 10],d:[5, 6, 7, 7, 8],n:[7, 8, 8, 8, 5],
  j:[6, 5, 3, 3, 3, 5, 5, 3, 7, 4],x:[4, 5, 6, 7, 7],
  b:[6, 8, 10, 10, 10],p:[4, 4, 8, 7, 8, 10],fm:[7, 8, 9, 9],
  t:[5, 7, 8, 8, 7],lb:[0, 0, 0, 10, 0, 0],
  pw:['养老金签证', '合格投资者', '数字游民签证'],cost:'¥5-30万',proc:'3-6个月'},
 
-{f:'🇨🇱',z:'智利',e:'Chile',r:'北美',l:'countries/chile.html',
+{f:'🇨🇱',z:'智利',e:'Chile',r:'中南美洲',l:'countries/chile.html',
  a:[5, 6, 7, 8, 8, 8, 8],d:[5, 6, 7, 7, 8],n:[7, 8, 8, 8, 5],
  j:[8, 5, 4, 5, 4, 4, 5, 4, 6, 3],x:[4, 5, 6, 7, 7],
  b:[7, 9, 10, 10, 10],p:[5, 6, 8, 5, 7, 7],fm:[7, 8, 9, 9],
  t:[5, 7, 8, 8, 7],lb:[0, 0, 0, 10, 0, 0],
  pw:['工作签证', '临时居留', '创业签证'],cost:'¥3-10万',proc:'3-6个月'},
 
-{f:'🇧🇷',z:'巴西',e:'Brazil',r:'北美',l:'countries/brazil.html',
+{f:'🇧🇷',z:'巴西',e:'Brazil',r:'中南美洲',l:'countries/brazil.html',
  a:[5, 6, 7, 8, 8, 8, 8],d:[5, 6, 7, 7, 8],n:[7, 8, 8, 8, 5],
  j:[7, 5, 3, 4, 3, 5, 5, 3, 6, 3],x:[4, 5, 6, 7, 7],
  b:[8, 9, 10, 10, 10],p:[4, 4, 8, 5, 6, 7],fm:[7, 8, 9, 9],
  t:[5, 7, 8, 8, 7],lb:[0, 0, 0, 3, 10, 0],
  pw:['投资签证', '数字游民签证', '工作签证'],cost:'¥3-30万',proc:'2-6个月'},
 
-{f:'🇦🇷',z:'阿根廷',e:'Argentina',r:'北美',l:'countries/argentina.html',
+{f:'🇦🇷',z:'阿根廷',e:'Argentina',r:'中南美洲',l:'countries/argentina.html',
  a:[5, 6, 7, 8, 8, 8, 8],d:[5, 6, 7, 7, 8],n:[7, 8, 8, 8, 5],
  j:[6, 5, 3, 3, 3, 5, 5, 3, 7, 4],x:[4, 5, 6, 7, 7],
  b:[9, 10, 10, 10, 10],p:[3, 4, 8, 5, 6, 8],fm:[7, 8, 9, 9],
  t:[5, 7, 8, 8, 7],lb:[0, 0, 0, 10, 0, 0],
  pw:['Rentista签证', '工作签证', '投资居留'],cost:'¥2-10万',proc:'2-4个月'},
 
-{f:'🇺🇾',z:'乌拉圭',e:'Uruguay',r:'北美',l:'countries/uruguay.html',
+{f:'🇺🇾',z:'乌拉圭',e:'Uruguay',r:'中南美洲',l:'countries/uruguay.html',
  a:[5, 6, 7, 8, 8, 8, 8],d:[5, 6, 7, 7, 8],n:[7, 8, 8, 8, 5],
  j:[6, 5, 3, 3, 3, 5, 5, 3, 7, 4],x:[4, 5, 6, 7, 7],
  b:[7, 8, 10, 10, 10],p:[5, 4, 9, 6, 7, 9],fm:[7, 8, 9, 9],
  t:[5, 7, 8, 8, 7],lb:[0, 0, 0, 10, 0, 0],
  pw:['退休/收入签证', '投资居留', '工作签证'],cost:'¥3-15万',proc:'3-6个月'},
 
-{f:'🇨🇷',z:'哥斯达黎加',e:'Costa Rica',r:'北美',l:'countries/costa-rica.html',
+{f:'🇨🇷',z:'哥斯达黎加',e:'Costa Rica',r:'中南美洲',l:'countries/costa-rica.html',
  a:[4, 5, 6, 7, 8, 9, 10],d:[5, 6, 7, 7, 8],n:[7, 8, 8, 8, 5],
  j:[6, 5, 3, 3, 3, 5, 5, 3, 7, 4],x:[4, 5, 6, 7, 7],
  b:[6, 8, 10, 10, 10],p:[5, 4, 10, 5, 6, 10],fm:[7, 8, 9, 9],
  t:[5, 7, 8, 8, 7],lb:[0, 0, 0, 10, 0, 0],
  pw:['退休居留', 'Rentista签证', '投资居留'],cost:'¥3-15万',proc:'3-6个月'},
 
-{f:'🇪🇨',z:'厄瓜多尔',e:'Ecuador',r:'北美',l:'countries/ecuador.html',
+{f:'🇪🇨',z:'厄瓜多尔',e:'Ecuador',r:'中南美洲',l:'countries/ecuador.html',
  a:[4, 5, 6, 7, 8, 9, 10],d:[5, 6, 7, 7, 8],n:[7, 8, 8, 8, 5],
  j:[6, 5, 3, 3, 3, 5, 5, 3, 7, 4],x:[4, 5, 6, 7, 7],
  b:[9, 10, 10, 10, 10],p:[3, 3, 8, 5, 5, 10],fm:[7, 8, 9, 9],
  t:[5, 7, 8, 8, 7],lb:[0, 0, 0, 10, 0, 0],
  pw:['退休签证', '投资居留', '工作签证'],cost:'¥2-10万',proc:'2-4个月'},
 
-{f:'🇵🇾',z:'巴拉圭',e:'Paraguay',r:'北美',l:'countries/paraguay.html',
+{f:'🇵🇾',z:'巴拉圭',e:'Paraguay',r:'中南美洲',l:'countries/paraguay.html',
  a:[5, 6, 7, 8, 7, 7, 6],d:[5, 6, 7, 7, 8],n:[7, 8, 8, 8, 5],
  j:[6, 5, 3, 3, 3, 5, 5, 3, 7, 4],x:[4, 5, 6, 7, 7],
  b:[10, 10, 10, 10, 10],p:[3, 3, 6, 5, 7, 7],fm:[7, 8, 9, 9],
  t:[5, 7, 8, 8, 7],lb:[0, 0, 0, 10, 0, 0],
  pw:['永久居留', '投资居留', 'SUACE签证'],cost:'¥1-5万',proc:'1-3个月'},
 
-{f:'🇬🇩',z:'格林纳达',e:'Grenada',r:'北美',l:'countries/grenada.html',
+{f:'🇬🇩',z:'格林纳达',e:'Grenada',r:'中南美洲',l:'countries/grenada.html',
  a:[4, 5, 6, 7, 8, 8, 7],d:[5, 6, 7, 7, 8],n:[5, 7, 8, 9, 3],
  j:[6, 5, 3, 3, 3, 5, 5, 3, 7, 4],x:[4, 5, 6, 7, 7],
  b:[3, 4, 6, 10, 10],p:[3, 3, 6, 8, 10, 6],fm:[7, 8, 9, 9],
@@ -496,18 +496,10 @@ function scoreOne(c,p){
     p.purposes.reduce(function(sum,i){return sum+(c.p[i]||5)},0)/p.purposes.length:5;
   s.lb=p.langs.length?
     Math.max.apply(null,p.langs.map(function(i){return c.lb[i]||0})):0;
-  // Region match
-  var rm=0;
-  if(!p.regions.length||p.regions.indexOf(4)>=0) rm=5;
-  else{
-    var M=['北美','欧洲','大洋洲','亚洲'];
-    rm=p.regions.some(function(i){return M[i]===c.r})?8:-3;
-  }
-  // Weighted sum
+  // Weighted sum (region filtering now handled in showReport)
   var W={a:15,d:14,n:14,j:10,x:10,b:8,p:10,fm:4,t:8,lb:7};
   var raw=0;
   for(var k in W) raw+=(s[k]||0)*W[k]/10;
-  raw+=rm;
   var total=Math.round(35+raw*60/113);
   return{total:Math.min(97,Math.max(35,total)),dims:s};
 }
@@ -585,13 +577,30 @@ function genRichDesc(c,p,dims){
 /* ── Show Report (main entry) ── */
 function showReport(){
   var p=getProfile();
-  var results=DB.map(function(c){
+  var RMAP=['北美','欧洲','大洋洲','亚洲','中南美洲'];
+  var hasRegionFilter=p.regions.length>0&&p.regions.indexOf(5)<0;
+  var selectedRegions=hasRegionFilter?p.regions.map(function(i){return RMAP[i]}):[];
+
+  /* Score all countries */
+  var all=DB.map(function(c){
     var sc=scoreOne(c,p);
     return{f:c.f,z:c.z,e:c.e,l:c.l,r:c.r,pw:c.pw,cost:c.cost,proc:c.proc,
            total:sc.total,dims:sc.dims};
   });
-  results.sort(function(a,b){return b.total-a.total});
-  var top10=results.slice(0,10);
+  all.sort(function(a,b){return b.total-a.total});
+
+  /* Region-based filtering */
+  var pool,poolLabel;
+  if(hasRegionFilter){
+    var regionResults=all.filter(function(c){return selectedRegions.indexOf(c.r)>=0});
+    pool=regionResults.length>0?regionResults:all;
+    poolLabel=regionResults.length>0?selectedRegions.join('·'):null;
+  }else{
+    pool=all;
+    poolLabel=null;
+  }
+  var topN=pool.slice(0,10);
+  var totalPool=pool.length;
 
   /* ── Profile summary bar ── */
   var age=LB_AGE[p.age]||'';
@@ -610,11 +619,16 @@ function showReport(){
     '<span class="rpt-ptag">'+exp+'经验</span>'+
     purTags+'</div>';
 
-  /* ── FREE zone: #10→#7 (rich cards, reverse countdown) ── */
+  /* ── Determine free/locked split ── */
+  var total=topN.length;
+  var freeCount=total<=4?total:Math.max(4,Math.ceil(total*0.4));
+  var lockCount=total-freeCount;
+
+  /* ── FREE zone: reverse countdown, rich cards ── */
   var DIM_LABEL={a:'年龄',d:'学历',n:'英语',j:'职业',x:'经验',b:'预算',p:'目的',lb:'语言'};
   var freeHtml='';
-  for(var i=9;i>=6;i--){
-    var m=top10[i],rank=i+1;
+  for(var i=total-1;i>=lockCount;i--){
+    var m=topN[i],rank=i+1;
     var desc=genRichDesc(m,p,m.dims);
     /* build dimension bars — show top 5 dimensions */
     var dimKeys=Object.keys(DIM_LABEL).filter(function(k){return m.dims[k]!==undefined})
@@ -649,10 +663,10 @@ function showReport(){
     '</div>';
   }
 
-  /* ── LOCKED zone: #6→#1 (teaser cards) ── */
+  /* ── LOCKED zone: reverse countdown to #1 ── */
   var lockHtml='';
-  for(var i=5;i>=0;i--){
-    var m=top10[i],rank=i+1;
+  for(var i=lockCount-1;i>=0;i--){
+    var m=topN[i],rank=i+1;
     var badge=rank===1?'🏆 #1 您的最佳匹配':
               rank<=3?'#'+rank+' ★ 高度匹配':'#'+rank;
     var badgeStyle=rank<=3?'color:var(--gold);font-weight:600':'color:var(--ink3);font-weight:600';
@@ -672,8 +686,8 @@ function showReport(){
 
   /* ── Blurred detailed report (behind paywall) ── */
   var S='font-family:\'Noto Serif SC\',serif;font-size:16px;';
-  var dh='<h3 style="'+S+'margin-bottom:16px">TOP 10 完整诊断分析</h3>';
-  top10.forEach(function(m,i){
+  var dh='<h3 style="'+S+'margin-bottom:16px">TOP '+total+' 完整诊断分析</h3>';
+  topN.forEach(function(m,i){
     dh+='<p style="margin-bottom:14px"><b>#'+(i+1)+' '+m.f+' '+m.z+
       ' (匹配度'+m.total+'分)</b><br>'+genRichDesc(m,p,m.dims)+'</p>';
   });
@@ -685,20 +699,23 @@ function showReport(){
   /* ── Assemble ── */
   document.getElementById('rpt-card').innerHTML=
     '<div class="rpt-head"><h2 style="font-family:\'Noto Serif SC\',serif">您的 AI 移民诊断报告</h2>'+
-    '<p>基于您的背景与偏好，AI 从 <b>61</b> 个国家中为您筛选了 <b>TOP 10</b> 目的地</p></div>'+
+    '<p>基于您的背景与偏好，AI 从 <b>'+DB.length+'</b> 个国家中'+
+    (poolLabel?'筛选 <b>'+poolLabel+'</b> 地区，':'')+'为您匹配了 <b>TOP '+total+'</b> 目的地</p></div>'+
     profileHtml+
     '<div class="rpt-summary">'+
     '<h3 style="font-family:\'Noto Serif SC\',serif;margin-bottom:4px">匹配倒计时</h3>'+
-    '<p style="font-size:13px;color:var(--ink2);margin-bottom:16px">从第10名开始揭晓，您的最佳匹配在最后…</p>'+
+    '<p style="font-size:13px;color:var(--ink2);margin-bottom:16px">从第'+total+'名开始揭晓，您的最佳匹配在最后…</p>'+
     freeHtml+
-    '<div class="rpt-divider"><span>🔒 TOP 6 — 付费解锁区</span></div>'+
-    lockHtml+'</div>'+
+    (lockCount>0?
+    '<div class="rpt-divider"><span>🔒 TOP '+lockCount+' — 付费解锁区</span></div>'+
+    lockHtml:'')+'</div>'+
+    (lockCount>0?
     '<div class="paywall-wrap"><div class="paywall-blur">'+dh+'</div>'+
     '<div class="paywall-overlay">'+
-    '<h3 style="font-family:\'Noto Serif SC\',serif">解锁 TOP 6 + 完整诊断报告</h3>'+
+    '<h3 style="font-family:\'Noto Serif SC\',serif">解锁 TOP '+lockCount+' + 完整诊断报告</h3>'+
     '<p style="margin-bottom:12px">揭晓您的最佳匹配 #1 及详细分析</p>'+
     '<div class="pw-features">'+
-      '<div class="pw-feat">TOP 6 国家完整匹配分析</div>'+
+      '<div class="pw-feat">TOP '+lockCount+' 国家完整匹配分析</div>'+
       '<div class="pw-feat">每个国家的推荐移民路径详解</div>'+
       '<div class="pw-feat">申请条件 + 材料清单</div>'+
       '<div class="pw-feat">费用明细 + 时间线规划</div>'+
@@ -708,7 +725,7 @@ function showReport(){
     '<div class="pw-orig">限时优惠中</div>'+
     '<button class="btn-pay" onclick="alert(\'支付功能即将上线，敬请期待！\')">立即解锁完整报告</button>'+
     '<p style="font-size:11px;color:var(--ink3);margin-top:10px">支持微信支付 / 支付宝</p>'+
-    '</div></div>';
+    '</div></div>':'');
 
   document.getElementById('wizard').style.display='none';
   document.getElementById('report').style.display='block';
